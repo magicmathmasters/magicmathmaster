@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liên hệ | Magic Math Master</title>
+<meta name="description" content="Liên hệ Magic Math Master để được tư vấn dạy kèm Toán tại Úc. Gửi nhu cầu, năm học và mục tiêu để nhận gợi ý chương trình phù hợp.">
+<link rel="canonical" href="https://www.magicmathmaster.com.au/vi/contact.html">
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+<div class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="index.html">
+      <div class="brand-badge">M³</div>
+      <div class="brand-title"><b>Magic Math Master</b><span>Dạy kèm cao cấp • Úc</span></div>
+    </a>
+    <div class="nav">
+      <a data-nav href="index.html">Trang chủ</a>
+      <a data-nav href="about.html">Về chúng tôi</a>
+      <a data-nav href="programs.html">Chương trình</a>
+      <a data-nav href="pricing.html">Học phí</a>
+      <a class="btn btn-outline" href="../contact.html">English</a>
+      <a data-nav href="contact.html" class="btn btn-primary">Liên hệ</a>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+  <section class="section">
+    <h1 class="section-title">Gửi yêu cầu tư vấn</h1>
+    <p class="section-sub">
+      Cho chúng tôi biết năm học và mục tiêu của con — chúng tôi sẽ đề xuất lộ trình phù hợp.
+      (Có dạy online toàn nước Úc.)
+    </p>
+
+    <div class="card">
+      <h2 class="section-title" style="margin-top:0;">Form liên hệ</h2>
+
+      <form class="form" method="POST" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID">
+        <div class="field">
+          <label for="parentName">Tên phụ huynh</label>
+          <input id="parentName" name="parentName" type="text" required placeholder="Tên của bạn">
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com">
+        </div>
+
+        <div class="field">
+          <label for="studentYear">Năm học của con</label>
+          <select id="studentYear" name="studentYear" required>
+            <option value="" selected disabled>Chọn…</option>
+            <option>Prep</option><option>Year 1</option><option>Year 2</option><option>Year 3</option><option>Year 4</option>
+            <option>Year 5</option><option>Year 6</option><option>Year 7</option><option>Year 8</option><option>Year 9</option>
+            <option>Year 10</option><option>Year 11</option><option>Year 12</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="mode">Hình thức học</label>
+          <select id="mode" name="mode" required>
+            <option value="" selected disabled>Chọn…</option>
+            <option>Online</option>
+            <option>Trực tiếp (nếu có)</option>
+            <option>Chưa chắc</option>
+          </select>
+        </div>
+
+        <div class="field" style="grid-column: 1 / -1;">
+          <label for="message">Con đang cần hỗ trợ phần nào?</label>
+          <textarea id="message" name="message" required placeholder="Ví dụ: phân số, đại số, mất gốc, luyện thi, thiếu tự tin…"></textarea>
+        </div>
+
+        <div style="grid-column: 1 / -1; display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+          <button class="btn btn-primary" type="submit">Gửi yêu cầu</button>
+          <a class="btn btn-outline" href="mailto:info@magicmathmaster.com.au?subject=Yeu%20cau%20tu%20van%20-%20Magic%20Math%20Master">Gửi email</a>
+        </div>
+
+        <p class="helper" style="grid-column: 1 / -1;">
+          Nếu bạn chưa thiết lập Formspree, form sẽ chưa gửi được — hãy bấm “Gửi email”.
+          Sau khi thay link Formspree, form sẽ hoạt động ngay trên GitHub Pages.
+        </p>
+      </form>
+    </div>
+
+    <section class="section">
+      <div class="card">
+        <h2 class="section-title" style="margin-top:0;">Thông tin liên hệ</h2>
+        <p style="margin:0; color:var(--muted); font-weight:650;">
+          Email: <strong>info@magicmathmaster.com.au</strong><br>
+          Dịch vụ: Online toàn nước Úc + có thể học trực tiếp (tuỳ khu vực)
+        </p>
+      </div>
+    </section>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© 2026 Magic Math Master • Australia</div>
+    <div><a href="pricing.html">Học phí</a> • <a href="programs.html">Chương trình</a> • <a href="about.html">Về chúng tôi</a></div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
