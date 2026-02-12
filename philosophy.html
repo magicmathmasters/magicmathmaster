@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Philosophy | Magic Math Master</title>
+<meta name="description" content="Magic Math Master philosophy: maths for life, strong foundations, confidence-first learning, and real problem solving for Prep to Year 12 in Australia.">
+<link rel="canonical" href="https://www.magicmathmaster.com.au/philosophy.html">
+
+<style>
+  html, body { margin:0; padding:0; overflow-x:hidden; }
+  * { box-sizing:border-box; }
+  img { max-width:100%; height:auto; display:block; }
+
+  body{
+    background:
+      radial-gradient(900px 420px at 15% 10%, rgba(216,157,26,.18), transparent 55%),
+      radial-gradient(900px 420px at 85% 20%, rgba(158,50,1,.10), transparent 60%),
+      radial-gradient(1000px 600px at 55% 95%, rgba(33,102,89,.10), transparent 55%),
+      #FFF7E8;
+    font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, sans-serif;
+    color:#111;
+  }
+
+  :root{
+    --blue:#0d47a1;
+    --blue2:#1565c0;
+    --amber:#f39c12;
+    --text:#222;
+  }
+
+  .mmm-page{
+    max-width:1200px;
+    margin:0 auto;
+    padding:14px 12px 70px;
+  }
+
+  /* ===== Topbar (NO LANGUAGE SWITCH) ===== */
+  .mmm-topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:10px 0 12px;
+  }
+
+  .mmm-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:inherit;
+  }
+  .mmm-brand img{
+    width:44px; height:44px; object-fit:contain;
+    border-radius:12px;
+    background:#fff;
+    border:1px solid rgba(13,71,161,0.14);
+    padding:6px;
+  }
+  .mmm-brand b{
+    font-weight:900;
+    color:var(--blue);
+    letter-spacing:.2px;
+  }
+
+  .mmm-nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:center;
+    justify-content:flex-end;
+  }
+  .mmm-nav a{
+    text-decoration:none;
+    font-weight:900;
+    font-size:14px;
+    color:var(--blue2);
+    background:#fff;
+    border:1px solid rgba(13,71,161,0.18);
+    border-radius:999px;
+    padding:8px 12px;
+  }
+  .mmm-nav a:hover{ background:#f3f8ff; }
+
+  /* ===== Hero ===== */
+  .hero{
+    background:#fff;
+    border:2px solid rgba(13,71,161,0.12);
+    border-radius:28px;
+    box-shadow:0 20px 60px rgba(0,0,0,.10);
+    padding:26px;
+    display:grid;
+    grid-template-columns:1.35fr .65fr;
+    gap:22px;
+  }
+  @media (max-width:900px){ .hero{ grid-template-columns:1fr; } }
+
+  .hero h1{
+    font-size:46px;
+    line-height:1.08;
+    margin:0 0 12px;
+    color:var(--blue);
+    letter-spacing:.2px;
+  }
+  @media (max-width:900px){ .hero h1{ font-size:32px; } }
+
+  .hero p{
+    margin:0 0 14px;
+    font-size:18px;
+    line-height:1.75;
+    color:var(--text);
+  }
+
+  .btn{
+    display:inline-block;
+    padding:12px 16px;
+    border-radius:14px;
+    font-weight:900;
+    text-decoration:none;
+    background:#E3F2FD;
+    color:var(--blue);
+    margin:6px 6px 0 0;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover{ transform:translateY(-1px); box-shadow:0 10px 18px rgba(0,0,0,0.10); }
+  .btn.green{ background:#2F7D32; color:#fff; }
+  .btn.amber{ background:#F8A825; color:#000; }
+
+  .hero-right{
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-right img{
+    width:min(240px, 90%);
+    background:#fff;
+    border-radius:22px;
+    border:1px solid rgba(13,71,161,0.12);
+    padding:10px;
+  }
+  .hero-right .tag{
+    font-size:20px;
+    font-weight:900;
+    color:var(--blue2);
+    margin-top:10px;
+  }
+
+  /* ===== Sections ===== */
+  .card{
+    margin-top:26px;
+    background:#fff;
+    border:2px solid rgba(13,71,161,0.12);
+    border-radius:26px;
+    padding:22px;
+    box-shadow:0 10px 28px rgba(0,0,0,.06);
+  }
+
+  .card.alt{
+    background:#FFFCF5;
+    border-color: rgba(255,216,138,0.65);
+    box-shadow:none;
+  }
+
+  h2{
+    font-size:34px;
+    margin:0 0 14px;
+    color:var(--blue);
+  }
+  @media (max-width:900px){ h2{ font-size:26px; } }
+
+  .lead{
+    font-size:18px;
+    line-height:1.85;
+    margin:0 0 12px;
+  }
+
+  .philo-list{
+    margin:14px 0 0;
+    padding-left:20px;
+    font-size:17px;
+    line-height:1.9;
+  }
+  .philo-list li{ margin:6px 0; }
+  .philo-list strong{ color:var(--blue2); }
+
+  .teach-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:14px;
+    margin-top:10px;
+  }
+  @media (max-width:1050px){ .teach-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:700px){ .teach-grid{ grid-template-columns:1fr; } }
+
+  .teach-item{
+    background:#fff;
+    border:1px solid rgba(13,71,161,0.12);
+    border-radius:20px;
+    padding:16px;
+    box-shadow:0 10px 22px rgba(0,0,0,.06);
+  }
+  .teach-item h3{
+    margin:0 0 8px;
+    font-size:18px;
+    color:var(--amber);
+    font-weight:900;
+  }
+  .teach-item p{
+    margin:0;
+    font-size:16px;
+    line-height:1.75;
+  }
+
+  footer{
+    text-align:center;
+    color:#333;
+    padding:22px 0 12px;
+    font-size:14px;
+  }
+</style>
+</head>
+
+<body>
+<div class="mmm-page">
+
+  <!-- TOP BAR (NO LANGUAGE SWITCH) -->
+  <div class="mmm-topbar">
+    <a class="mmm-brand" href="index.html" aria-label="Magic Math Master home">
+      <img src="assets/logo.png" alt="Magic Math Master logo">
+      <b>Magic Math Master</b>
+    </a>
+
+    <div class="mmm-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="pricing.html">Fees</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Maths for life — confident thinking, not just tests</h1>
+
+      <p>
+        At <strong>Magic Math Master</strong>, we believe every child can grow in maths with the right support,
+        challenge, and encouragement. Tutoring is not just about finishing homework — it is about building
+        strong foundations, confidence, and the ability to think clearly and independently.
+      </p>
+
+      <p>
+        We teach with calm structure and high standards, so students feel safe to try, make mistakes, and improve.
+        Our aim is long-term growth: deeper understanding, better habits, and genuine mathematical thinking.
+      </p>
+
+      <a class="btn" href="#our-philosophy">Read our philosophy</a>
+      <a class="btn" href="#how-we-teach">How we teach</a>
+      <a class="btn green" href="contact.html">Enquire</a>
+      <a class="btn amber" href="pricing.html">Register</a>
+    </div>
+
+    <div class="hero-right">
+      <img src="assets/logo.png" alt="Magic Math Master logo" loading="lazy">
+      <div class="tag">Learning that feels magical ✨</div>
+    </div>
+  </section>
+
+  <!-- OUR PHILOSOPHY -->
+  <section id="our-philosophy" class="card alt">
+    <h2>Our Philosophy</h2>
+
+    <p class="lead">
+      We teach maths in a way that helps children <strong>understand</strong>, <strong>use</strong>, and
+      <strong>enjoy</strong> it. The goal is not quick fixes — it’s steady, lasting progress.
+    </p>
+
+    <ul class="philo-list">
+      <li><strong>Maths for life, not just for tests</strong> — tests are checkpoints, but understanding is the destination.</li>
+      <li><strong>Meaningful contexts</strong> — we connect maths to real life: money, games, sport, science, and everyday decisions.</li>
+      <li><strong>Strong foundations first</strong> — we fill gaps and build accuracy before rushing ahead.</li>
+      <li><strong>Confidence and growth mindset</strong> — mistakes are information, not failure; students learn to persist and improve.</li>
+      <li><strong>Logical thinking and real problem solving</strong> — students learn strategies, not just steps to copy.</li>
+      <li><strong>Communication and presentation skills</strong> — explaining clearly is part of learning maths (and boosts school success).</li>
+      <li><strong>Preparing for future study and careers</strong> — maths supports STEM, business, design, data, and life choices.</li>
+      <li><strong>Tailored to each child</strong> — pace, explanation style, and practice are adjusted to suit the learner.</li>
+      <li><strong>A journey, not just a session</strong> — we build habits and confidence over time, with clear feedback for families.</li>
+    </ul>
+  </section>
+
+  <!-- HOW WE TEACH -->
+  <section id="how-we-teach" class="card">
+    <h2>How We Teach</h2>
+
+    <p class="lead">
+      Our lessons follow a clear rhythm: diagnose → build the foundation → practise with feedback → extend when ready.
+      Students learn what to do, why it works, and how to explain their thinking.
+    </p>
+
+    <div class="teach-grid">
+      <div class="teach-item">
+        <h3>Maths for Life</h3>
+        <p>We teach maths as a real-life tool students can use to reason, make decisions, understand data, and open doors for the future.</p>
+      </div>
+
+      <div class="teach-item">
+        <h3>Strong Foundations First</h3>
+        <p>We ensure students truly understand core concepts before moving ahead. When foundations are solid, confidence and speed grow naturally.</p>
+      </div>
+
+      <div class="teach-item">
+        <h3>Confidence &amp; Growth Mindset</h3>
+        <p>Mistakes are part of learning. We guide students from “I can’t” to “I can improve” and eventually “I’ve got this”.</p>
+      </div>
+
+      <div class="teach-item">
+        <h3>Learning How to Think</h3>
+        <p>Beyond formulas: students learn strategies for word problems, unfamiliar questions, and checking work to reduce careless errors.</p>
+      </div>
+
+      <div class="teach-item">
+        <h3>Tailored to Each Child</h3>
+        <p>Every child learns differently. We adjust pace, explanations, and practice so each student knows exactly what to do next.</p>
+      </div>
+
+      <div class="teach-item">
+        <h3>A Journey, Not Just a Session</h3>
+        <p>We build long-term skills and habits, with clear communication to families about progress and the next steps.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Magic Math Master • Australia
+  </footer>
+
+</div>
+</body>
+</html>

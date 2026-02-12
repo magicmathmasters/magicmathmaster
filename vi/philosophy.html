@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Triết lý giảng dạy | Magic Math Master</title>
+<meta name="description" content="Triết lý giảng dạy của Magic Math Master: toán học cho cuộc sống, nền tảng vững chắc, tư duy logic và sự tự tin cho học sinh từ Prep đến Year 12 tại Úc.">
+<link rel="canonical" href="https://www.magicmathmaster.com.au/vi/philosophy.html">
+
+<style>
+  html, body { margin:0; padding:0; overflow-x:hidden; }
+  * { box-sizing:border-box; }
+  img { max-width:100%; height:auto; display:block; }
+
+  body{
+    background:
+      radial-gradient(900px 420px at 15% 10%, rgba(216,157,26,.18), transparent 55%),
+      radial-gradient(900px 420px at 85% 20%, rgba(158,50,1,.10), transparent 60%),
+      radial-gradient(1000px 600px at 55% 95%, rgba(33,102,89,.10), transparent 55%),
+      #FFF7E8;
+    font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, sans-serif;
+    color:#111;
+  }
+
+  :root{
+    --blue:#0d47a1;
+    --blue2:#1565c0;
+    --amber:#f39c12;
+    --text:#222;
+  }
+
+  .mmm-page{
+    max-width:1200px;
+    margin:0 auto;
+    padding:14px 12px 70px;
+  }
+
+  /* ===== Topbar ===== */
+  .mmm-topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding:10px 0 12px;
+  }
+
+  .mmm-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:inherit;
+  }
+  .mmm-brand img{
+    width:44px; height:44px; object-fit:contain;
+    border-radius:12px;
+    background:#fff;
+    border:1px solid rgba(13,71,161,0.14);
+    padding:6px;
+  }
+  .mmm-brand b{ font-weight:900; color:var(--blue); }
+
+  .mmm-nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:center;
+    justify-content:flex-end;
+  }
+  .mmm-nav a{
+    text-decoration:none;
+    font-weight:900;
+    font-size:14px;
+    color:var(--blue2);
+    background:#fff;
+    border:1px solid rgba(13,71,161,0.18);
+    border-radius:999px;
+    padding:8px 12px;
+  }
+  .mmm-nav a:hover{ background:#f3f8ff; }
+
+  /* ===== Hero ===== */
+  .hero{
+    background:#fff;
+    border:2px solid rgba(13,71,161,0.12);
+    border-radius:28px;
+    box-shadow:0 20px 60px rgba(0,0,0,.10);
+    padding:26px;
+    display:grid;
+    grid-template-columns:1.35fr .65fr;
+    gap:22px;
+  }
+  @media (max-width:900px){ .hero{ grid-template-columns:1fr; } }
+
+  .hero h1{
+    font-size:44px;
+    line-height:1.1;
+    margin:0 0 12px;
+    color:var(--blue);
+  }
+
+  .hero p{
+    margin:0 0 14px;
+    font-size:18px;
+    line-height:1.75;
+    color:var(--text);
+  }
+
+  .btn{
+    display:inline-block;
+    padding:12px 16px;
+    border-radius:14px;
+    font-weight:900;
+    text-decoration:none;
+    background:#E3F2FD;
+    color:var(--blue);
+    margin:6px 6px 0 0;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover{ transform:translateY(-1px); box-shadow:0 10px 18px rgba(0,0,0,0.10); }
+  .btn.green{ background:#2F7D32; color:#fff; }
+  .btn.amber{ background:#F8A825; color:#000; }
+
+  .hero-right{
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-right img{
+    width:min(240px, 90%);
+    background:#fff;
+    border-radius:22px;
+    border:1px solid rgba(13,71,161,0.12);
+    padding:10px;
+  }
+  .hero-right .tag{
+    font-size:20px;
+    font-weight:900;
+    color:var(--blue2);
+    margin-top:10px;
+  }
+
+  .card{
+    margin-top:26px;
+    background:#fff;
+    border:2px solid rgba(13,71,161,0.12);
+    border-radius:26px;
+    padding:22px;
+    box-shadow:0 10px 28px rgba(0,0,0,.06);
+  }
+
+  .card.alt{
+    background:#FFFCF5;
+    border-color: rgba(255,216,138,0.65);
+    box-shadow:none;
+  }
+
+  h2{
+    font-size:32px;
+    margin:0 0 14px;
+    color:var(--blue);
+  }
+
+  .lead{
+    font-size:18px;
+    line-height:1.85;
+    margin:0 0 12px;
+  }
+
+  .philo-list{
+    margin:14px 0 0;
+    padding-left:20px;
+    font-size:17px;
+    line-height:1.9;
+  }
+  .philo-list li{ margin:6px 0; }
+  .philo-list strong{ color:var(--blue2); }
+
+  .teach-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:14px;
+    margin-top:10px;
+  }
+  @media (max-width:1050px){ .teach-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:700px){ .teach-grid{ grid-template-columns:1fr; } }
+
+  .teach-item{
+    background:#fff;
+    border:1px solid rgba(13,71,161,0.12);
+    border-radius:20px;
+    padding:16px;
+    box-shadow:0 10px 22px rgba(0,0,0,.06);
+  }
+  .teach-item h3{
+    margin:0 0 8px;
+    font-size:18px;
+    color:var(--amber);
+    font-weight:900;
+  }
+  .teach-item p{
+    margin:0;
+    font-size:16px;
+    line-height:1.75;
+  }
+
+  footer{
+    text-align:center;
+    color:#333;
+    padding:22px 0 12px;
+    font-size:14px;
+  }
+</style>
+</head>
+
+<body>
+<div class="mmm-page">
+
+  <!-- TOP BAR (NO LANGUAGE SWITCH) -->
+  <div class="mmm-topbar">
+    <a class="mmm-brand" href="index.html" aria-label="Trang chủ Magic Math Master">
+      <img src="../assets/logo.png" alt="Magic Math Master logo">
+      <b>Magic Math Master</b>
+    </a>
+
+    <div class="mmm-nav" aria-label="Điều hướng chính">
+      <a href="index.html">Trang chủ</a>
+      <a href="about.html">Giới thiệu</a>
+      <a href="programs.html">Chương trình</a>
+      <a href="pricing.html">Học phí</a>
+      <a href="contact.html">Liên hệ</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Toán học cho cuộc sống — tư duy tự tin, không chỉ là bài kiểm tra</h1>
+
+      <p>
+        Tại <strong>Magic Math Master</strong>, chúng tôi tin rằng mọi học sinh đều có thể tiến bộ trong toán học
+        khi được hỗ trợ đúng cách, được thử thách phù hợp và được khích lệ.
+        Học toán không chỉ là hoàn thành bài tập về nhà — mà là xây dựng nền tảng vững chắc,
+        sự tự tin và khả năng suy nghĩ độc lập.
+      </p>
+
+      <p>
+        Chúng tôi giảng dạy theo cách bình tĩnh, có cấu trúc rõ ràng và tiêu chuẩn cao,
+        giúp học sinh dám thử, dám sai và dần dần tiến bộ.
+        Mục tiêu là sự phát triển lâu dài: hiểu sâu, thói quen tốt và tư duy toán học thật sự.
+      </p>
+
+      <a class="btn" href="#our-philosophy">Xem triết lý</a>
+      <a class="btn" href="#how-we-teach">Cách chúng tôi dạy</a>
+      <a class="btn green" href="contact.html">Đăng ký tư vấn</a>
+      <a class="btn amber" href="pricing.html">Đăng ký học</a>
+    </div>
+
+    <div class="hero-right">
+      <img src="../assets/logo.png" alt="Magic Math Master logo" loading="lazy">
+      <div class="tag">Học toán thật “magical” ✨</div>
+    </div>
+  </section>
+
+  <!-- TRIẾT LÝ -->
+  <section id="our-philosophy" class="card alt">
+    <h2>Triết lý giảng dạy</h2>
+
+    <p class="lead">
+      Chúng tôi dạy toán để học sinh <strong>hiểu</strong>, <strong>vận dụng</strong> và <strong>yêu thích</strong>.
+      Mục tiêu không phải là kết quả nhanh chóng, mà là sự tiến bộ bền vững.
+    </p>
+
+    <ul class="philo-list">
+      <li><strong>Toán học cho cuộc sống, không chỉ cho bài kiểm tra</strong> — bài kiểm tra là “mốc” để nhìn lại, còn hiểu sâu mới là đích đến.</li>
+      <li><strong>Kết nối toán với thực tế</strong> — tiền bạc, trò chơi, thể thao, khoa học, dữ liệu và các quyết định hằng ngày.</li>
+      <li><strong>Nền tảng vững chắc trước tiên</strong> — lấp lỗ hổng, rèn độ chính xác, rồi mới tăng tốc.</li>
+      <li><strong>Sự tự tin và tư duy phát triển</strong> — sai là bình thường; quan trọng là biết sửa và tiến bộ.</li>
+      <li><strong>Tư duy logic và giải quyết vấn đề thực sự</strong> — học cách phân tích, chọn chiến lược, không chỉ “làm theo mẫu”.</li>
+      <li><strong>Kỹ năng trình bày và giao tiếp toán học</strong> — giải thích rõ ràng giúp học sinh hiểu sâu và học tốt ở trường.</li>
+      <li><strong>Chuẩn bị cho học tập và nghề nghiệp tương lai</strong> — toán hỗ trợ STEM, kinh doanh, thiết kế, dữ liệu và nhiều hướng đi khác.</li>
+      <li><strong>Cá nhân hoá theo từng học sinh</strong> — điều chỉnh nhịp độ, cách giải thích và bài tập phù hợp.</li>
+      <li><strong>Một hành trình, không chỉ là một buổi học</strong> — xây thói quen học tập tốt và theo dõi tiến bộ theo thời gian.</li>
+    </ul>
+  </section>
+
+  <!-- CÁCH CHÚNG TÔI DẠY -->
+  <section id="how-we-teach" class="card">
+    <h2>Cách chúng tôi giảng dạy</h2>
+
+    <p class="lead">
+      Mỗi buổi học thường theo một nhịp rõ ràng: đánh giá → xây nền tảng → luyện tập có phản hồi → mở rộng khi đã sẵn sàng.
+      Học sinh hiểu “vì sao đúng”, không chỉ “làm thế nào”.
+    </p>
+
+    <div class="teach-grid">
+      <div class="teach-item">
+        <h3>Toán học cho cuộc sống</h3>
+        <p>Chúng tôi dạy toán như công cụ để suy luận, ra quyết định, hiểu dữ liệu và mở ra nhiều cơ hội trong tương lai.</p>
+      </div>
+
+      <div class="teach-item">
+        <h3>Nền tảng vững chắc</h3>
+        <p>Học sinh hiểu thật sự trước khi học nhanh hơn. Khi nền tảng tốt, sự tự tin và tốc độ sẽ tăng tự nhiên.</p>
+      </div>
+
+      <div class="teach-item">
+        <h3>Tư duy phát triển</h3>
+        <p>Hướng dẫn học sinh từ “Con không làm được” đến “Con có thể cải thiện” và “Con hiểu rồi!”.</p>
+      </div>
+
+      <div class="teach-item">
+        <h3>Học cách suy nghĩ</h3>
+        <p>Không chỉ thuộc công thức: học chiến lược giải bài, cách đọc đề, phân tích và kiểm tra lại kết quả.</p>
+      </div>
+
+      <div class="teach-item">
+        <h3>Cá nhân hoá</h3>
+        <p>Mỗi học sinh có tốc độ và cách học khác nhau — bài học và bài tập được điều chỉnh phù hợp.</p>
+      </div>
+
+      <div class="teach-item">
+        <h3>Một hành trình</h3>
+        <p>Xây dựng kỹ năng và thói quen lâu dài, đồng thời trao đổi rõ ràng với phụ huynh về tiến bộ và bước tiếp theo.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Magic Math Master • Úc
+  </footer>
+
+</div>
+</body>
+</html>
