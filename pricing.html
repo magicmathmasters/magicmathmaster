@@ -1,122 +1,340 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fees | Magic Math Master</title>
-<meta name="description" content="Fees and lesson options for maths tutoring in Australia. Transparent pricing, structured plans, and clear policies.">
-<link rel="canonical" href="https://www.magicmathmaster.com.au/pricing.html">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Fees | Magic Math Master</title>
+  <meta name="description" content="Fees and lesson options for maths tutoring in Australia. Transparent pricing, structured plans, and clear policies." />
+  <link rel="canonical" href="https://www.magicmathmaster.com.au/pricing.html" />
+
+  <!-- Optional OG tags -->
+  <meta property="og:title" content="Fees | Magic Math Master" />
+  <meta property="og:description" content="Transparent pricing and lesson options for Prep–Year 12. Clear policies and simple enrolment." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.magicmathmaster.com.au/pricing.html" />
+
+  <!-- Shared site stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <!-- Page-only overrides (kept tiny) -->
+  <style>
+    /* HERO: remove square frame around logo (template default) */
+    .hero-snap-logoBox{
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+    }
+    .hero-snap-logoBox img{
+      padding: 0 !important;
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+    }
+    .hero { padding: 22px 0 18px; }
+
+    /* Pricing grid (works with your style.css cards) */
+    .price-grid{
+      display:grid;
+      gap:18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    @media (max-width: 980px){
+      .price-grid{ grid-template-columns: 1fr; }
+    }
+
+    .price-card{
+      border-radius: 18px;
+      padding: 18px;
+      border: 2px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.75);
+    }
+    .price-card.featured{
+      border-width: 3px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.08);
+    }
+    .price-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom: 6px;
+    }
+    .price-top h3{
+      margin:0;
+      font-size: 22px;
+    }
+    .kicker{
+      display:inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 2px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.65);
+      font-weight: 900;
+      font-size: 13px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .price{
+      font-size: 44px;
+      font-weight: 1000;
+      line-height: 1;
+      margin: 10px 0 4px;
+    }
+    .per{
+      opacity: .85;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    /* Chips + “Parents get” */
+    .fee-chips{ display:flex; flex-wrap:wrap; gap:8px; margin: 8px 0 10px; }
+    .fee-chip{
+      display:inline-block;
+      padding: 6px 10px;
+      border-radius:999px;
+      font-weight: 900;
+      font-size: 13px;
+      line-height: 1;
+      border: 2px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.65);
+    }
+    .parents-get{
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 2px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.65);
+      font-weight: 800;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .helper{
+      margin-top: 12px;
+      opacity: .9;
+      font-weight: 700;
+    }
+
+    /* Small policy list clean spacing */
+    .policy-list{
+      margin:0;
+      padding-left:18px;
+      font-weight:650;
+      line-height:1.7;
+      opacity: .92;
+    }
+  </style>
 </head>
 
 <body>
-<div class="topbar">
-  <div class="container topbar-inner">
-    <a class="brand" href="index.html">
-      <div class="brand-badge">M³</div>
-      <div class="brand-title"><b>Magic Math Master</b><span>Premium tutoring • Australia</span></div>
-    </a>
-    <div class="nav">
-      <a data-nav href="index.html">Home</a>
-      <a data-nav href="about.html">About</a>
-      <a data-nav href="programs.html">Programs</a>
-      <a data-nav href="pricing.html">Fees</a>
-      <a data-nav href="contact.html" class="btn btn-outline">Enquire</a>
-      <a class="btn btn-outline" href="vi/index.html">Tiếng Việt</a>
-      <a class="btn btn-primary" href="contact.html">Enquire</a>
+
+  <!-- ===== TOP BAR (same template as Programs) ===== -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html" aria-label="Magic Math Master home">
+        <img class="brand-logo" src="assets/logo.png" alt="Magic Math Master logo" />
+        <div class="brand-title">
+          <b>Magic Math Master</b>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a data-nav href="index.html">Home</a>
+        <a data-nav href="programs.html">Programs</a>
+        <a data-nav href="pricing.html">Fees</a>
+        <a data-nav href="policies.html">Policies</a>
+        <a data-nav href="about.html">About</a>
+        <a data-nav href="philosophy.html">Philosophy</a>
+        <a data-nav href="contact.html">Contact</a>
+        <a class="nav-lang" href="vi/pricing.html">Tiếng Việt</a>
+      </nav>
     </div>
   </div>
-</div>
 
-<main class="container">
+  <!-- ===== HERO (same template) ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-snap">
 
-  <section class="section">
-    <h1 class="section-title">Fees & Lesson Options</h1>
-    <p class="section-sub">
-      Transparent pricing and clear policies. If you’d like, we can recommend the best option based on your child’s year level and goals.
-    </p>
-  </section>
+        <div class="hero-snap-grid">
+          <div>
+            <h1 class="hero-snap-title">Fees</h1>
+            <div class="hero-snap-tagline">Transparent pricing, structured lessons, and clear expectations</div>
+          </div>
 
-  <section class="section">
-    <div class="pricing">
-      <div class="price-card">
-        <div class="price-top">
-          <h3>Primary</h3>
-          <span class="kicker">Foundation</span>
+          <div class="hero-snap-logoBox" aria-hidden="true">
+            <img src="assets/logo.png" alt="Magic Math Master logo" loading="lazy" />
+          </div>
         </div>
-        <div class="price">$60</div>
-        <div class="per">per hour</div>
-        <ul>
-          <li>Numeracy foundations & confidence</li>
-          <li>Word-problem strategies</li>
-          <li>Structured weekly practice</li>
-        </ul>
-      </div>
 
-      <div class="price-card featured">
-        <div class="price-top">
-          <h3>Secondary</h3>
-          <span class="kicker">Most popular</span>
-        </div>
-        <div class="price">$70</div>
-        <div class="per">per hour</div>
-        <ul>
-          <li>Algebra, geometry, trigonometry</li>
-          <li>School assessment support</li>
-          <li>Exam technique & accuracy</li>
-        </ul>
-      </div>
+        <p class="hero-snap-desc">
+          Simple hourly rates by level. If you’re unsure, we can recommend the best option based on year level and goals.
+        </p>
 
-      <div class="price-card">
-        <div class="price-top">
-          <h3>Extension</h3>
-          <span class="kicker">Advanced</span>
+        <div class="hero-snap-checks">
+          <span>✓ Calm, structured teaching</span>
+          <span>✓ Personalised learning</span>
+          <span>✓ Clear family communication</span>
         </div>
-        <div class="price">$80</div>
-        <div class="per">per hour</div>
-        <ul>
-          <li>Deeper challenge & reasoning</li>
-          <li>Advanced problem solving</li>
-          <li>Confidence under pressure</li>
-        </ul>
+
+        <div class="hero-snap-pills">
+          <span class="hero-snap-pill">Online &amp; in-person</span>
+          <span class="hero-snap-pill">Prep–Year 12</span>
+          <span class="hero-snap-pill">Confidence first</span>
+        </div>
+
+        <div class="hero-snap-cta">
+          <a class="btn btn-success" href="contact.html">Enquire</a>
+          <a class="btn btn-amber" href="register.html">Register</a>
+        </div>
+
       </div>
     </div>
-
-    <p class="helper">
-      Discounts may be available for term bookings. For a personalised recommendation, please contact us.
-    </p>
   </section>
 
-  <section class="section">
-    <div class="card">
-      <h2 class="section-title" style="margin-top:0;">Policies (summary)</h2>
-      <ul style="margin:0; padding-left:18px; color:var(--muted); font-weight:650;">
-        <li>Lessons are prepaid and scheduled in advance.</li>
-        <li>Please provide at least <strong>24 hours’ notice</strong> for cancellations or changes.</li>
-        <li>We maintain a respectful, supportive learning environment.</li>
-      </ul>
-    </div>
-  </section>
+  <!-- ===== PAGE CONTENT ===== -->
+  <main class="container">
 
-  <section class="section">
-    <div class="card" style="padding:22px;">
-      <h2 class="section-title" style="margin:0 0 10px;">Ready to book?</h2>
-      <p class="section-sub" style="margin:0 0 14px;">
-        Send us your child’s year level and goals — we’ll suggest the best option.
+    <section class="section">
+      <h2 class="section-title">Fees &amp; lesson options</h2>
+      <p class="section-sub">
+        Transparent pricing and clear policies. Discounts may be available for term bookings—contact us for a personalised recommendation.
       </p>
-      <a class="btn btn-primary" href="contact.html">Make an enquiry</a>
+
+      <div class="price-grid">
+        <!-- Primary -->
+        <div class="price-card">
+          <div class="price-top">
+            <h3>Primary</h3>
+            <span class="kicker">Foundation</span>
+          </div>
+
+          <div class="fee-chips">
+            <span class="fee-chip">Prep–Year 6</span>
+            <span class="fee-chip">Foundations</span>
+            <span class="fee-chip">Confidence</span>
+          </div>
+
+          <div class="price">$60</div>
+          <div class="per">per hour</div>
+
+          <ul>
+            <li>Numeracy foundations &amp; confidence</li>
+            <li>Word-problem strategies</li>
+            <li>Structured weekly practice</li>
+          </ul>
+
+          <div class="parents-get">👨‍👩‍👧‍👦 <strong>Parents get:</strong> clear weekly focus + simple progress updates and next steps.</div>
+        </div>
+
+        <!-- Secondary (featured) -->
+        <div class="price-card featured">
+          <div class="price-top">
+            <h3>Secondary</h3>
+            <span class="kicker">Most popular</span>
+          </div>
+
+          <div class="fee-chips">
+            <span class="fee-chip">Years 7–10</span>
+            <span class="fee-chip">School-aligned</span>
+            <span class="fee-chip">Exam skills</span>
+          </div>
+
+          <div class="price">$70</div>
+          <div class="per">per hour</div>
+
+          <ul>
+            <li>Algebra, geometry, trigonometry</li>
+            <li>School assessment support</li>
+            <li>Exam technique &amp; accuracy</li>
+          </ul>
+
+          <div class="parents-get">👨‍👩‍👧‍👦 <strong>Parents get:</strong> topic plan + feedback on progress and study habits.</div>
+        </div>
+
+        <!-- Extension -->
+        <div class="price-card">
+          <div class="price-top">
+            <h3>Extension</h3>
+            <span class="kicker">Advanced</span>
+          </div>
+
+          <div class="fee-chips">
+            <span class="fee-chip">Years 10–12</span>
+            <span class="fee-chip">Extension</span>
+            <span class="fee-chip">High challenge</span>
+          </div>
+
+          <div class="price">$80</div>
+          <div class="per">per hour</div>
+
+          <ul>
+            <li>Deeper challenge &amp; reasoning</li>
+            <li>Advanced problem solving</li>
+            <li>Confidence under pressure</li>
+          </ul>
+
+          <div class="parents-get">👨‍👩‍👧‍👦 <strong>Parents get:</strong> strategy feedback + guidance for the next level.</div>
+        </div>
+      </div>
+
+      <p class="helper">
+        Want the best value? Ask us about term bookings and the right program fit (1-to-1, small group, Maths Club, or competition training).
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <h2 class="section-title" style="margin-top:0;">Policies (summary)</h2>
+        <ul class="policy-list">
+          <li>Lessons are prepaid and scheduled in advance.</li>
+          <li>Please provide at least <strong>24 hours’ notice</strong> for cancellations or changes.</li>
+          <li>We maintain a respectful, supportive learning environment.</li>
+        </ul>
+        <p class="section-sub" style="margin:12px 0 0;">
+          For full details, please read our <a href="policies.html">Policies</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card" style="padding:22px;">
+        <h2 class="section-title" style="margin:0 0 10px;">Ready to book?</h2>
+        <p class="section-sub" style="margin:0 0 14px;">
+          Send us your child’s year level and goals — we’ll suggest the best option.
+        </p>
+        <a class="btn btn-success" href="contact.html">Make an enquiry</a>
+        <a class="btn btn-amber" href="register.html" style="margin-left:10px;">Register</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER (same template) ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Magic Math Master • Australia</div>
+      <div>
+        <a href="contact.html">Contact</a> •
+        <a href="policies.html">Policies</a>
+      </div>
     </div>
-  </section>
+  </footer>
 
-</main>
+  <!-- Auto year -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
-<footer class="footer">
-  <div class="container footer-inner">
-    <div>© 2026 Magic Math Master • Australia</div>
-    <div><a href="contact.html">Contact</a> • <a href="programs.html">Programs</a> • <a href="about.html">About</a></div>
-  </div>
-</footer>
-
-<script src="script.js"></script>
+  <!-- Auto highlight current nav item -->
+  <script src="script.js"></script>
 </body>
 </html>
