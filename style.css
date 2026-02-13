@@ -709,3 +709,135 @@ textarea{ min-height: 120px; resize: vertical; }
 .nav .nav-lang{
   font-weight: 1000;
 }
+/* ===== Screenshot-style pill nav (bigger pills) ===== */
+.nav a{
+  text-decoration:none;
+  font-weight:1000;
+  font-size: 18px;
+  color:#0f172a;
+  padding: 18px 30px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.92);
+  border: 2px solid rgba(15,23,42,.14);
+}
+.nav a:hover{
+  background: rgba(11,94,215,.08);
+  border-color: rgba(11,94,215,.18);
+}
+.nav a[aria-current="page"]{
+  background: rgba(11,94,215,.18);
+  border-color: rgba(11,94,215,.35);
+  box-shadow: 0 10px 18px rgba(11,94,215,.12);
+}
+
+/* Brand logo (instead of M³ badge) */
+.brand-logo{
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 18px;
+  background: rgba(255,255,255,.92);
+  border: 2px solid rgba(15,23,42,.14);
+  padding: 8px;
+}
+
+/* ===== Screenshot hero card ===== */
+.hero-snap{
+  background: #fff;
+  border: 2px solid rgba(11,94,215,.18);
+  border-radius: 34px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.10);
+  padding: 34px 30px 34px;
+}
+
+.hero-snap-grid{
+  display:grid;
+  grid-template-columns: 1fr 340px;
+  gap: 22px;
+  align-items: start;
+}
+@media (max-width: 980px){
+  .hero-snap-grid{ grid-template-columns: 1fr; }
+}
+
+.hero-snap-title{
+  margin: 0;
+  text-align:center;
+  font-weight: 1000;
+  letter-spacing: 2px;
+  color: var(--brand2);
+  font-size: clamp(44px, 6vw, 92px);
+  line-height: 1.02;
+}
+
+.hero-snap-tagline{
+  margin: 10px 0 0;
+  text-align:center;
+  font-weight: 900;
+  color: rgba(15,23,42,.72);
+  font-size: clamp(18px, 2.2vw, 34px);
+}
+
+.hero-snap-desc{
+  margin: 24px auto 0;
+  max-width: 1200px;
+  text-align:center;
+  color: rgba(15,23,42,.72);
+  font-weight: 650;
+  font-size: clamp(16px, 1.35vw, 24px);
+  line-height: 1.65;
+}
+.hero-snap-desc b{ color: rgba(15,23,42,.92); font-weight: 900; }
+
+.hero-snap-checks{
+  margin: 22px 0 0;
+  display:flex;
+  justify-content:center;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+  color: var(--brand);
+  font-weight: 1000;
+  font-size: clamp(14px, 1.2vw, 24px);
+}
+
+.hero-snap-pills{
+  margin: 18px 0 0;
+  display:flex;
+  justify-content:center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-snap-pill{
+  background: rgba(245,158,11,.10);
+  border: 4px solid rgba(245,158,11,.45);
+  border-radius: 999px;
+  padding: 16px 26px;
+  font-weight: 1000;
+  color: rgba(122,74,0,.95);
+  font-size: clamp(14px, 1.15vw, 22px);
+}
+
+.hero-snap-cta{
+  margin: 20px 0 0;
+  display:flex;
+  justify-content:center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Right logo box like screenshot */
+.hero-snap-logoBox{
+  background: rgba(255,255,255,.92);
+  border: 2px solid rgba(11,94,215,.14);
+  border-radius: 28px;
+  padding: 18px;
+  display:grid;
+  place-items:center;
+}
+.hero-snap-logoBox img{
+  width: 240px;
+  max-width: 100%;
+  height: auto;
+  display:block;
+}
