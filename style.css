@@ -396,3 +396,65 @@ textarea{ min-height: 120px; resize: vertical; }
   border-radius: 999px !important;  /* circle logo */
   /* border-radius: 0 !important; */ /* or no rounding */
 }
+
+/* ===== Add hover colours (new variables) ===== */
+:root{
+  /* pick slightly darker / richer versions for hover */
+  --success-hover: #15803d;  /* darker green than #16a34a */
+  --accent-hover:  #d97706;  /* deeper amber than #f59e0b */
+  --brand-hover:   #0a4fb8;  /* for outlines/highlights if needed */
+}
+
+/* ===== Smooth hover for ALL buttons ===== */
+.btn{
+  transition: transform .14s ease, box-shadow .14s ease, background-color .14s ease, color .14s ease;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(2, 6, 23, .14);
+}
+
+.btn:active{
+  transform: translateY(0);
+}
+
+/* ===== Type-specific hover colours ===== */
+.btn-success:hover{ background: var(--success-hover); color:#fff; }
+.btn-amber:hover{ background: var(--accent-hover); color:#111827; }
+
+/* ===== Keyboard accessibility ===== */
+.btn:focus-visible{
+  outline: 3px solid rgba(11, 94, 215, .45);
+  outline-offset: 3px;
+}
+
+/* ===============================
+   Hover effects for linkable chooser cards (<a class="card">)
+   =============================== */
+a.card{
+  display:block; /* full card clickable */
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, background-color .16s ease;
+}
+
+a.card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(2, 6, 23, .14);
+  border-color: rgba(11, 94, 215, .35);
+  background: rgba(255,255,255,.92);
+}
+
+/* Chips react on hover (nice touch) */
+a.card:hover .prog-chip{
+  border-color: rgba(11, 94, 215, .45);
+  background: rgba(11, 94, 215, .06);
+}
+
+a.card:focus-visible{
+  outline: 3px solid rgba(11, 94, 215, .45);
+  outline-offset: 3px;
+  border-radius: 16px;
+}
