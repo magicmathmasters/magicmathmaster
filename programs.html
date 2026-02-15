@@ -52,7 +52,7 @@
     }
     .prog-actions{ margin-top: 14px; display:flex; flex-wrap:wrap; gap:10px; }
 
-    /* ✅ NEW: “Parents get” line (trust signal) */
+    /* “Parents get” line (trust signal) */
     .parents-get{
       margin-top: 10px;
       padding: 10px 12px;
@@ -63,6 +63,33 @@
       font-size: 15px;
       line-height: 1.5;
     }
+
+    /* ===== Chooser cards are links: make them look like cards (not blue links) ===== */
+    a.card{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      cursor:pointer;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, background-color .16s ease;
+    }
+    a.card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(2, 6, 23, .14);
+      border-color: rgba(11, 94, 215, .35);
+      background: rgba(255,255,255,.92);
+    }
+    a.card:hover .prog-chip{
+      border-color: rgba(11, 94, 215, .45);
+      background: rgba(11, 94, 215, .06);
+    }
+    a.card:focus-visible{
+      outline: 3px solid rgba(11, 94, 215, .45);
+      outline-offset: 3px;
+      border-radius: 16px;
+    }
+
+    /* Anchor jump offset (topbar height) */
+    .anchor-target{ scroll-margin-top: 110px; }
   </style>
 </head>
 
@@ -135,174 +162,173 @@
   <!-- ===== PAGE CONTENT ===== -->
   <main class="container">
 
-    <!-- Overview -->
     <!-- Combined: Choose + Programs -->
-<section class="section" id="programs">
-  <h2 class="section-title">Programs</h2>
-  <p class="section-sub">
-    Start with your child’s goal, then jump straight to the best-fit program.
-  </p>
-
-  <!-- Chooser (links to program cards) -->
-  <div class="grid">
-    <a class="card" href="#p-1to1" style="text-decoration:none; color:inherit;">
-      <h3>Catch up &amp; rebuild foundations</h3>
-      <p>
-        Best for students who feel behind or anxious. We rebuild core skills step-by-step, then practise until it feels easy.
+    <section class="section" id="programs">
+      <h2 class="section-title">Programs</h2>
+      <p class="section-sub">
+        Start with your child’s goal, then jump straight to the best-fit program.
       </p>
-      <div class="prog-meta">
-        <span class="prog-chip">Go to 1-to-1</span>
-        <span class="prog-chip">Strong basics</span>
-        <span class="prog-chip">Confidence</span>
-      </div>
-    </a>
 
-    <a class="card" href="#p-group" style="text-decoration:none; color:inherit;">
-      <h3>Keep up &amp; stay consistent</h3>
-      <p>
-        Best for students who are doing “okay” but need structure. We align with school topics and prevent gaps from growing.
-      </p>
-      <div class="prog-meta">
-        <span class="prog-chip">Go to Small-Group</span>
-        <span class="prog-chip">School-aligned</span>
-        <span class="prog-chip">Good habits</span>
-      </div>
-    </a>
+      <!-- Chooser (links to program cards) -->
+      <div class="grid">
+        <a class="card" href="#p-1to1">
+          <h3>Catch up &amp; rebuild foundations</h3>
+          <p>
+            Best for students who feel behind or anxious. We rebuild core skills step-by-step, then practise until it feels easy.
+          </p>
+          <div class="prog-meta">
+            <span class="prog-chip">Go to 1-to-1</span>
+            <span class="prog-chip">Strong basics</span>
+            <span class="prog-chip">Confidence</span>
+          </div>
+        </a>
 
-    <a class="card" href="#p-club" style="text-decoration:none; color:inherit;">
-      <h3>Get ahead &amp; extend (with joy)</h3>
-      <p>
-        Best for capable students who want challenge without pressure. We build reasoning and flexible thinking through rich problems.
-      </p>
-      <div class="prog-meta">
-        <span class="prog-chip">Go to Maths Club</span>
-        <span class="prog-chip">Extension</span>
-        <span class="prog-chip">Problem-solving</span>
-      </div>
-    </a>
+        <a class="card" href="#p-group">
+          <h3>Keep up &amp; stay consistent</h3>
+          <p>
+            Best for students who are doing “okay” but need structure. We align with school topics and prevent gaps from growing.
+          </p>
+          <div class="prog-meta">
+            <span class="prog-chip">Go to Small-Group</span>
+            <span class="prog-chip">School-aligned</span>
+            <span class="prog-chip">Good habits</span>
+          </div>
+        </a>
 
-    <a class="card" href="#p-comp" style="text-decoration:none; color:inherit;">
-      <h3>Aim for competitions</h3>
-      <p>
-        Best for students targeting AMC/AMO-style questions. We teach strategies, build stamina, and refine solutions.
-      </p>
-      <div class="prog-meta">
-        <span class="prog-chip">Go to Competition</span>
-        <span class="prog-chip">AMC/AMO focus</span>
-        <span class="prog-chip">Strategies</span>
-      </div>
-    </a>
-  </div>
+        <a class="card" href="#p-club">
+          <h3>Get ahead &amp; extend (with joy)</h3>
+          <p>
+            Best for capable students who want challenge without pressure. We build reasoning and flexible thinking through rich problems.
+          </p>
+          <div class="prog-meta">
+            <span class="prog-chip">Go to Maths Club</span>
+            <span class="prog-chip">Extension</span>
+            <span class="prog-chip">Problem-solving</span>
+          </div>
+        </a>
 
-  <!-- Actual program cards -->
-  <div class="grid" style="margin-top:18px;">
-    <!-- 1-to-1 -->
-    <div class="card" id="p-1to1" style="scroll-margin-top: 110px;">
-      <h3>1-to-1 Tutoring</h3>
-      <p>
-        Fully personalised lessons for rapid progress. Ideal for targeted support, confidence building, or high goals.
-      </p>
-      <ul>
-        <li>Personal learning plan + goals</li>
-        <li>Targeted explanations and practice</li>
-        <li>Flexible pacing (catch up or accelerate)</li>
-      </ul>
-
-      <div class="prog-meta">
-        <span class="prog-chip">Prep–Year 12</span>
-        <span class="prog-chip">1:1</span>
-        <span class="prog-chip">Online &amp; in-person</span>
+        <a class="card" href="#p-comp">
+          <h3>Aim for competitions</h3>
+          <p>
+            Best for students targeting AMC/AMO-style questions. We teach strategies, build stamina, and refine solutions.
+          </p>
+          <div class="prog-meta">
+            <span class="prog-chip">Go to Competition</span>
+            <span class="prog-chip">AMC/AMO focus</span>
+            <span class="prog-chip">Strategies</span>
+          </div>
+        </a>
       </div>
 
-      <div class="parents-get">👨‍👩‍👧‍👦 <strong>Parents get:</strong> a personalised plan + regular progress updates and next steps.</div>
+      <!-- Actual program cards -->
+      <div class="grid" style="margin-top:18px;">
+        <!-- 1-to-1 -->
+        <div class="card anchor-target" id="p-1to1">
+          <h3>1-to-1 Tutoring</h3>
+          <p>
+            Fully personalised lessons for rapid progress. Ideal for targeted support, confidence building, or high goals.
+          </p>
+          <ul>
+            <li>Personal learning plan + goals</li>
+            <li>Targeted explanations and practice</li>
+            <li>Flexible pacing (catch up or accelerate)</li>
+          </ul>
 
-      <div class="prog-actions">
-        <a class="btn btn-success" href="contact.html">Enquire</a>
-        <a class="btn btn-amber" href="register.html">Register</a>
+          <div class="prog-meta">
+            <span class="prog-chip">Prep–Year 12</span>
+            <span class="prog-chip">1:1</span>
+            <span class="prog-chip">Online &amp; in-person</span>
+          </div>
+
+          <div class="parents-get">👨‍👩‍👧‍👦 <strong>Parents get:</strong> a personalised plan + regular progress updates and next steps.</div>
+
+          <div class="prog-actions">
+            <a class="btn btn-success" href="contact.html">Enquire</a>
+            <a class="btn btn-amber" href="register.html">Register</a>
+          </div>
+        </div>
+
+        <!-- Small group -->
+        <div class="card anchor-target" id="p-group">
+          <h3>Small-Group Tutorials</h3>
+          <p>
+            Small groups for structure + motivation. Great for consistent weekly learning and school-aligned practice.
+          </p>
+          <ul>
+            <li>Small group attention (limited seats)</li>
+            <li>Clear weekly focus + homework support</li>
+            <li>Confidence-first environment</li>
+          </ul>
+
+          <div class="prog-meta">
+            <span class="prog-chip">Small groups</span>
+            <span class="prog-chip">Weekly structure</span>
+            <span class="prog-chip">School-aligned</span>
+          </div>
+
+          <div class="parents-get">👨‍👩‍👧‍👦 <strong>Parents get:</strong> weekly focus topics + progress updates and clear next steps.</div>
+
+          <div class="prog-actions">
+            <a class="btn btn-success" href="contact.html">Enquire</a>
+            <a class="btn btn-amber" href="register.html">Register</a>
+          </div>
+        </div>
+
+        <!-- Maths Club -->
+        <div class="card anchor-target" id="p-club">
+          <h3>Maths Club</h3>
+          <p>
+            Weekly enrichment for curious learners. Build reasoning, pattern-spotting, and flexible thinking through fun problems.
+          </p>
+          <ul>
+            <li>Challenge problems + games</li>
+            <li>Reasoning and communication</li>
+            <li>Healthy confidence through exploration</li>
+          </ul>
+
+          <div class="prog-meta">
+            <span class="prog-chip">Weekly puzzles</span>
+            <span class="prog-chip">Online</span>
+            <span class="prog-chip">Progress charts</span>
+          </div>
+
+          <div class="parents-get">👨‍👩‍👧‍👦 <strong>Parents get:</strong> simple progress tracking + tips to support learning at home.</div>
+
+          <div class="prog-actions">
+            <a class="btn btn-success" href="contact.html">Enquire</a>
+            <a class="btn btn-amber" href="register.html">Register</a>
+          </div>
+        </div>
+
+        <!-- Competition -->
+        <div class="card anchor-target" id="p-comp">
+          <h3>Competition Training</h3>
+          <p>
+            Prepare for AMC/AMO-style problem solving. Learn strategies, build stamina, and practise high-quality questions.
+          </p>
+          <ul>
+            <li>Problem-solving strategies + habits</li>
+            <li>Timed practice and review</li>
+            <li>Solutions explained clearly</li>
+            <li>Learn smart shortcuts &amp; avoid common traps</li>
+            <li>Build a personal strategy toolkit for different question types</li>
+          </ul>
+
+          <div class="prog-meta">
+            <span class="prog-chip">Extension</span>
+            <span class="prog-chip">AMC/AMO focus</span>
+            <span class="prog-chip">Strategies</span>
+          </div>
+
+          <div class="parents-get">👨‍👩‍👧‍👦 <strong>Parents get:</strong> strategy feedback + a recommended practice pathway.</div>
+
+          <div class="prog-actions">
+            <a class="btn btn-success" href="contact.html">Enquire</a>
+            <a class="btn btn-amber" href="register.html">Register</a>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <!-- Small group -->
-    <div class="card" id="p-group" style="scroll-margin-top: 110px;">
-      <h3>Small-Group Tutorials</h3>
-      <p>
-        Small groups for structure + motivation. Great for consistent weekly learning and school-aligned practice.
-      </p>
-      <ul>
-        <li>Small group attention (limited seats)</li>
-        <li>Clear weekly focus + homework support</li>
-        <li>Confidence-first environment</li>
-      </ul>
-
-      <div class="prog-meta">
-        <span class="prog-chip">Small groups</span>
-        <span class="prog-chip">Weekly structure</span>
-        <span class="prog-chip">School-aligned</span>
-      </div>
-
-      <div class="parents-get">👨‍👩‍👧‍👦 <strong>Parents get:</strong> weekly focus topics + progress updates and clear next steps.</div>
-
-      <div class="prog-actions">
-        <a class="btn btn-success" href="contact.html">Enquire</a>
-        <a class="btn btn-amber" href="register.html">Register</a>
-      </div>
-    </div>
-
-    <!-- Maths Club -->
-    <div class="card" id="p-club" style="scroll-margin-top: 110px;">
-      <h3>Maths Club</h3>
-      <p>
-        Weekly enrichment for curious learners. Build reasoning, pattern-spotting, and flexible thinking through fun problems.
-      </p>
-      <ul>
-        <li>Challenge problems + games</li>
-        <li>Reasoning and communication</li>
-        <li>Healthy confidence through exploration</li>
-      </ul>
-
-      <div class="prog-meta">
-        <span class="prog-chip">Weekly puzzles</span>
-        <span class="prog-chip">Online</span>
-        <span class="prog-chip">Progress charts</span>
-      </div>
-
-      <div class="parents-get">👨‍👩‍👧‍👦 <strong>Parents get:</strong> simple progress tracking + tips to support learning at home.</div>
-
-      <div class="prog-actions">
-        <a class="btn btn-success" href="contact.html">Enquire</a>
-        <a class="btn btn-amber" href="register.html">Register</a>
-      </div>
-    </div>
-
-    <!-- Competition -->
-    <div class="card" id="p-comp" style="scroll-margin-top: 110px;">
-      <h3>Competition Training</h3>
-      <p>
-        Prepare for AMC/AMO-style problem solving. Learn strategies, build stamina, and practise high-quality questions.
-      </p>
-      <ul>
-        <li>Problem-solving strategies + habits</li>
-        <li>Timed practice and review</li>
-        <li>Solutions explained clearly</li>
-        <li>Learn smart shortcuts &amp; avoid common traps</li>
-        <li>Build a personal strategy toolkit for different question types</li>
-      </ul>
-
-      <div class="prog-meta">
-        <span class="prog-chip">Extension</span>
-        <span class="prog-chip">AMC/AMO focus</span>
-        <span class="prog-chip">Strategies</span>
-      </div>
-
-      <div class="parents-get">👨‍👩‍👧‍👦 <strong>Parents get:</strong> strategy feedback + a recommended practice pathway.</div>
-
-      <div class="prog-actions">
-        <a class="btn btn-success" href="contact.html">Enquire</a>
-        <a class="btn btn-amber" href="register.html">Register</a>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
   </main>
 
