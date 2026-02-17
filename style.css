@@ -4,6 +4,7 @@
    (Pill topbar + Screenshot hero)
    ========================= */
 
+/* ============ TOKENS ============ */
 :root{
   --bg: #f7f9fc;
   --paper: #ffffff;
@@ -16,9 +17,8 @@
   --accent:#f59e0b;
   --success:#16a34a;
 
-  /* hover variants */
-  --success-hover: #15803d; /* darker green */
-  --accent-hover:  #d97706; /* deeper amber */
+  --success-hover: #15803d;
+  --accent-hover:  #d97706;
   --brand-hover:   #0a4fb8;
 
   --radius: 16px;
@@ -28,6 +28,7 @@
   --max: 1120px;
 }
 
+/* ============ BASE ============ */
 *{ box-sizing:border-box; }
 html,body{ margin:0; padding:0; overflow-x:hidden; }
 img{ max-width:100%; height:auto; display:block; }
@@ -45,9 +46,7 @@ body{
 a{ color:inherit; }
 .container{ max-width: var(--max); margin: 0 auto; padding: 0 18px; }
 
-/* =========================
-   TOP BAR (pill nav)
-   ========================= */
+/* ============ TOP BAR (pill nav) ============ */
 .topbar{
   position: sticky;
   top: 0;
@@ -72,18 +71,16 @@ a{ color:inherit; }
   text-decoration:none;
 }
 
-/* ===== Top-left logo (clean) ===== */
+/* top-left logo */
 .brand-logo{
   width: 54px;
   height: 54px;
   object-fit: contain;
-
   background: transparent;
   border: none;
   padding: 0;
   box-shadow: none;
-
-  border-radius: 999px; /* circle */
+  border-radius: 999px;
 }
 
 .brand-title{
@@ -102,7 +99,7 @@ a{ color:inherit; }
   color: rgba(15,23,42,.70);
 }
 
-/* Nav pills (top links) */
+/* nav pills */
 .nav{
   display:flex;
   align-items:center;
@@ -136,12 +133,10 @@ a{ color:inherit; }
   box-shadow: 0 10px 18px rgba(11,94,215,.12);
 }
 
-/* optional: make language pill consistent */
-.nav a.nav-lang{
-  border-color: rgba(11,94,215,.22);
-}
+/* language pill */
+.nav a.nav-lang{ border-color: rgba(11,94,215,.22); }
 
-/* Mobile: stack */
+/* mobile */
 @media (max-width: 880px){
   .topbar-inner{ flex-direction: column; align-items:flex-start; }
   .nav{ justify-content:flex-start; }
@@ -149,9 +144,7 @@ a{ color:inherit; }
   .brand-title b{ font-size: 18px; }
 }
 
-/* =========================
-   BUTTONS
-   ========================= */
+/* ============ BUTTONS ============ */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -164,16 +157,13 @@ a{ color:inherit; }
   border: 1px solid transparent;
   cursor:pointer;
   white-space: nowrap;
-
   transition: transform .14s ease, box-shadow .14s ease, background-color .14s ease, color .14s ease;
 }
-
 .btn:hover{
   transform: translateY(-1px);
   box-shadow: 0 12px 24px rgba(2, 6, 23, .14);
 }
 .btn:active{ transform: translateY(0); }
-
 .btn:focus-visible{
   outline: 3px solid rgba(11, 94, 215, .45);
   outline-offset: 3px;
@@ -196,12 +186,10 @@ a{ color:inherit; }
 .btn-success{ background: var(--success); color:#fff; }
 .btn-amber{ background: var(--accent); color:#111827; }
 
-.btn-success:hover{ background: var(--success-hover); color:#fff; }
-.btn-amber:hover{ background: var(--accent-hover); color:#111827; }
+.btn-success:hover{ background: var(--success-hover); }
+.btn-amber:hover{ background: var(--accent-hover); }
 
-/* =========================
-   HERO (screenshot style)
-   ========================= */
+/* ============ HERO (screenshot style) ============ */
 .hero{ padding: 18px 0 24px; }
 
 .hero-snap{
@@ -288,7 +276,10 @@ a{ color:inherit; }
   flex-wrap: wrap;
 }
 
-/* ===== HERO logo box (clean / no frame) ===== */
+/* HERO logo box (single source of truth)
+   - Right aligned on desktop
+   - Does NOT stretch full width
+*/
 .hero-snap-logoBox{
   background: transparent;
   border: none;
@@ -296,24 +287,36 @@ a{ color:inherit; }
   padding: 0;
   border-radius: 0;
 
-  display:grid;
-  place-items:center;
+  display:flex;
+  justify-content:flex-end;
+  align-items:flex-start;
+
+  width: max-content;
+  justify-self: end;
+  margin-left: auto;
 }
+
 .hero-snap-logoBox img{
   width: 240px;
   max-width: 100%;
   height: auto;
-
+  display:block;
   padding: 0;
   border: none;
   box-shadow: none;
   background: transparent;
-  border-radius: 0; /* set 18px if you want rounded logo */
+  border-radius: 0;
 }
 
-/* =========================
-   SECTIONS / CARDS
-   ========================= */
+/* when hero grid stacks: keep logo compact (still right-aligned) */
+@media (max-width: 980px){
+  .hero-snap-logoBox{
+    justify-self: end;
+    margin-left: auto;
+  }
+}
+
+/* ============ SECTIONS / CARDS ============ */
 .section{ padding: 26px 0; }
 
 .section-title{
@@ -362,10 +365,7 @@ a{ color:inherit; }
   margin-bottom: 10px;
 }
 
-/* ===============================
-   Linkable chooser cards (<a class="card">)
-   Keep whole-card hover OFF; chips inside can hover
-   =============================== */
+/* linkable cards */
 a.card{
   display:block;
   text-decoration:none;
@@ -384,7 +384,7 @@ a.card:focus-visible{
   border-radius: 16px;
 }
 
-/* ===== Program chips (used in Programs page) ===== */
+/* program chips (general default) */
 .prog-chip{
   display:inline-block;
   padding: 6px 12px;
@@ -392,11 +392,12 @@ a.card:focus-visible{
   font-weight: 800;
   font-size: 14px;
   line-height: 1;
-  border: 2px solid rgba(0,0,0,.10);
-  background: rgba(2, 35, 134, 0.795);
+  border: 2px solid rgba(15,23,42,.12);
+  background: rgba(255,255,255,.75);
+  color: var(--ink);
 }
 
-/* Chips hover ONLY when inside a clickable chooser card */
+/* chips hover only inside clickable chooser cards */
 a.card .prog-chip{
   cursor: pointer;
   transition: background-color .14s ease, color .14s ease, transform .14s ease,
@@ -404,15 +405,13 @@ a.card .prog-chip{
 }
 a.card .prog-chip:hover{
   background: var(--brand);
-  color: #1d44f3c6;
-  border-color: rgba(0,0,0,.10);
+  color: #fff;
+  border-color: rgba(11,94,215,.20);
   transform: translateY(-1px);
   box-shadow: 0 10px 18px rgba(2, 6, 23, .12);
 }
 
-/* =========================
-   FORMS
-   ========================= */
+/* ============ FORMS ============ */
 .form{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -435,9 +434,7 @@ input, select, textarea{
 textarea{ min-height: 120px; resize: vertical; }
 .helper{ color: var(--muted); font-weight: 650; font-size: 13px; margin-top: 10px; }
 
-/* =========================
-   FOOTER
-   ========================= */
+/* ============ FOOTER ============ */
 .footer{
   margin-top: 22px;
   padding: 26px 0;
@@ -457,11 +454,7 @@ textarea{ min-height: 120px; resize: vertical; }
 
 .sep{ height: 1px; background: var(--line); margin: 18px 0; }
 
-/* =========================
-   QUICK LINKS (panel)
-   Use on any page:
-   <div class="quicklinks"> ... <a class="ql-btn">...</a>
-   ========================= */
+/* ============ QUICK LINKS (panel) ============ */
 .quicklinks{
   background: rgba(255,255,255,.82);
   border: 1px solid var(--line);
@@ -515,19 +508,34 @@ textarea{ min-height: 120px; resize: vertical; }
   transform: translateY(-1px);
   box-shadow: 0 10px 18px rgba(2, 6, 23, .12);
 }
-
 .ql-btn:active{ transform: translateY(0); }
 
 .ql-btn:focus-visible{
   outline: 3px solid rgba(11, 94, 215, .45);
   outline-offset: 3px;
 }
+/* ===== Quick Links: up to 4 buttons per row (global) ===== */
+.ql-grid{
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* ✅ max 4 per row */
+}
 
-/* =========================
-   QUICK JUMP (chip row like screenshot)
-   Use anywhere:
-   <div class="quick-jump"><a href="#...">...</a></div>
-   ========================= */
+/* 3 per row */
+@media (max-width: 1100px){
+  .ql-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* 2 per row */
+@media (max-width: 780px){
+  .ql-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* 1 per row */
+@media (max-width: 420px){
+  .ql-grid{ grid-template-columns: 1fr; }
+}
+/* ============ QUICK JUMP (chip row) ============ */
 .quick-jump{
   display:flex;
   flex-wrap:wrap;
@@ -562,30 +570,21 @@ textarea{ min-height: 120px; resize: vertical; }
   border-color: rgba(11, 94, 215, .35);
   background: rgba(255,255,255,.92);
 }
-
 .quick-jump a:active,
 .quick-link:active{
   transform: translateY(0);
 }
-
 .quick-jump a:focus-visible,
 .quick-link:focus-visible{
   outline: 3px solid rgba(11, 94, 215, .45);
   outline-offset: 3px;
 }
 
-/* =========================
-   ANCHOR TARGET OFFSET (global)
-   Put class="anchor-target" on sections you jump to
-   ========================= */
-.anchor-target{
-  scroll-margin-top: 110px;
-}
-/* =========================
-   PROGRAMS PAGE — fun card titles + icons
-   Only applies when <body class="page-programs">
-   ========================= */
+/* ============ ANCHOR TARGET OFFSET (global) ============ */
+.anchor-target{ scroll-margin-top: 110px; }
 
+/* ============ PROGRAMS PAGE (scoped) ============ */
+/* Only applies when <body class="page-programs"> */
 .page-programs .card{
   position: relative;
   overflow: hidden;
@@ -622,7 +621,6 @@ textarea{ min-height: 120px; resize: vertical; }
   gap:12px;
   margin-bottom: 8px;
 }
-
 .page-programs .prog-ico{
   width: 40px;
   height: 40px;
@@ -637,38 +635,55 @@ textarea{ min-height: 120px; resize: vertical; }
   flex: 0 0 auto;
 }
 
-/* bigger, more “headline” title */
+/* bigger titles */
 .page-programs .card h3{
-  margin: 0;               /* handled by .prog-title */
-  font-size: 24px;         /* bigger */
+  margin: 0;
+  font-size: 24px;
   line-height: 1.15;
   letter-spacing: -0.2px;
   font-weight: 1000;
 }
 
-/* Theme colours */
+/* theme colours */
 .page-programs .theme-catchup  h3{ color: var(--brand2); }
 .page-programs .theme-keepup   h3{ color: var(--success); }
 .page-programs .theme-getahead h3{ color: var(--accent); }
-.page-programs .theme-comp     h3{ color: #7c3aed; } /* violet */
+.page-programs .theme-comp     h3{ color: #7c3aed; }
 
-/* Icon bubble tint to match theme */
+/* icon tint */
 .page-programs .theme-catchup  .prog-ico{ background: rgba(11,94,215,.10); }
 .page-programs .theme-keepup   .prog-ico{ background: rgba(22,163,74,.12); }
 .page-programs .theme-getahead .prog-ico{ background: rgba(245,158,11,.14); }
 .page-programs .theme-comp     .prog-ico{ background: rgba(124,58,237,.12); }
 
-/* Optional: make chips lighter inside programs cards (so they don't look like dark buttons) */
-.page-programs .prog-chip{
-  background: rgba(255,255,255,.75);
-  border-color: rgba(15,23,42,.12);
-}
-.page-programs a.card .prog-chip:hover{
-  /*background: #1d44f3c6;rgba(11,94,215,.10);
-  color: var(--ink);*/
-  background: var(--brand);
-  color: #e1f31dc6;
-  border-color: rgba(0,0,0,.10);
-  transform: translateY(-1px);
-  box-shadow: 0 10px 18px rgba(2, 6, 23, .12);
-}
+  /* ... keep all your existing CSS above ... */
+
+  /* ===== Colorful section titles (Policies page only) ===== */
+  .policy-block h3{
+    /* keep your current size/weight, just add color + subtle emphasis */
+    display:flex;
+    align-items:center;
+    gap: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(0,0,0,.08);
+  }
+
+  /* Different color per section (based on the order on the page) */
+  .policy-grid .policy-block:nth-child(1)  h3{ color:#0b5ed7; } /* blue */
+  .policy-grid .policy-block:nth-child(2)  h3{ color:#7c3aed; } /* purple */
+  .policy-grid .policy-block:nth-child(3)  h3{ color:#d97706; } /* amber */
+  .policy-grid .policy-block:nth-child(4)  h3{ color:#0f766e; } /* teal */
+  .policy-grid .policy-block:nth-child(5)  h3{ color:#dc2626; } /* red */
+  .policy-grid .policy-block:nth-child(6)  h3{ color:#16a34a; } /* green */
+  .policy-grid .policy-block:nth-child(7)  h3{ color:#be185d; } /* pink */
+  .policy-grid .policy-block:nth-child(8)  h3{ color:#334155; } /* slate */
+
+  /* Optional: color the left border of each block to match the title */
+  .policy-grid .policy-block:nth-child(1){ border-left: 6px solid #0b5ed7; }
+  .policy-grid .policy-block:nth-child(2){ border-left: 6px solid #7c3aed; }
+  .policy-grid .policy-block:nth-child(3){ border-left: 6px solid #d97706; }
+  .policy-grid .policy-block:nth-child(4){ border-left: 6px solid #0f766e; }
+  .policy-grid .policy-block:nth-child(5){ border-left: 6px solid #dc2626; }
+  .policy-grid .policy-block:nth-child(6){ border-left: 6px solid #16a34a; }
+  .policy-grid .policy-block:nth-child(7){ border-left: 6px solid #be185d; }
+  .policy-grid .policy-block:nth-child(8){ border-left: 6px solid #334155; }

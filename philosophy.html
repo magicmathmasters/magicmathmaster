@@ -22,40 +22,7 @@
 
   <!-- Page-only overrides (kept tiny) -->
   <style>
-    /* HERO: remove square frame around logo (template default) */
-    .hero-snap-logoBox{
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-    }
-    .hero-snap-logoBox img{
-      padding: 0 !important;
-      border: none !important;
-      box-shadow: none !important;
-      background: transparent !important;
-      border-radius: 0 !important;
-    }
-    .hero { padding: 22px 0 18px; }
-
-    /* Quick anchor buttons inside hero */
-    .philo-actions{ margin-top: 12px; display:flex; flex-wrap:wrap; gap:10px; }
-    .philo-actions a{ white-space:nowrap; }
-
-    /* Chips (small trust + scanning help) */
-    .philo-chips{ margin-top: 12px; display:flex; flex-wrap:wrap; gap:10px; }
-    .philo-chip{
-      display:inline-block;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 14px;
-      line-height: 1;
-      border: 2px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.70);
-    }
-
+  
     /* Sections */
     .philo-list{
       margin: 0;
@@ -88,6 +55,24 @@
       font-weight: 750;
       line-height: 1.7;
     }
+
+    /* ===== Quick links: “Programs-like” behaviour ===== */
+    .ql-btn.is-active{
+      background: rgba(11,94,215,.18);
+      border-color: rgba(11,94,215,.35);
+      box-shadow: 0 10px 18px rgba(11,94,215,.12);
+      color: var(--brand2);
+    }
+
+    @keyframes mmmFlash {
+      0%   { box-shadow: 0 0 0 rgba(11,94,215,0); border-color: rgba(11,94,215,.12); }
+      35%  { box-shadow: 0 0 0 6px rgba(11,94,215,.18); border-color: rgba(11,94,215,.55); }
+      100% { box-shadow: 0 0 0 rgba(11,94,215,0); border-color: rgba(11,94,215,.12); }
+    }
+    .anchor-flash.card{ animation: mmmFlash 1.15s ease; }
+
+    /* Anchor jump offset (topbar height) */
+    .anchor-target{ scroll-margin-top: 110px; }
   </style>
 </head>
 
@@ -116,7 +101,8 @@
     </div>
   </div>
 
-  <!-- ===== HERO (same template) ===== -->
+  <!-- ===== HERO (Programs-like: left text + right logo) ===== -->
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="container">
       <div class="hero-snap">
@@ -138,25 +124,35 @@
         </p>
 
         <div class="hero-snap-checks">
-          <span>✓ Calm structure, high standards</span>
-          <span>✓ Safe to try, safe to make mistakes</span>
-          <span>✓ Clear feedback for families</span>
+          <span>✓ Calm, structured teaching</span>
+          <span>✓ Personalised learning</span>
+          <span>✓ Clear family communication</span>
         </div>
 
-        <div class="philo-chips" aria-label="Key ideas">
-          <span class="philo-chip">Foundations first</span>
-          <span class="philo-chip">Confidence &amp; growth mindset</span>
-          <span class="philo-chip">Real problem solving</span>
-          <span class="philo-chip">Prep–Year 12</span>
+        <div class="hero-snap-pills">
+          <span class="hero-snap-pill">Foundations first</span>
+          <span class="hero-snap-pill">Confidence &amp; growth mindset</span>
+          <span class="hero-snap-pill">Real problem solving</span>
+          <span class="hero-snap-pill">Prep–Year 12</span>
         </div>
 
-        <div class="philo-actions">
-          <a class="btn btn-outline" href="#our-philosophy">Read our philosophy</a>
-          <a class="btn btn-outline" href="#how-we-teach">How we teach</a>
+        <div class="hero-snap-cta">
           <a class="btn btn-success" href="contact.html">Enquire</a>
           <a class="btn btn-amber" href="register.html">Register</a>
         </div>
 
+      </div>
+    </div>
+  </section>
+  <!-- ✅ QUICK LINKS (Programs-like: ql-btn + JS opens/jumps) -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="quicklinks">
+       <!-- <h2>Quick links (tap to jump)</h2>-->
+        <div class="ql-grid">
+          <a class="ql-btn" href="#our-philosophy" data-jump="our-philosophy">Read our philosophy</a>
+          <a class="ql-btn" href="#how-we-teach" data-jump="how-we-teach">How we teach</a>
+        </div>
       </div>
     </div>
   </section>
@@ -165,7 +161,7 @@
   <main class="container">
 
     <!-- OUR PHILOSOPHY -->
-    <section id="our-philosophy" class="section">
+    <section id="our-philosophy" class="section anchor-target">
       <h2 class="section-title">Our philosophy</h2>
       <p class="section-sub">
         We teach maths in a way that helps children <strong>understand</strong>, <strong>use</strong>, and <strong>enjoy</strong> it.
@@ -192,7 +188,7 @@
     </section>
 
     <!-- HOW WE TEACH -->
-    <section id="how-we-teach" class="section">
+    <section id="how-we-teach" class="section anchor-target">
       <h2 class="section-title">How we teach</h2>
       <p class="section-sub">
         Our lessons follow a clear rhythm: diagnose → build the foundation → practise with feedback → extend when ready.
@@ -269,6 +265,49 @@
   <!-- Auto year -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- ✅ Programs-like quick-link behaviour: active button + highlight destination -->
+  <script>
+    (function(){
+      var btns = Array.prototype.slice.call(document.querySelectorAll(".ql-btn[data-jump]"));
+
+      function setActive(id){
+        btns.forEach(function(b){ b.classList.remove("is-active"); });
+        var match = btns.find(function(b){ return b.getAttribute("data-jump") === id; });
+        if(match) match.classList.add("is-active");
+      }
+
+      function flashCard(section){
+        if(!section) return;
+        var card = section.querySelector(".card");
+        if(!card) return;
+        card.classList.remove("anchor-flash");
+        void card.offsetWidth;
+        card.classList.add("anchor-flash");
+        setTimeout(function(){ card.classList.remove("anchor-flash"); }, 1300);
+      }
+
+      function go(id){
+        var el = document.getElementById(id);
+        if(!el) return;
+        history.replaceState(null, "", "#" + id);
+        setActive(id);
+        el.scrollIntoView({ behavior:"smooth", block:"start" });
+        setTimeout(function(){ flashCard(el); }, 220);
+      }
+
+      btns.forEach(function(btn){
+        btn.addEventListener("click", function(e){
+          e.preventDefault();
+          go(btn.getAttribute("data-jump"));
+        });
+      });
+
+      // If someone lands with a hash, highlight the matching quick link
+      var initial = (location.hash || "").replace("#","");
+      if(initial) setActive(initial);
+    })();
   </script>
 
   <!-- Auto highlight current nav item -->

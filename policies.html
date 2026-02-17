@@ -74,6 +74,7 @@
       border: 2px solid rgba(0,0,0,.10);
       border-radius:18px;
       padding: 18px;
+      scroll-margin-top: 180px; /* ✅ so quick links land nicely below topbar */
     }
     .policy-block h3{
       margin:0 0 10px;
@@ -178,11 +179,29 @@
   </section>
 
   <!-- ===== PAGE CONTENT ===== -->
-  <main class="container">
-
+  <main class="container" id="sec_top">
+    <!-- ✅ QUICK LINKS (same UI classes as other pages) -->
+    <section class="section">
+      <div class="quicklinks">
+       <!-- <h2>Quick links (tap to open)</h2> -->
+        <div class="ql-grid">
+          <a class="ql-btn" data-open="sec_summary">Summary</a>
+          <a class="ql-btn" data-open="sec_payment">Payment</a>
+          <a class="ql-btn" data-open="sec_cancel">Cancellations</a>
+          <a class="ql-btn" data-open="sec_late">Late / no-show</a>
+          <a class="ql-btn" data-open="sec_resched">Rescheduling</a>
+          <a class="ql-btn" data-open="sec_online">Online lessons</a>
+          <a class="ql-btn" data-open="sec_behaviour">Behaviour</a>
+          <a class="ql-btn" data-open="sec_practice">Practice</a>
+          <a class="ql-btn" data-open="sec_privacy">Privacy</a>
+          <a class="ql-btn" data-open="sec_questions">Questions</a>
+          <a class="ql-btn" data-open="sec_top">Top</a>
+        </div>
+      </div>
+    </section>
     <!-- Summary -->
     <section class="section">
-      <div class="policy-summary">
+      <div class="policy-summary" id="sec_summary">
         <h2>📌 Important information (short summary)</h2>
         <ul>
           <li><strong>Payment:</strong> Fees are paid before lessons.</li>
@@ -206,7 +225,7 @@
       </div>
     </section>
 
-    <!-- Policies grid (expandable structure: add more blocks easily) -->
+    <!-- Policies grid -->
     <section class="section">
       <h2 class="section-title">Policy details</h2>
       <p class="section-sub">
@@ -215,7 +234,7 @@
 
       <div class="policy-grid">
         <!-- 1. Payment -->
-        <div class="policy-block">
+        <div class="policy-block" id="sec_payment">
           <h3>💳 1. Payment policy</h3>
           <ul>
             <li>Payment is required before lessons begin.</li>
@@ -226,7 +245,7 @@
         </div>
 
         <!-- 2. Cancellations -->
-        <div class="policy-block">
+        <div class="policy-block" id="sec_cancel">
           <h3>🗓️ 2. Cancellations &amp; changes</h3>
           <ul>
             <li>Please provide at least <strong>24 hours’ notice</strong> for cancellations or changes.</li>
@@ -236,7 +255,7 @@
         </div>
 
         <!-- 3. Late arrival / no-show -->
-        <div class="policy-block">
+        <div class="policy-block" id="sec_late">
           <h3>⏱️ 3. Late arrival &amp; no-show</h3>
           <ul>
             <li>Lessons finish at the scheduled end time (even if arriving late).</li>
@@ -246,7 +265,7 @@
         </div>
 
         <!-- 4. Rescheduling -->
-        <div class="policy-block">
+        <div class="policy-block" id="sec_resched">
           <h3>🔁 4. Rescheduling</h3>
           <ul>
             <li>Rescheduling is subject to availability.</li>
@@ -256,7 +275,7 @@
         </div>
 
         <!-- 5. Online lessons -->
-        <div class="policy-block">
+        <div class="policy-block" id="sec_online">
           <h3>💻 5. Online lessons</h3>
           <ul>
             <li>A stable internet connection and a quiet learning space are required.</li>
@@ -266,7 +285,7 @@
         </div>
 
         <!-- 6. Behaviour & wellbeing -->
-        <div class="policy-block">
+        <div class="policy-block" id="sec_behaviour">
           <h3>🤝 6. Behaviour &amp; wellbeing</h3>
           <ul>
             <li>We maintain a respectful, supportive learning environment.</li>
@@ -276,7 +295,7 @@
         </div>
 
         <!-- 7. Practice -->
-        <div class="policy-block">
+        <div class="policy-block" id="sec_practice">
           <h3>📚 7. Practice &amp; progress</h3>
           <ul>
             <li>Regular practice is essential for steady improvement.</li>
@@ -286,7 +305,7 @@
         </div>
 
         <!-- 8. Communication & privacy -->
-        <div class="policy-block">
+        <div class="policy-block" id="sec_privacy">
           <h3>🔒 8. Communication &amp; privacy</h3>
           <ul>
             <li>We aim to respond within <strong>24–48 business hours</strong>.</li>
@@ -298,7 +317,7 @@
     </section>
 
     <!-- Closing note -->
-    <section class="section">
+    <section class="section" id="sec_questions">
       <div class="policy-note">
         Thank you for reading our policies. We aim to provide a safe, enjoyable, and effective learning experience for every child.
       </div>
@@ -329,6 +348,36 @@
   <!-- Auto year -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    /* Quick links: same behavior style, but scroll-only (keeps your grid format) */
+    (function(){
+      function scrollToSection(el){
+        el.scrollIntoView({ behavior:"smooth", block:"start" });
+
+        // nudge to account for sticky topbar
+        var tries = 0, maxTries = 9;
+
+        function nudge(){
+          tries++;
+          var rect = el.getBoundingClientRect();
+          var safeTop = 150;
+          if(rect.top < safeTop){
+            window.scrollBy({ top: rect.top - safeTop, left: 0, behavior: "smooth" });
+          }
+          if(tries < maxTries) setTimeout(nudge, 160);
+        }
+        setTimeout(nudge, 220);
+      }
+
+      document.querySelectorAll(".ql-btn[data-open]").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var id = btn.getAttribute("data-open");
+          var el = document.getElementById(id);
+          if(!el) return;
+          scrollToSection(el);
+        });
+      });
+    })();
   </script>
 
   <!-- Auto highlight current nav item -->
