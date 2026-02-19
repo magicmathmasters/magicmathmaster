@@ -903,3 +903,48 @@ textarea{ min-height: 120px; resize: vertical; }
   }
 }
 .pricing-page #glance-5plus h3::after{ background: #16a34a; }
+/* =========================
+   NAV: Desktop = single row
+   iPad/mobile = wrap to show all buttons
+   ========================= */
+
+/* Keep desktop one row (your current behavior) */
+.nav{
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar{ display:none; }
+
+/* iPad + mobile: wrap into multiple lines so ALL buttons are visible */
+@media (max-width: 1024px){
+  /* stack brand + nav so nav gets full width */
+  .topbar-inner{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav{
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;        /* KEY: allow 2–3 lines */
+    overflow-x: visible;    /* no horizontal scroll */
+    gap: 8px;               /* tighter spacing */
+  }
+
+  .nav a{
+    font-size: 15px;
+    padding: 7px 12px;      /* tighter pills */
+    line-height: 1;
+  }
+}
+
+/* Extra-tight phones */
+@media (max-width: 520px){
+  .nav{ gap: 6px; }
+  .nav a{
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
