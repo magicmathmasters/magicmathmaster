@@ -245,10 +245,19 @@ a{ color:inherit; }
 .btn-amber:hover{ background: var(--accent-hover); }
 
 /* New button color (purple) */
-.btn-purple{
+/*.btn-purple{
   background: #7c3aed;
   color: #fff;
   border: 2px solid rgba(0,0,0,.10);
+}*/
+/* Force purple button (Email app) */
+.policy-email-cta .btn-purple{
+  background: #7c3aed !important;
+  color: #fff !important;
+  border: 2px solid rgba(0,0,0,.10) !important;
+}
+.policy-email-cta .btn-purple:hover{
+  filter: brightness(.96);
 }
 .btn-purple:hover{
   filter: brightness(.96);
