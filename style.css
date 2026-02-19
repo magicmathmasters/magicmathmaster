@@ -27,7 +27,7 @@
 
   --max: 1120px;
 
-  /* ===== NAV pill sizing (tighter + one-row) ===== */
+  /* ===== NAV sizing (tight) ===== */
   --nav-font: 16px;
   --nav-py: 6px;
   --nav-px: 12px;
@@ -107,33 +107,20 @@ a{ color:inherit; }
 
 /* =========================
    NAV pills (UPDATED)
-   - tighter buttons
-   - keep in ONE ROW (no wrap)
-   - if screen is too narrow: horizontal scroll instead of wrapping
+   Desktop: 1 row
+   iPad/Mobile: wrap to 2–3 lines (no hidden buttons)
    ========================= */
 .nav{
   display:flex;
   align-items:center;
-  gap: 8px;                 /* tighter spacing */
-  flex-wrap: nowrap;        /* KEY: one row */
+  gap: 8px;
   justify-content:flex-end;
 
-  overflow-x: auto;         /* fallback on small widths */
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;    /* Firefox: hide scrollbar */
+  /* Desktop default: one row */
+  flex-wrap: nowrap;
 }
-.nav::-webkit-scrollbar{ display:none; } /* Chrome/Safari: hide scrollbar */
 
 .nav a{
-  display:inline-flex;          /* shrink-wrap */
-  align-items:center;
-  justify-content:center;
-
-  flex: 0 0 auto;              /* never stretch */
-  width: fit-content;
-  max-width: 100%;
-  white-space: nowrap;
-
   text-decoration:none;
   font-weight: 1000;
   font-size: var(--nav-font);
@@ -146,6 +133,13 @@ a{ color:inherit; }
   background: rgba(255,255,255,.92);
   border: 2px solid rgba(15,23,42,.14);
   transition: transform .12s ease, background .12s ease, border-color .12s ease;
+
+  /* ensure pill hugs text */
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  white-space: nowrap;
+  flex: 0 0 auto;
 }
 .nav a:hover{
   background: rgba(11,94,215,.08);
@@ -162,31 +156,37 @@ a{ color:inherit; }
 /* language pill */
 .nav a.nav-lang{ border-color: rgba(11,94,215,.22); }
 
-/* Optional extra squeeze on mid-size screens (helps keep one row) */
-@media (max-width: 1100px){
-  :root{
-    --nav-font: 15px;
-    --nav-py: 5px;
-    --nav-px: 10px;
+/* ===== KEY FIX: iPad + mobile wrap (show ALL buttons) ===== */
+@media (max-width: 1024px){
+  .topbar-inner{
+    flex-direction: column;
+    align-items:flex-start;
   }
-  .nav{ gap: 6px; }
-  .brand-title b{ font-size: 20px; }
-  .brand-logo{ width: 50px; height: 50px; }
+
+  .nav{
+    width: 100%;
+    justify-content:flex-start;
+
+    /* IMPORTANT: allow multiple lines */
+    flex-wrap: wrap !important;
+
+    /* IMPORTANT: no horizontal scrolling */
+    overflow-x: visible !important;
+  }
+
+  .nav a{
+    font-size: 15px;
+    padding: 7px 12px;
+  }
 }
 
-/* mobile */
-@media (max-width: 880px){
-  .topbar-inner{ flex-direction: column; align-items:flex-start; }
-  .nav{ justify-content:flex-start; }
-
-  :root{
-    --nav-font: 14px;
-    --nav-py: 5px;
-    --nav-px: 10px;
+/* smaller phones: even tighter to reduce lines */
+@media (max-width: 520px){
+  .nav{ gap: 6px; }
+  .nav a{
+    font-size: 14px;
+    padding: 6px 10px;
   }
-
-  .brand-title b{ font-size: 18px; }
-  .brand-logo{ width: 46px; height: 46px; }
 }
 
 /* ============ BUTTONS ============ */
@@ -363,10 +363,9 @@ a{ color:inherit; }
    Applies to all pages that use .hero-snap-title
    ========================= */
 :root{
-  /* Tune these once, affects all pages */
-  --hero-title-min: 30px;    /* smallest on phones */
-  --hero-title-fluid: 3.2vw; /* scales with viewport */
-  --hero-title-max: 56px;    /* cap for large screens */
+  --hero-title-min: 30px;
+  --hero-title-fluid: 3.2vw;
+  --hero-title-max: 56px;
   --hero-title-line: 1.08;
 }
 
@@ -377,7 +376,6 @@ a{ color:inherit; }
   margin: 0 0 10px;
 }
 
-/* Optional: match the subtitle/tagline too (nice balance) */
 .hero-snap-tagline{
   font-size: clamp(15px, 1.25vw, 19px);
   line-height: 1.45;
@@ -440,10 +438,6 @@ a{ color:inherit; }
   color: #2563eb; /* fallback */
 }
 
-/* Apply gradient only to the heading text.
-   If your title includes an emoji, wrap emoji in <span class="ico">🌈</span>
-   so the emoji stays normal ink color.
-*/
 @supports (-webkit-background-clip: text) or (background-clip: text) {
   .card h3,
   .info-card h3,
@@ -598,7 +592,7 @@ textarea{ min-height: 120px; resize: vertical; }
 .ql-grid{
   display: grid;
   gap: 12px;
-  grid-template-columns: repeat(4, minmax(0, 1fr)); /* max 4 per row */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 @media (max-width: 1100px){
   .ql-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -691,260 +685,3 @@ textarea{ min-height: 120px; resize: vertical; }
 
 /* ============ ANCHOR TARGET OFFSET (global) ============ */
 .anchor-target{ scroll-margin-top: 110px; }
-
-/* ============ PROGRAMS PAGE (scoped) ============ */
-/* Only applies when <body class="page-programs"> */
-.page-programs .card{
-  position: relative;
-  overflow: hidden;
-}
-
-/* soft playful blobs */
-.page-programs .card::before{
-  content:"";
-  position:absolute;
-  inset:-50px -60px auto auto;
-  width:220px;
-  height:220px;
-  border-radius:999px;
-  background: radial-gradient(circle at 30% 30%, rgba(11,94,215,.12), transparent 60%);
-  transform: rotate(10deg);
-  pointer-events:none;
-}
-.page-programs .card::after{
-  content:"";
-  position:absolute;
-  inset:auto auto -60px -60px;
-  width:240px;
-  height:240px;
-  border-radius:999px;
-  background: radial-gradient(circle at 40% 40%, rgba(245,158,11,.14), transparent 62%);
-  transform: rotate(-10deg);
-  pointer-events:none;
-}
-
-/* title row with icon bubble */
-.page-programs .prog-title{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom: 8px;
-}
-.page-programs .prog-ico{
-  width: 40px;
-  height: 40px;
-  border-radius: 14px;
-  display:grid;
-  place-items:center;
-  font-size: 20px;
-  font-weight: 900;
-  border: 1px solid rgba(15,23,42,.12);
-  background: rgba(255,255,255,.75);
-  box-shadow: 0 10px 18px rgba(2, 6, 23, .08);
-  flex: 0 0 auto;
-}
-
-/* bigger titles */
-.page-programs .card h3{
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.15;
-  letter-spacing: -0.2px;
-  font-weight: 1000;
-}
-
-/* theme colours */
-.page-programs .theme-catchup  h3{ color: var(--brand2); }
-.page-programs .theme-keepup   h3{ color: var(--success); }
-.page-programs .theme-getahead h3{ color: var(--accent); }
-.page-programs .theme-comp     h3{ color: #7c3aed; }
-
-/* icon tint */
-.page-programs .theme-catchup  .prog-ico{ background: rgba(11,94,215,.10); }
-.page-programs .theme-keepup   .prog-ico{ background: rgba(22,163,74,.12); }
-.page-programs .theme-getahead .prog-ico{ background: rgba(245,158,11,.14); }
-.page-programs .theme-comp     .prog-ico{ background: rgba(124,58,237,.12); }
-
-/* =========================================
-   GLOBAL THEMES (apply on ANY page)
-   Use: class="card theme-catchup" etc.
-   ========================================= */
-.theme-catchup h3{ color: var(--brand2); }
-.theme-keepup  h3{ color: var(--success); }
-.theme-getahead h3{ color: var(--accent); }
-.theme-comp    h3{ color: #7c3aed; }
-
-/* subtle card tint (optional; looks like Programs) */
-.theme-catchup{
-  background: linear-gradient(180deg, rgba(11,94,215,.06), rgba(255,255,255,.80) 60%);
-}
-.theme-keepup{
-  background: linear-gradient(180deg, rgba(22,163,74,.06), rgba(255,255,255,.80) 60%);
-}
-.theme-getahead{
-  background: linear-gradient(180deg, rgba(245,158,11,.08), rgba(255,255,255,.80) 60%);
-}
-.theme-comp{
-  background: linear-gradient(180deg, rgba(124,58,237,.08), rgba(255,255,255,.80) 60%);
-}
-
-/* keep emoji/icon normal inside themed titles */
-.theme-catchup h3 .ico,
-.theme-keepup  h3 .ico,
-.theme-getahead h3 .ico,
-.theme-comp    h3 .ico{
-  color: var(--ink) !important;
-}
-
-/* ===== Colorful section titles (Policies page only) ===== */
-.policy-block h3{
-  display:flex;
-  align-items:center;
-  gap: 8px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid rgba(0,0,0,.08);
-}
-
-.policy-grid .policy-block:nth-child(1)  h3{ color:#0b5ed7; }
-.policy-grid .policy-block:nth-child(2)  h3{ color:#7c3aed; }
-.policy-grid .policy-block:nth-child(3)  h3{ color:#d97706; }
-.policy-grid .policy-block:nth-child(4)  h3{ color:#0f766e; }
-.policy-grid .policy-block:nth-child(5)  h3{ color:#dc2626; }
-.policy-grid .policy-block:nth-child(6)  h3{ color:#16a34a; }
-.policy-grid .policy-block:nth-child(7)  h3{ color:#be185d; }
-.policy-grid .policy-block:nth-child(8)  h3{ color:#334155; }
-
-.policy-grid .policy-block:nth-child(1){ border-left: 6px solid #0b5ed7; }
-.policy-grid .policy-block:nth-child(2){ border-left: 6px solid #7c3aed; }
-.policy-grid .policy-block:nth-child(3){ border-left: 6px solid #d97706; }
-.policy-grid .policy-block:nth-child(4){ border-left: 6px solid #0f766e; }
-.policy-grid .policy-block:nth-child(5){ border-left: 6px solid #dc2626; }
-.policy-grid .policy-block:nth-child(6){ border-left: 6px solid #16a34a; }
-.policy-grid .policy-block:nth-child(7){ border-left: 6px solid #be185d; }
-.policy-grid .policy-block:nth-child(8){ border-left: 6px solid #334155; }
-
-/* =========================================
-   Pricing page: Fees-at-a-glance title colours
-   Scoped to pricing page only (body.pricing-page)
-   ========================================= */
-.pricing-page .price-card h3{
-  margin:0 0 10px;
-  font-size: 22px;
-  font-weight: 1000;
-  letter-spacing: .2px;
-  color: #1f2937; /* fallback */
-  position: relative;
-  display: inline-block;
-  padding-bottom: 6px;
-}
-
-/* Underline accent */
-.pricing-page .price-card h3::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:0;
-  width: 44px;
-  height: 4px;
-  border-radius: 999px;
-  opacity: .9;
-  background: rgba(15,23,42,.18);
-}
-
-/* Text gradient (supported browsers) */
-@supports (-webkit-background-clip: text) or (background-clip: text) {
-  .pricing-page .price-card h3{
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-}
-
-/* Online */
-.pricing-page #glance-online h3{
-  color:#0ea5e9;
-}
-@supports (-webkit-background-clip: text) or (background-clip: text) {
-  .pricing-page #glance-online h3{
-    background-image: linear-gradient(90deg, #0ea5e9, #2563eb);
-  }
-}
-.pricing-page #glance-online h3::after{ background: #0ea5e9; }
-
-/* In-person */
-.pricing-page #glance-inperson h3{
-  color:#f97316;
-}
-@supports (-webkit-background-clip: text) or (background-clip: text) {
-  .pricing-page #glance-inperson h3{
-    background-image: linear-gradient(90deg, #f97316, #ef4444);
-  }
-}
-.pricing-page #glance-inperson h3::after{ background: #f97316; }
-
-/* Short session */
-.pricing-page #glance-30 h3{
-  color:#7c3aed;
-}
-@supports (-webkit-background-clip: text) or (background-clip: text) {
-  .pricing-page #glance-30 h3{
-    background-image: linear-gradient(90deg, #7c3aed, #2563eb);
-  }
-}
-.pricing-page #glance-30 h3::after{ background: #7c3aed; }
-
-/* 5+ students */
-.pricing-page #glance-5plus h3{
-  color:#16a34a;
-}
-@supports (-webkit-background-clip: text) or (background-clip: text) {
-  .pricing-page #glance-5plus h3{
-    background-image: linear-gradient(90deg, #16a34a, #0ea5e9);
-  }
-}
-.pricing-page #glance-5plus h3::after{ background: #16a34a; }
-/* =========================
-   NAV: Desktop = single row
-   iPad/mobile = wrap to show all buttons
-   ========================= */
-
-/* Keep desktop one row (your current behavior) */
-.nav{
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.nav::-webkit-scrollbar{ display:none; }
-
-/* iPad + mobile: wrap into multiple lines so ALL buttons are visible */
-@media (max-width: 1024px){
-  /* stack brand + nav so nav gets full width */
-  .topbar-inner{
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav{
-    width: 100%;
-    justify-content: flex-start;
-    flex-wrap: wrap;        /* KEY: allow 2–3 lines */
-    overflow-x: visible;    /* no horizontal scroll */
-    gap: 8px;               /* tighter spacing */
-  }
-
-  .nav a{
-    font-size: 15px;
-    padding: 7px 12px;      /* tighter pills */
-    line-height: 1;
-  }
-}
-
-/* Extra-tight phones */
-@media (max-width: 520px){
-  .nav{ gap: 6px; }
-  .nav a{
-    font-size: 14px;
-    padding: 6px 10px;
-  }
-}
