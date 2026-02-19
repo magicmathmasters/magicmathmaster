@@ -244,6 +244,16 @@ a{ color:inherit; }
 .btn-success:hover{ background: var(--success-hover); }
 .btn-amber:hover{ background: var(--accent-hover); }
 
+/* New button color (purple) */
+.btn-purple{
+  background: #7c3aed;
+  color: #fff;
+  border: 2px solid rgba(0,0,0,.10);
+}
+.btn-purple:hover{
+  filter: brightness(.96);
+}
+
 /* ============ HERO (screenshot style) ============ */
 .hero{ padding: 18px 0 24px; }
 
