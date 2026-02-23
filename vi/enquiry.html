@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tư vấn | Magic Math Master</title>
+  <meta name="description" content="Gửi yêu cầu tư vấn đến Magic Math Master. Vui lòng điền biểu mẫu bên dưới và chúng tôi sẽ phản hồi sớm nhất có thể." />
+  <link rel="canonical" href="https://www.magicmathmaster.com.au/vi/enquiry.html" />
+
+  <!-- Use your site styles (same as programs.html hero) -->
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <style>
+    /* Page-only bits */
+    html, body { overflow-x:hidden; }
+
+    /* Keep this page aligned with your site container */
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 18px 40px;
+    }
+
+    /* Form card */
+    .form-card{
+      border: 1px solid rgba(0,0,0,.12);
+      background:#fff;
+      border-radius: 18px;
+      overflow:hidden;
+      box-shadow: 0 10px 26px rgba(0,0,0,.08);
+    }
+    .form-card-head{
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .form-card-title{ margin:0; font-size: 18px; font-weight: 1000; }
+
+    .iframe-wrap{
+      position:relative;
+      width:100%;
+      padding-top: 135%; /* adjust height: try 120%–170% */
+    }
+    .iframe-wrap iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* Minor: make hero buttons sit nicely */
+    .hero-snap-cta .btn{ margin: 0; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== TOP BAR (same as other pages) ===== -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html" aria-label="Trang chủ Magic Math Master">
+        <img class="brand-logo" src="../assets/logo.png" alt="Logo Magic Math Master" />
+        <div class="brand-title">
+          <b>Magic Math Master</b>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Điều hướng chính">
+        <a data-nav href="index.html">Trang chủ</a>
+        <a data-nav href="programs.html">Chương trình</a>
+        <a data-nav href="pricing.html">Học phí</a>
+        <a data-nav href="policies.html">Chính sách</a>
+        <a data-nav href="about.html">Giới thiệu</a>
+        <a data-nav href="philosophy.html">Triết lý</a>
+        <a data-nav href="contact.html">Liên hệ</a>
+        <a class="nav-lang" href="../enquiry.html">English</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ===== HERO (same “hero-snap” format as programs.html) ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-snap">
+
+        <div class="hero-snap-grid">
+          <div>
+            <h1 class="hero-snap-title">Tư vấn</h1>
+            <div class="hero-snap-tagline">Gửi câu hỏi của bạn — chúng tôi sẽ phản hồi sớm nhất có thể</div>
+          </div>
+
+          <div class="hero-snap-logoBox" aria-hidden="true">
+            <img src="../assets/logo.png" alt="Logo Magic Math Master" loading="lazy" />
+          </div>
+        </div>
+
+        <p class="hero-snap-desc">
+          Hãy cho chúng tôi biết <b>lớp</b> của con bạn, mục tiêu (<b>bắt kịp / theo kịp / vượt lên</b>), và các nội dung bạn muốn được hỗ trợ.
+          Chúng tôi sẽ gợi ý bước tiếp theo phù hợp nhất.
+        </p>
+
+        <div class="hero-snap-checks">
+          <span>✓ Hướng dẫn bước tiếp theo rõ ràng</span>
+          <span>✓ Giao tiếp thân thiện</span>
+          <span>✓ Dạy học ưu tiên xây dựng tự tin</span>
+        </div>
+
+        <div class="hero-snap-cta">
+          <a class="btn btn-outline" href="index.html">← Về trang chủ</a>
+          <a class="btn btn-success" href="#enquiry-form">Điền biểu mẫu</a>
+          <a class="btn btn-amber" target="_blank" rel="noopener"
+             href="https://forms.gle/FT16LedmpFi117QK9">
+            Mở tab mới
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FORM ===== -->
+  <main class="wrap">
+    <section class="section" id="enquiry-form">
+      <div class="form-card">
+        <div class="form-card-head">
+          <h2 class="form-card-title">Magic Math Master — Biểu mẫu tư vấn</h2>
+        </div>
+
+        <div class="iframe-wrap">
+          <iframe
+            loading="lazy"
+            src="https://forms.gle/FT16LedmpFi117QK9">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER (same as other pages) ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Magic Math Master • Úc</div>
+      <div>
+        <a href="contact.html">Liên hệ</a> •
+        <a href="policies.html">Chính sách</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Auto highlight current nav item -->
+  <script src="../script.js"></script>
+</body>
+</html>
