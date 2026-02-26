@@ -260,7 +260,6 @@ const qs = [
   { q:"🦋 14 butterflies, 7 fly away. How many left?", a:7, tip:"14 − 7" }
 ];
 
-
 let i=-1, score=0;
 let student={name:"",grade:""};
 let gotCorrect=new Array(qs.length).fill(false);
@@ -284,8 +283,12 @@ function start(){
 function next(){
   i++;
   el("fb").textContent="";
-  el("nextBtn").disabled=true;
   el("ans").value="";
+
+  // Reset buttons for the next question
+  el("checkBtn").disabled=false;
+  el("nextBtn").disabled=true;
+  el("nextBtn").classList.add("secondary");
 
   if(i>=qs.length){ finish(); return; }
   el("q").textContent=qs[i].q;
@@ -308,7 +311,13 @@ function check(){
     el("fb").className="feedback bad";
     el("fb").textContent="That one was tricky — let’s practise it more.";
   }
+
+  // Make Check unavailable
+  el("checkBtn").disabled=true;
+
+  // Make Next active and same colour as Check
   el("nextBtn").disabled=false;
+  el("nextBtn").classList.remove("secondary");
 }
 
 function finish(){
@@ -329,7 +338,7 @@ function drawChart(vals){
   const c=el("chart"),ctx=c.getContext("2d");
   ctx.clearRect(0,0,c.width,c.height);
   const barW=50,gap=20,base=220;
-  vals.forEach((v,i)=>{
+  vals.forEach((v,i)=>{ 
     const h=v*180;
     ctx.fillStyle=v?"#0b5ed7":"#ef4444";
     ctx.fillRect(60+i*(barW+gap),base-h,barW,h);
