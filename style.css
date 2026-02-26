@@ -17,6 +17,7 @@
   --accent:#f59e0b;
   --success:#16a34a;
   --red:#ba0921;
+  --turquoise:#0ea5b7
 
   --success-hover: #15803d;
   --accent-hover:  #d97706;
@@ -242,9 +243,7 @@ a{ color:inherit; }
 .btn-success{ background: var(--success); color:#fff; }
 .btn-amber{ background: var(--accent); color:#111827; }
 .btn-red{ background: var(--red); color:#fff }
-.btn-cyan {
-      background: #0ea5b7;
-      color: #fff;
+.btn-cyan { background: var(--turquoise); color: #fff;
     }
 
 .btn-success:hover{ background: var(--success-hover); }
