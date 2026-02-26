@@ -250,11 +250,16 @@ const ENDPOINT_URL =
   "https://script.google.com/macros/s/AKfycbwvWZJLRflPGQA3s5P2-B5LkTFonS4Z1SPI5-85lzlj1lFY02qXJzTd239PsiB0WICr/exec";
 
 const qs = [
-  { q:"Counting and adding animals (5 + 2)", a:7 },
-  { q:"Subtracting animals (9 − 3)", a:6 },
-  { q:"Equal groups (4 × 2)", a:8 },
-  { q:"Counting legs (3 × 4)", a:12 }
+  { q:"🐶 5 puppies and 2 kittens. How many animals?", a:7, tip:"5 + 2" },
+  { q:"🐰 9 rabbits. 3 hop away. How many left?", a:6, tip:"9 − 3" },
+  { q:"🐤 4 nests, 2 chicks each. How many chicks?", a:8, tip:"4 × 2" },
+  { q:"🦁 3 lions, 4 legs each. How many legs?", a:12, tip:"3 × 4" },
+  { q:"🐢 10 turtles, 1 hides. How many now?", a:9, tip:"10 − 1" },
+  { q:"🦉 2, 4, 6 hoots. What’s next?", a:8, tip:"+2 pattern" },
+  { q:"🐠 6 fish then 6 more. How many?", a:12, tip:"6 + 6" },
+  { q:"🦋 14 butterflies, 7 fly away. How many left?", a:7, tip:"14 − 7" }
 ];
+
 
 let i=-1, score=0;
 let student={name:"",grade:""};
