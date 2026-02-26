@@ -16,6 +16,7 @@
   --brand2:#0a3d91;
   --accent:#f59e0b;
   --success:#16a34a;
+  --red:#ba0921;
 
   --success-hover: #15803d;
   --accent-hover:  #d97706;
@@ -240,6 +241,8 @@ a{ color:inherit; }
 
 .btn-success{ background: var(--success); color:#fff; }
 .btn-amber{ background: var(--accent); color:#111827; }
+.btn-red{ background: var(--red); color:#fff }
+
 
 .btn-success:hover{ background: var(--success-hover); }
 .btn-amber:hover{ background: var(--accent-hover); }
@@ -726,3 +729,14 @@ textarea{ min-height: 120px; resize: vertical; }
   margin-left: 0;
   margin-right: 0;
 }
+.best-value{
+      display:inline-block;
+      margin-left: 8px;
+      background: rgba(229,57,53,.95);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-weight: 1000;
+      font-size: 12px;
+      vertical-align: middle;
+    }
