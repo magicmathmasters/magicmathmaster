@@ -1,67 +1,419 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Đăng ký | Magic Math Master</title>
-  <meta name="description" content="Đăng ký học tại Magic Math Master. Vui lòng điền biểu mẫu bên dưới và chúng tôi sẽ liên hệ với bạn sớm nhất có thể." />
-  <link rel="canonical" href="https://www.magicmathmaster.com.au/vi/register.html" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Math Master – Mẫu Đăng Ký</title>
+  <meta name="description" content="Đăng ký các chương trình học toán của Magic Math Master. Hoàn thành mẫu đăng ký cho lớp 1 kèm 1, lớp nhóm, Câu lạc bộ Toán hoặc luyện thi toán." />
 
-  <!-- Use your site styles -->
+  <!-- Shared site stylesheet -->
   <link rel="stylesheet" href="../style.css" />
+
+  <!-- favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 
   <style>
-    /* Page-only bits */
-    html, body { overflow-x:hidden; }
+    :root {
+      --bg: #efe7e3;
+      --card: rgba(255,255,255,.94);
+      --ink: #172033;
+      --muted: #5f6b7a;
+      --brand: #f28c28;
+      --brand-dark: #a84300;
+      --line: #e8d9cf;
+      --accent: #0b5ed7;
+      --accent-soft: rgba(11,94,215,.08);
+      --hero: #08153e;
+      --green: #138a48;
+      --amber: #cc7a00;
+      --red: #cf3d32;
+      --radius: 18px;
+      --shadow: 0 14px 34px rgba(2, 6, 23, .10);
+      --shadow-soft: 0 8px 22px rgba(84, 37, 0, .06);
+    }
 
-    /* Keep this page aligned with your site container */
-    .wrap{
-      max-width: var(--max);
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f5efec 0%, var(--bg) 100%);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    a { color: var(--accent); }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.84);
+      border-bottom: 1px solid rgba(232, 217, 207, .9);
+    }
+
+    .container {
+      width: min(1040px, calc(100% - 28px));
       margin: 0 auto;
-      padding: 0 18px 40px;
     }
 
-    /* Form card */
-    .form-card{
-      border: 1px solid rgba(0,0,0,.12);
-      background:#fff;
-      border-radius: 18px;
-      overflow:hidden;
-      box-shadow: 0 10px 26px rgba(0,0,0,.08);
-    }
-    .form-card-head{
-      padding: 14px 16px;
-      border-bottom: 1px solid rgba(0,0,0,.08);
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .form-card-title{ margin:0; font-size: 18px; font-weight: 1000; }
-
-    .iframe-wrap{
-      position:relative;
-      width:100%;
-      padding-top: 135%; /* adjust height: try 120%–170% */
-    }
-    .iframe-wrap iframe{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
+    .topbar-inner {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
     }
 
-    /* Minor: make hero buttons sit nicely */
-    .hero-snap-cta .btn{ margin: 0; }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 1000;
+      letter-spacing: -.2px;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-title b {
+      display: block;
+      font-size: 1rem;
+      line-height: 1.1;
+    }
+
+    .top-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      border: 0;
+      cursor: pointer;
+      transition: transform .12s ease, filter .12s ease;
+      box-shadow: 0 10px 20px rgba(2, 6, 23, .10);
+      font: inherit;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+    }
+
+    .btn-success { background: linear-gradient(135deg, #1f9d58, var(--green)); color: #fff; }
+    .btn-amber { background: linear-gradient(135deg, #f4a528, var(--amber)); color: #fff; }
+    .btn-outline {
+      background: rgba(255,255,255,.88);
+      color: var(--accent);
+      border: 1px solid rgba(11,94,215,.18);
+      box-shadow: none;
+    }
+
+    main {
+      padding: 18px 0 40px;
+    }
+
+    .hero-card {
+      overflow: hidden;
+      border-radius: calc(var(--radius) + 4px);
+      box-shadow: 0 18px 36px rgba(2, 6, 23, .14);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      margin-bottom: 16px;
+    }
+
+    .hero-banner {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: var(--hero);
+    }
+
+    .hero-copy {
+      background: rgba(255,255,255,.95);
+      border-top: 1px solid var(--line);
+      padding: 18px;
+    }
+
+    .hero-title {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      line-height: 1.15;
+      color: var(--brand-dark);
+      font-weight: 1000;
+      letter-spacing: -.3px;
+    }
+
+    .hero-desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .hero-pills {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-pill {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 900;
+      border: 1px solid rgba(11,94,215,.14);
+      font-size: .95rem;
+    }
+
+    .page-card,
+    .form-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .page-card {
+      padding: 22px;
+      margin-bottom: 16px;
+    }
+
+    .page-title {
+      margin: 0 0 12px;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 1000;
+      line-height: 1.15;
+      color: var(--ink);
+      padding-bottom: 12px;
+      border-bottom: 3px solid rgba(168,67,0,.85);
+    }
+
+    .lead {
+      margin: 0 0 12px;
+      font-size: 1.02rem;
+      color: var(--ink);
+    }
+
+    .lead strong { font-weight: 1000; }
+
+    .contact-list {
+      display: grid;
+      gap: 8px;
+      margin: 10px 0 14px;
+    }
+
+    .contact-list a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .contact-list a:hover { text-decoration: underline; }
+
+    form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-card {
+      padding: 20px;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      color: var(--brand-dark);
+      font-size: 1.12rem;
+      font-weight: 1000;
+      letter-spacing: -.15px;
+    }
+
+    .field-block + .field-block {
+      margin-top: 18px;
+    }
+
+    label,
+    legend {
+      display: block;
+      font-weight: 900;
+      margin-bottom: 10px;
+      font-size: 1.03rem;
+      color: var(--ink);
+    }
+
+    .required::after {
+      content: " *";
+      color: #d93025;
+      font-weight: 1000;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      border: 0;
+      border-bottom: 2px solid #d1d5db;
+      background: transparent;
+      padding: 12px 0 10px;
+      font: inherit;
+      color: var(--ink);
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    select:focus,
+    textarea:focus {
+      border-bottom-color: var(--accent);
+    }
+
+    select {
+      text-indent: 8px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image:
+        linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+        linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+      background-position:
+        calc(100% - 18px) calc(1.15em + 2px),
+        calc(100% - 12px) calc(1.15em + 2px);
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+      padding: 12px 36px 10px 10px;
+      cursor: pointer;
+    }
+
+    option {
+      padding-left: 10px;
+    }
+
+    textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    .helper,
+    .note,
+    .small {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .96rem;
+      font-weight: 650;
+      line-height: 1.6;
+    }
+
+    fieldset {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      min-width: 0;
+    }
+
+    .option-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 34px;
+      font-weight: 650;
+      color: var(--ink);
+    }
+
+    .option input {
+      width: 22px;
+      height: 22px;
+      margin: 0;
+      flex: 0 0 auto;
+      accent-color: var(--accent);
+    }
+
+    .inline-other {
+      margin-top: 10px;
+      display: none;
+    }
+
+    .inline-other.show { display: block; }
+
+    .privacy {
+      background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(251,251,253,.96));
+    }
+
+    .submit-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .submit-row .btn { min-width: 150px; }
+
+    .error {
+      color: #b91c1c;
+      font-weight: 800;
+      margin-top: 8px;
+      display: none;
+    }
+
+    .error.show { display: block; }
+
+    .footer {
+      padding: 22px 0 34px;
+      color: var(--muted);
+      font-weight: 700;
+      text-align: center;
+      font-size: .95rem;
+    }
+
+    @media (max-width: 820px) {
+      .container { width: min(100%, calc(100% - 18px)); }
+      .topbar-inner { padding: 8px 0; align-items: flex-start; flex-direction: column; }
+      .top-actions { width: 100%; }
+      .top-actions .btn { flex: 1 1 auto; }
+      .page-card, .form-card, .hero-copy { padding: 16px; }
+    }
+
+    @media (max-width: 560px) {
+      .hero-banner {
+        max-height: 185px;
+        object-fit: cover;
+        object-position: center;
+      }
+      .submit-row .btn { width: 100%; }
+    }
   </style>
 </head>
-
 <body>
-
-  <!-- ===== TOP BAR (same as other pages) ===== -->
   <div class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="index.html" aria-label="Trang chủ Magic Math Master">
@@ -70,94 +422,243 @@
           <b>Magic Math Master</b>
         </div>
       </a>
-
-      <nav class="nav" aria-label="Điều hướng chính">
-        <a data-nav href="index.html">Trang chủ</a>
-        <a data-nav href="programs.html">Chương trình</a>
-        <a data-nav href="pricing.html">Học phí</a>
-        <a data-nav href="policies.html">Chính sách</a>
-        <a data-nav href="about.html">Giới thiệu</a>
-        <a data-nav href="philosophy.html">Triết lý</a>
-        <a data-nav href="contact.html">Liên hệ</a>
-        <a class="nav-lang" href="../register.html">English</a>
-      </nav>
+      <div class="top-actions">
+        <a class="btn btn-outline" href="index.html">Trang chủ</a>
+        <a class="btn btn-success" href="enquiry.html">Gửi câu hỏi</a>
+      </div>
     </div>
   </div>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
+  <main>
     <div class="container">
-      <div class="hero-snap">
+      <section class="hero-card" aria-label="Banner Magic Math Master">
+        <img class="hero-banner" src="../assets/banner.png" alt="Banner Magic Math Master" loading="eager" />
+        <div class="hero-copy">
+          <h1 class="hero-title">Đăng ký với Magic Math Master</h1>
+          <p class="hero-desc">
+            Kiểu banner ở đầu trang giúp giữ sự đồng bộ thương hiệu với website, đồng thời vẫn để phụ huynh tiếp cận biểu mẫu đăng ký nhanh chóng — đặc biệt trên điện thoại.
+          </p>
+          <div class="hero-pills">
+            <span class="hero-pill">Prep đến Lớp 12</span>
+            <span class="hero-pill">Học online &amp; trực tiếp</span>
+            <span class="hero-pill">Dạy học xây dựng sự tự tin</span>
+          </div>
+        </div>
+      </section>
 
-        <div class="hero-snap-grid">
-          <div>
-            <h1 class="hero-snap-title">Đăng ký</h1>
-            <div class="hero-snap-tagline">Điền thông tin đăng ký — chúng tôi sẽ phản hồi với các bước tiếp theo rõ ràng</div>
+      <section class="page-card">
+        <h2 class="page-title">🧮 Magic Math Master – Mẫu Đăng Ký</h2>
+        <p class="lead">Bạn có thể điền mẫu này bằng tiếng Việt hoặc tiếng Anh.</p>
+        <p class="lead"><strong>🌐 Ngôn ngữ / Language</strong></p>
+        <p class="lead">en <a href="../register.html">Bấm vào đây để dùng tiếng Anh</a></p>
+        <p class="lead"><strong>Mẫu đăng ký chính thức của Magic Math Master (Dr. Tuyet Vu).</strong></p>
+        <p class="lead">Chúng tôi chỉ thu thập thông tin trong mẫu này để liên hệ với bạn về việc học, đăng ký và xếp lớp phù hợp.</p>
+        <p class="lead">Cần hỗ trợ?</p>
+        <div class="contact-list">
+          <a href="tel:+61402204599">📞 +61 402 204 599</a>
+          <a href="https://wa.me/61402204599" target="_blank" rel="noopener">🟢 WhatsApp</a>
+          <a href="mailto:magicmathmasters@gmail.com">✉️ magicmathmasters@gmail.com</a>
+        </div>
+        <p class="lead">Vui lòng điền mẫu này nếu bạn muốn đăng ký các chương trình của Magic Math Master. Chúng tôi sẽ sớm liên hệ để xác nhận bước phù hợp tiếp theo cho con bạn.</p>
+      </section>
+
+      <form id="registerForm" action="https://script.google.com/macros/s/AKfycbw3KTCtU35eY_r7F1tgkd16FlDM_C5ETnvgsLSaCNdybcuZvajIoy6lyuvznWu3VDg/exec" method="post" novalidate>
+        <input type="hidden" name="language" value="Tiếng Việt">
+
+        <section class="form-card">
+          <h3 class="section-title">Thông tin phụ huynh / liên hệ</h3>
+
+          <div class="field-block">
+            <label class="required" for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="Nhập địa chỉ email hợp lệ" required />
+            <p class="note">Chúng tôi chỉ sử dụng email của bạn để phản hồi đăng ký này.</p>
           </div>
 
-          <div class="hero-snap-logoBox" aria-hidden="true">
-            <img src="../assets/logo.png" alt="Logo Magic Math Master" loading="lazy" />
+          <div class="field-block">
+            <label class="required" for="parentName">🧑‍🤝‍🧑 Họ và tên phụ huynh / người giám hộ</label>
+            <input id="parentName" name="parent_name" type="text" placeholder="Câu trả lời ngắn" required />
           </div>
-        </div>
 
-        <p class="hero-snap-desc">
-          Vui lòng cho chúng tôi biết <b>lớp</b> của con bạn, <b>hình thức học</b> (trực tuyến / trực tiếp) và <b>thời gian phù hợp</b>.
-          Chúng tôi sẽ xác nhận lịch và đề xuất lộ trình phù hợp nhất.
-        </p>
+          <div class="field-block">
+            <label class="required" for="mobileNumber">📱 Số điện thoại</label>
+            <input id="mobileNumber" name="mobile_number" type="tel" autocomplete="tel" placeholder="Câu trả lời ngắn" required />
+          </div>
+        </section>
 
-        <div class="hero-snap-checks">
-          <span>✓ Hướng dẫn bước tiếp theo rõ ràng</span>
-          <span>✓ Giao tiếp thân thiện</span>
-          <span>✓ Dạy học ưu tiên xây dựng tự tin</span>
-        </div>
+        <section class="form-card">
+          <h3 class="section-title">Cách liên hệ</h3>
 
-        <div class="hero-snap-cta">
-          <a class="btn btn-outline" href="index.html">← Về trang chủ</a>
-          <a class="btn btn-success" href="#register-form">Điền biểu mẫu</a>
-          <a class="btn btn-amber" target="_blank" rel="noopener"
-             href="https://forms.gle/kwZVzrtKRUauAVdJ6">
-            Mở tab mới
-          </a>
-        </div>
+          <div class="field-block">
+            <label class="required" for="contactMethod">☎️ Phương thức liên hệ ưu tiên</label>
+            <select id="contactMethod" name="contact_method" required data-target="contactOther" data-other-value="Other">
+              <option value="" selected disabled>Chọn một phương thức</option>
+              <option value="Email">Email</option>
+              <option value="Phone">Điện thoại</option>
+              <option value="Text">Tin nhắn</option>
+              <option value="WhatsApp (if used)">WhatsApp (nếu dùng)</option>
+              <option value="Other">Khác</option>
+            </select>
+            <div id="contactOther" class="inline-other">
+              <input type="text" name="contact_method_other" placeholder="Vui lòng ghi rõ" />
+            </div>
+          </div>
 
-      </div>
+          <div class="field-block">
+            <label for="studentName">🧒🧒 Họ và tên học sinh</label>
+            <input id="studentName" name="student_name" type="text" placeholder="Câu trả lời ngắn" />
+          </div>
+        </section>
+
+        <section class="form-card">
+          <h3 class="section-title">Thông tin học sinh</h3>
+
+          <div class="field-block">
+            <label class="required" for="yearLevel">🎓 Lớp hiện tại</label>
+            <select id="yearLevel" name="year_level" required data-target="yearOther" data-other-value="Other">
+              <option value="" selected disabled>Chọn lớp hiện tại</option>
+              <option value="Prep or Foundation">Prep / Foundation</option>
+              <option value="Grade 1">Lớp 1</option>
+              <option value="Grade 2">Lớp 2</option>
+              <option value="Grade 3">Lớp 3</option>
+              <option value="Grade 4">Lớp 4</option>
+              <option value="Grade 5">Lớp 5</option>
+              <option value="Grade 6">Lớp 6</option>
+              <option value="Grade 7">Lớp 7</option>
+              <option value="Grade 8">Lớp 8</option>
+              <option value="Grade 9">Lớp 9</option>
+              <option value="Grade 10">Lớp 10</option>
+              <option value="Grade 11">Lớp 11</option>
+              <option value="Grade 12">Lớp 12</option>
+              <option value="Other">Khác (vui lòng ghi rõ)</option>
+            </select>
+            <div id="yearOther" class="inline-other">
+              <input type="text" name="year_level_other" placeholder="Vui lòng ghi rõ lớp hiện tại" />
+            </div>
+          </div>
+        </section>
+
+        <section class="form-card">
+          <h3 class="section-title">Chọn chương trình</h3>
+
+          <fieldset class="field-block">
+            <legend class="required">📘 Bạn muốn đăng ký chương trình nào?</legend>
+            <div class="option-list">
+              <label class="option"><input type="checkbox" name="register_for" value="One-to-one" /> Học kèm 1-1</label>
+              <label class="option"><input type="checkbox" name="register_for" value="Group lessons" /> Lớp học nhóm</label>
+              <label class="option"><input type="checkbox" name="register_for" value="Maths Club" /> Câu lạc bộ Toán</label>
+              <label class="option"><input type="checkbox" name="register_for" value="Maths competition training" /> Luyện thi toán</label>
+            </div>
+            <p id="registerError" class="error">Vui lòng chọn ít nhất một chương trình.</p>
+          </fieldset>
+
+          <div class="field-block">
+            <label class="required" for="lessonType">🏫 Hình thức học</label>
+            <select id="lessonType" name="lesson_type" required data-target="lessonOther" data-other-value="Other">
+              <option value="" selected disabled>Chọn hình thức học</option>
+              <option value="Online one-to-one">Học online 1-1</option>
+              <option value="Face-to-face one-to-one (Coburg/ nearby)">Học trực tiếp 1-1 (Coburg / khu vực gần đó)</option>
+              <option value="Face-to-face group (Coburg area/nearby)">Học trực tiếp theo nhóm (khu vực Coburg / gần đó)</option>
+              <option value="Group (online)">Học nhóm online</option>
+              <option value="School group program (at student’s school)">Chương trình học nhóm tại trường của học sinh</option>
+              <option value="Either is fine">Hình thức nào cũng được</option>
+              <option value="Not sure yet">Chưa chắc chắn</option>
+              <option value="Other">Khác</option>
+            </select>
+            <div id="lessonOther" class="inline-other">
+              <input type="text" name="lesson_type_other" placeholder="Vui lòng ghi rõ" />
+            </div>
+          </div>
+        </section>
+
+        <section class="form-card">
+          <h3 class="section-title">Mục tiêu học tập</h3>
+
+          <div class="field-block">
+            <label class="required" for="helpAreas">✏️ Con bạn cần hỗ trợ ở những nội dung nào?</label>
+            <p class="helper"><strong>Ví dụ:</strong> Phân số, bài toán đố, xây dựng sự tự tin, chuẩn bị thi, kỹ năng giải quyết vấn đề.</p>
+            <textarea id="helpAreas" name="help_areas" placeholder="Câu trả lời dài" required></textarea>
+          </div>
+
+          <div class="field-block">
+            <label for="questions">❓ Bạn có câu hỏi nào dành cho Magic Math Master không?</label>
+            <p class="helper"><strong>Ví dụ:</strong> Học phí, lịch học, sĩ số lớp, phương pháp giảng dạy hoặc trình độ phù hợp.</p>
+            <textarea id="questions" name="questions" placeholder="Câu trả lời dài"></textarea>
+          </div>
+        </section>
+
+        <section class="form-card privacy">
+          <h3 class="section-title">Quyền riêng tư &amp; đồng ý</h3>
+
+          <div class="field-block">
+            <label class="required" for="consent">🔒 Quyền riêng tư &amp; Sự đồng ý</label>
+            <p class="lead">Chúng tôi chỉ sử dụng thông tin của bạn để phản hồi đăng ký này.</p>
+            <label class="option">
+              <input id="consent" name="consent" type="checkbox" value="Yes" required />
+              Tôi đồng ý để Magic Math Master liên hệ với tôi về việc đăng ký và sử dụng thông tin của tôi cho mục đích này.
+            </label>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" class="btn btn-amber">Gửi đăng ký</button>
+            <span class="small">🌸 Khi đã sẵn sàng, vui lòng bấm Gửi đăng ký để hoàn tất.</span>
+          </div>
+        </section>
+      </form>
     </div>
-  </section>
-
-  <!-- ===== FORM ===== -->
-  <main class="wrap">
-    <section class="section" id="register-form">
-      <div class="form-card">
-        <div class="form-card-head">
-          <h2 class="form-card-title">Magic Math Master — Biểu mẫu đăng ký</h2>
-        </div>
-
-        <div class="iframe-wrap">
-          <iframe
-            loading="lazy"
-            src="https://forms.gle/kwZVzrtKRUauAVdJ6">
-          </iframe>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- ===== FOOTER (same as other pages) ===== -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <div>© <span id="year"></span> Magic Math Master • Úc</div>
-      <div>
-        <a href="contact.html">Liên hệ</a> •
-        <a href="policies.html">Chính sách</a>
-      </div>
-    </div>
+    <div class="container">© <span id="year"></span> Magic Math Master • Australia</div>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  <!-- Auto highlight current nav item -->
-  <script src="../script.js"></script>
+    const form = document.getElementById('registerForm');
+    const checkboxGroup = [...document.querySelectorAll('input[name="register_for"]')];
+    const registerError = document.getElementById('registerError');
+
+    function validatePrograms() {
+      const hasSelection = checkboxGroup.some(box => box.checked);
+      registerError.classList.toggle('show', !hasSelection);
+      checkboxGroup.forEach(box => {
+        box.setCustomValidity(hasSelection ? '' : 'Vui lòng chọn ít nhất một chương trình.');
+      });
+      return hasSelection;
+    }
+
+    checkboxGroup.forEach(box => box.addEventListener('change', validatePrograms));
+
+    function syncSelectOther(select) {
+      const targetId = select.dataset.target;
+      const otherValue = select.dataset.otherValue;
+      if (!targetId || !otherValue) return;
+
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      const isActive = select.value === otherValue;
+      target.classList.toggle('show', isActive);
+
+      const field = target.querySelector('input');
+      if (field) {
+        field.required = isActive;
+        if (!isActive) field.value = '';
+      }
+    }
+
+    document.querySelectorAll('select[data-target]').forEach(select => {
+      select.addEventListener('change', () => syncSelectOther(select));
+      syncSelectOther(select);
+    });
+
+    form.addEventListener('submit', event => {
+      const programsValid = validatePrograms();
+      if (!programsValid || !form.checkValidity()) {
+        event.preventDefault();
+        form.reportValidity();
+      }
+    });
+  </script>
 </body>
 </html>
