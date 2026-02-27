@@ -410,7 +410,11 @@
   <div class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="index.html" aria-label="Magic Math Master home">
+         <img class="brand-logo" src="assets/logo.png" alt="Magic Math Master logo" />
         <span class="brand-dot" aria-hidden="true"></span>
+        <!--<div class="hero-snap-logoBox" aria-label="Magic Math Master logo">
+            <img src="assets/logo.png" alt="Magic Math Master logo" loading="lazy">
+          </div>-->
         <span>Magic Math Master</span>
       </a>
       <div class="top-actions">
@@ -592,7 +596,7 @@
             <button type="submit" class="btn btn-amber">Submit registration</button>
             <span class="small">🌸 When you’re ready, please click Submit to complete the registration.</span>
           </div>
-          <p class="footer-note">Optional note: connect this form to Formspree, Netlify Forms, Google Apps Script, or your backend before publishing.</p>
+          <!--<p class="footer-note">Optional note: connect this form to Formspree, Netlify Forms, Google Apps Script, or your backend before publishing.</p>-->
         </section>
       </form>
     </div>
@@ -643,7 +647,6 @@
       syncSelectOther(select);
     });
       syncInlineOther(groupName);
-    });
 
     form.addEventListener('submit', event => {
       const programsValid = validatePrograms();
