@@ -6,12 +6,12 @@
 
   <title>Magic Math Master | Maths Club Register</title>
   <meta name="description" content="Register for Magic Math Master Maths Club. Choose one club stream and enrol one or more students in a calm, structured learning environment." />
-  <link rel="canonical" href="https://www.magicmathmaster.com.au/maths-club-register.html">
+  <link rel="canonical" href="https://www.magicmathmaster.com.au/Club-register.html">
 
   <meta property="og:title" content="Magic Math Master | Maths Club Register">
   <meta property="og:description" content="Choose one maths club stream and register one or more students with Magic Math Master.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.magicmathmaster.com.au/maths-club-register.html">
+  <meta property="og:url" content="https://www.magicmathmaster.com.au/Club-register.html">
 
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
@@ -380,7 +380,7 @@
     <div class="container topbar-inner">
       <a class="brand" href="index.html" aria-label="Magic Math Master home">
         <div class="brand-title">
-          <b>Magic Math Master</b>
+          <!--<b>Magic Math Master</b>-->
           <span>Premium tutoring • Australia</span>
         </div>
       </a>
@@ -498,6 +498,7 @@
           </div>
 
           <form id="mathsClubRegisterForm" action="#" method="post" novalidate>
+            <input type="hidden" name="formType" value="club-register">
             <div class="form-card">
               <h2 class="section-title">Family and booking details</h2>
               <p class="section-sub">
@@ -709,7 +710,7 @@
     const form = document.getElementById('mathsClubRegisterForm');
     const successMessage = document.getElementById('successMessage');
     const competitionMode = document.getElementById('competitionMode');
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzuJ7qDLOr6Ft4cyItXnLjfA_PdQh3U_OE55Ht7I4Bf7eqSYX-dovDOOpbX4bwKqXvN/exec';
+    const GOOGLE_SCRIPT_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
     const competitionLocationGroup = document.getElementById('competitionLocationGroup');
     const competitionLocation = document.getElementById('competitionLocation');
 
@@ -845,7 +846,7 @@
         return;
       }
 
-      if(!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf('https://script.google.com/macros/s/AKfycbzuJ7qDLOr6Ft4cyItXnLjfA_PdQh3U_OE55Ht7I4Bf7eqSYX-dovDOOpbX4bwKqXvN/exec') !== -1){
+      if(!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf('PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') !== -1){
         alert('Add your Google Apps Script web app URL in the code before using live submissions.');
         return;
       }
@@ -853,6 +854,7 @@
       const payload = collectPayload();
       const body = new URLSearchParams();
       body.append('submittedAt', payload.submittedAt);
+      body.append('formType', 'club-register');
       body.append('clubStream', payload.clubStream);
       body.append('prepSubgroup', payload.prepSubgroup);
       body.append('parentName', payload.parentName);
