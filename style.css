@@ -810,3 +810,43 @@ textarea{ min-height: 120px; resize: vertical; }
   overflow:hidden;
   box-shadow: 0 0 0 1px rgba(15,23,42,.08);
 }
+.lang-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+}
+
+.lang-link:hover{
+  text-decoration:underline;
+}
+
+.lang-flag-svg{
+  width:18px;
+  height:18px;
+  display:block;
+  flex:0 0 18px;
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow: 0 0 0 1px rgba(15,23,42,.08);
+}
+.lang-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+}
+
+.lang-link:hover{
+  text-decoration:underline;
+}
+
+.lang-flag-svg{
+  width:18px;
+  height:18px;
+  display:block;
+  flex:0 0 18px;
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow: 0 0 0 1px rgba(15,23,42,.08);
+}
