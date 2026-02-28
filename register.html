@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Magic Math Master – Register Form</title>
   <meta name="description" content="Register for Magic Math Master tutoring programs. Complete the registration form for one-to-one lessons, group lessons, Maths Club, or maths competition training." />
+
   <!-- Shared site stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/style.css" />
 
   <!-- favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
   <style>
     :root {
       --bg: #efe7e3;
@@ -31,7 +33,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -74,15 +75,6 @@
       color: var(--ink);
       font-weight: 1000;
       letter-spacing: -.2px;
-    }
-
-    .brand-dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
-      box-shadow: 0 0 0 4px rgba(242,140,40,.14);
-      flex: 0 0 14px;
     }
 
     .top-actions {
@@ -287,6 +279,7 @@
     }
 
     select {
+      text-indent: 8px;
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -304,32 +297,6 @@
 
     option {
       padding-left: 10px;
-    }
-
-    textarea {
-      min-height: 118px;
-      resize: vertical;
-    }
-
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="tel"]:focus,
-    select:focus,
-    textarea:focus {
-      border-bottom-color: var(--accent);
-    }
-
-    select {
-      text-indent: 8px;
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
-      background-position: calc(100% - 18px) calc(1.15em + 2px), calc(100% - 12px) calc(1.15em + 2px);
-      background-size: 6px 6px, 6px 6px;
-      background-repeat: no-repeat;
-      padding-right: 36px;
-      cursor: pointer;
     }
 
     textarea {
@@ -443,15 +410,15 @@
 <body>
   <div class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="index.html" aria-label="Magic Math Master home">
-        <img class="brand-logo" src="assets/logo.png" alt="Magic Math Master logo" />
+      <a class="brand" href="/index.html" aria-label="Magic Math Master home">
+        <img class="brand-logo" src="/assets/logo.png" alt="Magic Math Master logo" />
         <div class="brand-title">
           <b>Magic Math Master</b>
         </div>
       </a>
       <div class="top-actions">
-        <a class="btn btn-outline" href="index.html">Home</a>
-        <a class="btn btn-success" href="enquiry.html">Enquiry</a>
+        <a class="btn btn-outline" href="/index.html">Home</a>
+        <a class="btn btn-success" href="/enquiry.html">Enquiry</a>
       </div>
     </div>
   </div>
@@ -459,7 +426,7 @@
   <main>
     <div class="container">
       <section class="hero-card" aria-label="Magic Math Master banner hero">
-        <img class="hero-banner" src="assets/banner.png" alt="Magic Math Master banner" loading="eager" />
+        <img class="hero-banner" src="/assets/banner.png" alt="Magic Math Master banner" loading="eager" />
         <div class="hero-copy">
           <h1 class="hero-title">Register for Magic Math Master</h1>
           <p class="hero-desc">
@@ -476,29 +443,29 @@
 
       <section class="page-card">
         <h2 class="page-title">🧮 Magic Math Master – Register Form</h2>
-        <p class="lead">You may complete this form in English or Tiếng Việt.</p>  
+        <p class="lead">You may complete this form in English or Tiếng Việt.</p>
         <p class="lead"><strong>🌐 Language / Ngôn ngữ</strong></p>
         <p class="lead">
-          <a class="lang-link" href="vi/register.html">
+          <a class="lang-link" href="/vi/register.html">
             <span class="lang-flag-badge" aria-hidden="true">🇻🇳</span>
             <span>Click here for Tiếng Việt</span>
           </a>
         </p>
-        <!-- <p class="lead">vn <a href="vi/register.html" target="_blank" rel="noopener">Click here for Tiếng Việt</a></p>-->
+
         <p class="lead"><strong>Official registration form for Magic Math Master (Dr. Tuyet Vu).</strong></p>
         <p class="lead">We collect the information in this form only to contact you about tutoring, enrolment, and appropriate class placement.</p>
         <p class="lead">Questions?</p>
         <div class="contact-list">
           <a href="tel:+61402204599">📞 +61 402 204 599</a>
           <a href="https://wa.me/61402204599" target="_blank" rel="noopener">🟢 WhatsApp</a>
-          <a href="mailto:magicmathmasters@gmail.com">✉️ magicmathmasters@gmail.com</a>
+          <a href="mailto:magicmathmasters@gmail.com?subject=Magic%20Math%20Master%20Registration">✉️ magicmathmasters@gmail.com</a>
         </div>
         <p class="lead">Please complete this form if you would like to register for Magic Math Master programs. We will contact you shortly to confirm the best next step for your child.</p>
       </section>
 
-  
       <form id="registerForm" action="https://script.google.com/macros/s/AKfycbzVvFfCeVr8QpPBYUMdMUaJK6H1L7BAWVwjrJoK3vqTCVGrQ9jqfcRUbooewNCsANpz/exec" method="post" novalidate>
-  <input type="hidden" name="language" value="English">
+        <input type="hidden" name="language" value="English">
+
         <section class="form-card">
           <h3 class="section-title">Parent / contact details</h3>
 
@@ -636,7 +603,6 @@
             <button type="submit" class="btn btn-amber">Submit registration</button>
             <span class="small">🌸 When you’re ready, please click Submit to complete the registration.</span>
           </div>
-          <!--<p class="footer-note">Optional note: connect this form to Formspree, Netlify Forms, Google Apps Script, or your backend before publishing.</p>-->
         </section>
       </form>
     </div>
@@ -686,7 +652,6 @@
       select.addEventListener('change', () => syncSelectOther(select));
       syncSelectOther(select);
     });
-    
 
     form.addEventListener('submit', event => {
       const programsValid = validatePrograms();
