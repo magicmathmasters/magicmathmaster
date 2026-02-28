@@ -790,3 +790,23 @@ textarea{ min-height: 120px; resize: vertical; }
   font-size:15px;
   line-height:1;
 }
+.lang-link{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+
+.lang-link:hover{
+  text-decoration:underline;
+}
+
+.lang-flag-svg{
+  width:24px;
+  height:24px;
+  display:block;
+  flex:0 0 24px;
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow: 0 0 0 1px rgba(15,23,42,.08);
+}
