@@ -7,14 +7,14 @@
   <title>Maths Club | Magic Math Master</title>
   <meta
     name="description"
-    content="Flexible weekly maths practice for students who want to build confidence, logical thinking, and independence through enjoyable challenges and problem-solving."
+    content="A flexible online maths program that helps students practise consistently, think logically, and enjoy maths through weekly challenges and confidence-building problem-solving."
   />
   <link rel="canonical" href="https://www.magicmathmaster.com.au/mathclub.html">
 
   <meta property="og:title" content="Maths Club | Magic Math Master">
   <meta
     property="og:description"
-    content="A flexible online maths enrichment program with weekly challenges, reasoning tasks, and confidence-building practice."
+    content="A flexible online maths program with weekly problem sets, reasoning tasks, optional challenges, and steady confidence-building practice."
   />
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.magicmathmaster.com.au/mathclub.html">
@@ -23,30 +23,29 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 
   <style>
-    /* Keep header branding consistent with your homepage */
-    .brand-title span { display: none !important; }
+    .brand-title span{ display:none !important; }
 
-    .club-breadcrumb {
+    .club-breadcrumb{
       margin: 0 0 16px;
       color: var(--muted);
       font-weight: 700;
       text-align: center;
     }
-    .club-breadcrumb a {
+    .club-breadcrumb a{
       color: var(--brand2);
       text-decoration: none;
       border-bottom: 1px solid rgba(11,94,215,.28);
     }
-    .club-breadcrumb a:hover {
+    .club-breadcrumb a:hover{
       border-bottom-color: rgba(11,94,215,.60);
     }
 
-    .club-wrap {
+    .club-wrap{
       display: grid;
       gap: 16px;
     }
 
-    .club-card {
+    .club-card{
       background: rgba(255,255,255,.84);
       border: 1px solid var(--line);
       border-radius: calc(var(--radius) + 4px);
@@ -54,66 +53,78 @@
       padding: 18px;
     }
 
-    .club-intro {
+    .club-intro{
       text-align: center;
       background: rgba(255,255,255,.78);
       border: 1px solid var(--line);
       border-radius: calc(var(--radius) + 6px);
       box-shadow: var(--shadow2);
-      padding: 18px;
+      padding: 20px;
     }
-    .club-intro h2 {
-      margin: 0 0 8px;
+    .club-intro h2{
+      margin: 0 0 10px;
       color: var(--brand2);
       font-size: 28px;
       font-weight: 1100;
       letter-spacing: -0.3px;
     }
-    .club-intro p {
+    .club-intro p{
       margin: 0;
-      color: var(--muted);
+      color: #334155;
       font-weight: 700;
       line-height: 1.7;
+      font-size: 17px;
     }
 
-    .club-grid {
+    .club-grid{
       display: grid;
       grid-template-columns: repeat(2, minmax(0,1fr));
       gap: 16px;
     }
-    @media (max-width: 900px) {
-      .club-grid { grid-template-columns: 1fr; }
+    @media (max-width: 900px){
+      .club-grid{ grid-template-columns: 1fr; }
     }
 
-    .club-panel {
+    .club-panel{
       background: rgba(255, 248, 231, .94);
       border: 1px solid rgba(245,158,11,.28);
       border-radius: calc(var(--radius) + 4px);
       padding: 18px;
       box-shadow: 0 10px 22px rgba(2, 6, 23, .06);
     }
-    .club-panel.blue {
+    .club-panel.blue{
       background: rgba(237, 246, 255, .94);
       border-color: rgba(11,94,215,.20);
     }
-    .club-panel h3 {
-      margin: 0 0 10px;
+    .club-panel h3{
+      margin: 0 0 12px;
       font-size: 20px;
       font-weight: 1100;
-      color: #b76a00;
+      color: #f59e0b;
     }
-    .club-panel.blue h3 {
-      color: var(--brand2);
+    .club-panel.blue h3{
+      color: #2563eb;
     }
-    .club-panel ul {
+    .club-panel ul{
       margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
+      padding-left: 20px;
+      color: #334155;
       font-weight: 650;
-      line-height: 1.75;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    .club-panel li + li{
+      margin-top: 6px;
+    }
+    .club-panel strong{
+      color: #111827;
+      font-weight: 1000;
+    }
+    .club-panel em{
+      font-style: italic;
     }
 
-    .club-note {
+    .club-note{
       margin-top: 2px;
       background: rgba(11,94,215,.06);
       border: 1px solid rgba(11,94,215,.20);
@@ -123,12 +134,12 @@
       font-weight: 700;
       line-height: 1.65;
     }
-    .club-note strong {
+    .club-note strong{
       color: var(--brand2);
       font-weight: 1100;
     }
 
-    .club-links {
+    .club-links{
       display: flex;
       justify-content: center;
       gap: 12px;
@@ -136,50 +147,49 @@
       margin-top: 14px;
     }
 
-    .btn.btn-blue {
+    .btn.btn-blue{
       background: #0b5ed7;
       color: #fff;
     }
-    .btn.btn-cyan {
+    .btn.btn-cyan{
       background: #0ea5b7;
       color: #fff;
     }
 
-    .club-bottom {
+    .club-bottom{
       text-align: center;
     }
-    .club-bottom h3 {
+    .club-bottom h3{
       margin: 0 0 8px;
       color: var(--brand2);
       font-size: 24px;
       font-weight: 1100;
     }
-    .club-bottom p {
+    .club-bottom p{
       margin: 0;
       color: var(--muted);
       font-weight: 700;
       line-height: 1.7;
     }
 
-    .club-small-links {
+    .club-small-links{
       margin-top: 14px;
       text-align: center;
       color: var(--muted);
       font-weight: 800;
     }
-    .club-small-links a {
+    .club-small-links a{
       color: var(--brand2);
       text-decoration: none;
       border-bottom: 1px solid rgba(11,94,215,.28);
     }
-    .club-small-links a:hover {
+    .club-small-links a:hover{
       border-bottom-color: rgba(11,94,215,.60);
     }
   </style>
 </head>
 
 <body>
-  <!-- TOPBAR -->
   <div class="topbar">
     <div class="container topbar-inner">
       <!--<a class="brand" href="index.html" aria-label="Magic Math Master home">
@@ -191,44 +201,86 @@
 
       <div class="nav" aria-label="Primary navigation">
         <a data-nav href="index.html">Home</a>
+        <a data-nav href="Club-register.html">Math Club</a>
         <a data-nav href="programs.html">Programs</a>
         <a data-nav href="pricing.html">Fees</a>
-        <a data-nav href="policies.html">Policies</a>
         <a data-nav href="about.html">About</a>
-        <a data-nav href="philosophy.html">Philosophy</a>
-        <a data-nav href="contact.html">Contact</a>
-        <a data-nav href="https://demo.magicmathmaster.com.au">Free Practice</a>
-        <a href="https://practice.magicmathmaster.com.au">Student Login</a>
-        <!--<a class="nav-lang" href="vi/mathclub.html">Tiếng Việt</a>-->
-        <a class="nav-lang" href="/vi/mathclub.html">
-          <svg class="nav-lang-flag" viewBox="0 0 24 24" aria-hidden="true">
-            <defs>
-              <clipPath id="nav-clip-vn">
-                <circle cx="12" cy="12" r="12"></circle>
-              </clipPath>
-            </defs>
-            <g clip-path="url(#nav-clip-vn)">
-              <rect width="24" height="24" fill="#da251d"></rect>
-              <polygon fill="#ffde00"
-                points="12,5 13.6,9.2 18,9.4 14.6,12.1 15.9,16.4 12,13.9 8.1,16.4 9.4,12.1 6,9.4 10.4,9.2">
-              </polygon>
-            </g>
-          </svg>
-          <span>VN</span>
-        </a>
 
+        <a href="https://practice.magicmathmaster.com.au">Student Login</a>
+
+        <div class="lang-menu">
+          <button class="lang-btn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false">
+            <span class="lang-btn-text" id="currentLangText">En</span>
+            <span class="lang-btn-caret">▾</span>
+          </button>
+
+          <div class="lang-dropdown" id="langDropdown" hidden>
+            <button class="lang-option" type="button" data-lang="en" data-label="En">
+              <svg class="lang-flag-svg-rect" viewBox="0 0 60 40" aria-hidden="true">
+                <rect width="60" height="40" fill="#012169"/>
+                <polygon points="0,0 7,0 60,33 60,40 53,40 0,7" fill="#fff"/>
+                <polygon points="60,0 53,0 0,33 0,40 7,40 60,7" fill="#fff"/>
+                <polygon points="0,0 3.5,0 60,35 60,40 56.5,40 0,5" fill="#C8102E"/>
+                <polygon points="60,0 56.5,0 0,35 0,40 3.5,40 60,5" fill="#C8102E"/>
+                <rect x="24" width="12" height="40" fill="#fff"/>
+                <rect y="14" width="60" height="12" fill="#fff"/>
+                <rect x="26" width="8" height="40" fill="#C8102E"/>
+                <rect y="16" width="60" height="8" fill="#C8102E"/>
+              </svg>
+              <span class="lang-label">En</span>
+            </button>
+
+            <button class="lang-option" type="button" data-lang="vi" data-label="Vn">
+              <svg class="lang-flag-svg-rect" viewBox="0 0 60 40" aria-hidden="true">
+                <rect width="60" height="40" fill="#DA251D"/>
+                <polygon fill="#FFDE00" points="30,8 33.5,18.5 44.5,18.5 35.5,24.8 39,35 30,28.7 21,35 24.5,24.8 15.5,18.5 26.5,18.5"/>
+              </svg>
+              <span class="lang-label">Vn</span>
+            </button>
+
+            <button class="lang-option" type="button" data-lang="zh" data-label="Zh">
+              <svg class="lang-flag-svg-rect" viewBox="0 0 60 40" aria-hidden="true">
+                <rect width="60" height="40" fill="#DE2910"/>
+                <polygon fill="#FFDE00" points="12,6 13.8,11.3 19.4,11.3 14.9,14.6 16.6,20 12,16.7 7.4,20 9.1,14.6 4.6,11.3 10.2,11.3"/>
+                <polygon fill="#FFDE00" points="24,4 24.7,6.1 27,6.1 25.1,7.4 25.8,9.6 24,8.2 22.2,9.6 22.9,7.4 21,6.1 23.3,6.1"/>
+                <polygon fill="#FFDE00" points="29,9 29.7,11.1 32,11.1 30.1,12.4 30.8,14.6 29,13.2 27.2,14.6 27.9,12.4 26,11.1 28.3,11.1"/>
+                <polygon fill="#FFDE00" points="29,17 29.7,19.1 32,19.1 30.1,20.4 30.8,22.6 29,21.2 27.2,22.6 27.9,20.4 26,19.1 28.3,19.1"/>
+                <polygon fill="#FFDE00" points="24,22 24.7,24.1 27,24.1 25.1,25.4 25.8,27.6 24,26.2 22.2,27.6 22.9,25.4 21,24.1 23.3,24.1"/>
+              </svg>
+              <span class="lang-label">Zh</span>
+            </button>
+
+            <button class="lang-option" type="button" data-lang="hi" data-label="Hi">
+              <svg class="lang-flag-svg-rect" viewBox="0 0 60 40" aria-hidden="true">
+                <rect width="60" height="13.333" y="0" fill="#FF9933"/>
+                <rect width="60" height="13.333" y="13.333" fill="#FFFFFF"/>
+                <rect width="60" height="13.334" y="26.666" fill="#138808"/>
+                <circle cx="30" cy="20" r="4.2" fill="none" stroke="#000080" stroke-width="1"/>
+                <circle cx="30" cy="20" r="0.6" fill="#000080"/>
+              </svg>
+              <span class="lang-label">Hi</span>
+            </button>
+
+            <button class="lang-option" type="button" data-lang="es" data-label="Es">
+              <svg class="lang-flag-svg-rect" viewBox="0 0 60 40" aria-hidden="true">
+                <rect width="60" height="40" fill="#AA151B"/>
+                <rect y="10" width="60" height="20" fill="#F1BF00"/>
+              </svg>
+              <span class="lang-label">Es</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-snap">
         <div class="hero-snap-grid">
           <div>
             <h1 class="hero-snap-title">MATHS CLUB</h1>
-            <div class="hero-snap-tagline">Flexible weekly maths practice that builds confidence</div>
+            <div class="hero-snap-tagline">Flexible online maths practice that builds confidence</div>
           </div>
 
           <div class="hero-snap-logoBox" aria-label="Magic Math Master logo">
@@ -237,28 +289,26 @@
         </div>
 
         <p class="hero-snap-desc">
-          A flexible online maths program designed for students who enjoy challenges,
-          benefit from regular practice, and want to grow in confidence, independence,
-          and logical thinking — without the pressure of weekly tutoring sessions.
+          A flexible online program that helps students practise consistently, think logically,
+          and enjoy maths — without the pressure of weekly tutoring sessions.
         </p>
 
         <div class="hero-snap-checks">
-          <span>✓ Flexible online format</span>
-          <span>✓ Weekly problem-solving practice</span>
+          <span>✓ Flexible online delivery</span>
+          <span>✓ Weekly problem sets matched to level</span>
           <span>✓ Clear progress over time</span>
         </div>
 
         <div class="hero-snap-pills">
-          <span class="hero-snap-pill">Primary &amp; secondary</span>
-          <span class="hero-snap-pill">Puzzles &amp; reasoning</span>
+          <span class="hero-snap-pill">Primary &amp; high school</span>
+          <span class="hero-snap-pill">Reasoning &amp; multi-step questions</span>
           <span class="hero-snap-pill">Optional monthly challenges</span>
         </div>
 
         <div class="hero-snap-cta">
           <a class="btn btn-success" href="enquiry.html">Enquire</a>
           <a class="btn btn-amber" href="register.html">Register</a>
-          <a class="btn btn-blue" href="programs.html">Explore Programs</a>
-          <a class="btn btn-cyan" href="pricing.html">View Fees</a>
+          <a class="btn btn-blue" href="pricing.html">View Fees</a>
         </div>
       </div>
     </div>
@@ -274,20 +324,20 @@
           <div class="club-intro">
             <div class="club-breadcrumb">
               <a href="index.html">Home</a> ›
-              <a href="programs.html">Programs</a> ›
+              <a href="Club-register.html">Math Club</a> ›
               <span>Maths Club</span>
             </div>
 
             <h2>🌈🚀🎮 Maths Club</h2>
             <p>
-              Maths Club helps students practise consistently, think logically, and enjoy maths
-              through structured weekly tasks, real problem-solving, and confidence-building challenges.
+              A flexible online program that helps students practise consistently, think logically,
+              and enjoy maths — without the pressure of weekly tutoring sessions.
             </p>
           </div>
 
           <div class="club-grid">
             <div class="club-panel">
-              <h3>🎯 Best for</h3>
+              <h3>🎯 Best For</h3>
               <ul>
                 <li>Students who enjoy puzzles and problem-solving</li>
                 <li>Children who benefit from regular maths practice</li>
@@ -297,24 +347,24 @@
             </div>
 
             <div class="club-panel">
-              <h3>🧠 What students do</h3>
+              <h3>🧠 What Students Do</h3>
               <ul>
                 <li>Complete weekly problem sets matched to their level</li>
                 <li>Work through reasoning-based and multi-step questions</li>
                 <li>Reflect on mistakes and improve accuracy</li>
-                <li>Join optional friendly challenges</li>
+                <li>Participate in optional friendly challenges</li>
               </ul>
             </div>
 
             <div class="club-panel">
-              <h3>👥 Program information</h3>
+              <h3>👥 Program Information</h3>
               <ul>
                 <li><strong>Primary:</strong> 2 question sets per week (10+ questions each)</li>
                 <li><strong>High school:</strong> 3 question sets per week (10+ questions each)</li>
                 <li>Runs during school terms</li>
                 <li>Online delivery — flexible and easy from home</li>
                 <li>Optional local or online monthly challenges</li>
-                <li><strong>School holidays:</strong> optional maths-related problem sets (1+ per week), not included in progress tracking</li>
+                <li><strong>School holidays:</strong> Optional maths-related problem sets (1+ per week), <em>not included in progress tracking</em></li>
               </ul>
             </div>
 
@@ -324,8 +374,8 @@
                 <li>Builds independent learning habits</li>
                 <li>Encourages logical thinking and perseverance</li>
                 <li>Tracks progress clearly over time</li>
-                <li>Keeps maths engaging and enjoyable</li>
-                <li>Increases confidence and resilience in maths</li>
+                <li>Keeps maths engaging and fun</li>
+                <li>Increases enjoyment and confidence in maths</li>
               </ul>
             </div>
           </div>
@@ -333,9 +383,8 @@
           <div class="club-card">
             <div class="club-note">
               <strong>Good to know:</strong>
-              Maths Club is ideal for families who want steady, structured maths enrichment.
-              It complements tutoring well, but it can also be a great standalone option for
-              students who are ready to practise more independently.
+              Maths Club is a great fit for families who want steady, structured maths enrichment.
+              It works well as a standalone program or alongside tutoring for extra practice and confidence-building.
             </div>
 
             <div class="club-links">
@@ -346,7 +395,7 @@
           </div>
 
           <div class="club-card club-bottom">
-            <h3>Ready to help your child build confidence in maths?</h3>
+            <h3>Ready to help your child enjoy maths more?</h3>
             <p>
               Tell us your child’s year level and goals, and we’ll help you decide whether
               Maths Club is the right fit.
