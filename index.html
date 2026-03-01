@@ -228,6 +228,66 @@
       line-height: 1.65;
     }
 
+    .club-summary-wrap{
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(11,94,215,.14);
+      border-radius: 24px;
+      padding: 26px 22px;
+      box-shadow: var(--shadow2);
+    }
+    .club-badge{
+      display: table;
+      margin: 0 auto 16px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(245,158,11,.12);
+      border: 2px solid rgba(245,158,11,.45);
+      color: #6b4b00;
+      font-weight: 1000;
+      font-size: 16px;
+    }
+    .club-summary-title{
+      margin: 0 0 10px;
+      text-align: center;
+      color: var(--brand2);
+      font-size: 28px;
+      font-weight: 1100;
+    }
+    .club-summary-desc{
+      margin: 0 auto 18px;
+      max-width: 980px;
+      text-align: center;
+      color: #334155;
+      font-weight: 650;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .club-summary-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      max-width: 1250px;
+      margin: 0 auto;
+    }
+    .club-summary-pill{
+      background: #eef3fb;
+      border: 1px solid rgba(11,94,215,.16);
+      border-radius: 18px;
+      padding: 14px 16px;
+      color: #1f2937;
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 650;
+    }
+    .club-summary-pill strong{
+      font-weight: 1000;
+      color: #111827;
+    }
+    .club-summary-cta{
+      margin: 18px 0 0;
+      text-align: center;
+    }
+
     .footer-links{
       display:flex;
       gap:14px;
@@ -244,6 +304,12 @@
     .footer-links a:hover{
       opacity:1;
       text-decoration:underline;
+    }
+
+    @media (max-width: 900px){
+      .club-summary-grid{ grid-template-columns: 1fr; }
+      .club-summary-title{ font-size: 24px; }
+      .club-summary-desc{ font-size: 16px; }
     }
   </style>
 </head>
@@ -368,7 +434,6 @@
         <div class="hero-snap-cta">
           <a class="btn btn-success" href="enquiry.html">Enquire</a>
           <a class="btn btn-amber" href="register.html">Register</a>
-          <a class="btn btn-cyan" href="Club-register.html">Online Math Club</a>
           <a class="btn btn-red" href="#sec_freedemo">Free Demo</a>
         </div>
       </div>
@@ -385,13 +450,13 @@
           <h2>Quick links (tap to open)</h2>
           <div class="ql-grid">
             <a class="ql-btn" data-open="sec_freedemo">Free Demo</a>
+            <a class="ql-btn" data-open="sec_mathclub">Math Club</a>
             <a class="ql-btn" data-open="sec_programs">Programs</a>
             <a class="ql-btn" data-open="sec_pricing">Fees</a>
             <a class="ql-btn" data-open="sec_about">About</a>
             <a class="ql-btn" data-open="sec_philosophy">Philosophy</a>
             <a class="ql-btn" data-open="sec_diff">What makes us different</a>
             <a class="ql-btn" data-open="sec_why">Why parents choose us</a>
-            <!-- Contact removed from quick links -->
           </div>
         </div>
 
@@ -425,6 +490,41 @@
               <p style="margin:10px 0 0; color: var(--muted); font-weight: 700; text-align:center;">
                 Looking for full access to the practice portal with adaptive levels and more topics?
                 <a class="link-strong" href="register.html">Register here →</a>
+              </p>
+            </div>
+          </div>
+        </details>
+
+        <details class="acc" id="sec_mathclub" open>
+          <summary class="acc-sum">Maths Club <span class="caret">⌄</span></summary>
+          <div class="acc-body">
+            <div class="club-summary-wrap">
+              <div class="club-badge">Recommended for all kids</div>
+
+              <h2 class="club-summary-title">🌈 Maths Club</h2>
+
+              <p class="club-summary-desc">
+                A fun, structured program that builds confidence and problem-solving for every level —
+                perfect for kids who want to enjoy maths, not fear it.
+              </p>
+
+              <div class="club-summary-grid">
+                <div class="club-summary-pill">
+                  <strong>Weekly practice</strong> with clear solutions and gentle guidance
+                </div>
+                <div class="club-summary-pill">
+                  <strong>Reasoning &amp; thinking skills</strong> — not just “plug in formulas”
+                </div>
+                <div class="club-summary-pill">
+                  <strong>Optional monthly challenges</strong> to spark curiosity and persistence
+                </div>
+                <div class="club-summary-pill">
+                  <strong>Flexible online</strong> — easy to join from home
+                </div>
+              </div>
+
+              <p class="club-summary-cta">
+                <a class="btn btn-primary" href="Club-register.html">See Maths Club details →</a>
               </p>
             </div>
           </div>
