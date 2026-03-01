@@ -268,22 +268,15 @@
 
         <a href="https://practice.magicmathmaster.com.au">Student Login</a>
 
-        <a class="nav-lang" href="/vi/index.html">
-          <svg class="nav-lang-flag" viewBox="0 0 24 24" aria-hidden="true">
-            <defs>
-              <clipPath id="nav-clip-vn">
-                <circle cx="12" cy="12" r="12"></circle>
-              </clipPath>
-            </defs>
-            <g clip-path="url(#nav-clip-vn)">
-              <rect width="24" height="24" fill="#da251d"></rect>
-              <polygon fill="#ffde00"
-                points="12,5 13.6,9.2 18,9.4 14.6,12.1 15.9,16.4 12,13.9 8.1,16.4 9.4,12.1 6,9.4 10.4,9.2">
-              </polygon>
-            </g>
-          </svg>
-          <span>VN</span>
-        </a>
+        <div class="lang-switcher">
+          <label for="language-select" class="sr-only">Choose language</label>
+          <select id="language-select" class="nav-lang-select" onchange="if(this.value) window.location.href=this.value;">
+            <option value="/index.html" selected>English</option>
+            <option value="/vi/index.html">Tiếng Việt</option>
+            <option value="/zh/index.html">中文</option>
+            <option value="/hi/index.html">हिन्दी</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>
