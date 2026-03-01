@@ -2,7 +2,7 @@
 (function () {
   const file = (location.pathname.split("/").pop() || "index.html").toLowerCase();
 
-  document.querySelectorAll('a[data-nav]').forEach(a => {
+  document.querySelectorAll("a[data-nav]").forEach(a => {
     const href = (a.getAttribute("href") || "").toLowerCase();
     const hrefFile = href.split("/").pop().split("#")[0].split("?")[0];
 
@@ -12,11 +12,11 @@
 
   const langBtn = document.getElementById("langBtn");
   const langDropdown = document.getElementById("langDropdown");
-  const currentLangFlag = document.getElementById("currentLangFlag");
+  const currentLangFlagImg = document.getElementById("currentLangFlagImg");
   const currentLangText = document.getElementById("currentLangText");
   const langOptions = document.querySelectorAll(".lang-option");
 
-  if (langBtn && langDropdown && currentLangFlag && currentLangText && langOptions.length) {
+  if (langBtn && langDropdown && currentLangFlagImg && currentLangText && langOptions.length) {
     const path = window.location.pathname.toLowerCase();
     const fileName = (path.split("/").pop() || "index.html").toLowerCase();
 
@@ -29,11 +29,12 @@
 
     langOptions.forEach(option => {
       const code = option.getAttribute("data-lang");
-      const flag = option.getAttribute("data-flag");
       const label = option.getAttribute("data-label");
+      const flagSrc = option.getAttribute("data-flag-src");
 
       if (code === currentCode) {
-        currentLangFlag.textContent = flag;
+        currentLangFlagImg.src = flagSrc;
+        currentLangFlagImg.alt = label + " flag";
         currentLangText.textContent = label;
         option.classList.add("active");
       } else {
@@ -48,7 +49,6 @@
         else if (code === "hi") target = "hi/" + fileName;
         else if (code === "es") target = "es/" + fileName;
 
-        // If currently inside a language folder, go up one level first
         if (currentCode !== "en") {
           if (code === "en") {
             target = "../" + fileName;
