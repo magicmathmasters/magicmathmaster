@@ -12,11 +12,10 @@
 
   const langBtn = document.getElementById("langBtn");
   const langDropdown = document.getElementById("langDropdown");
-  const currentLangFlagImg = document.getElementById("currentLangFlagImg");
   const currentLangText = document.getElementById("currentLangText");
   const langOptions = document.querySelectorAll(".lang-option");
 
-  if (langBtn && langDropdown && currentLangFlagImg && currentLangText && langOptions.length) {
+  if (langBtn && langDropdown && currentLangText && langOptions.length) {
     const path = window.location.pathname.toLowerCase();
     const fileName = (path.split("/").pop() || "index.html").toLowerCase();
 
@@ -30,11 +29,8 @@
     langOptions.forEach(option => {
       const code = option.getAttribute("data-lang");
       const label = option.getAttribute("data-label");
-      const flagSrc = option.getAttribute("data-flag-src");
 
       if (code === currentCode) {
-        currentLangFlagImg.src = flagSrc;
-        currentLangFlagImg.alt = label + " flag";
         currentLangText.textContent = label;
         option.classList.add("active");
       } else {
@@ -50,11 +46,8 @@
         else if (code === "es") target = "es/" + fileName;
 
         if (currentCode !== "en") {
-          if (code === "en") {
-            target = "../" + fileName;
-          } else {
-            target = "../" + target;
-          }
+          if (code === "en") target = "../" + fileName;
+          else target = "../" + target;
         }
 
         window.location.href = target;
