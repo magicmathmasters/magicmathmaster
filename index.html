@@ -13,18 +13,12 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.magicmathmaster.com.au/">
 
-  <!-- ✅ Shared site stylesheet -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 
-  <!-- ✅ Small page-specific rules (kept minimal) -->
   <style>
-    /* ✅ No subtitle under the brand name (index-only) */
     .brand-title span{ display:none !important; }
 
-    /* ===== Accordion sections (index-only) ===== */
     details.acc{
       background: rgba(255,255,255,.82);
       border: 1px solid var(--line);
@@ -103,7 +97,6 @@
     }
     .link-strong:hover{ border-bottom-color: rgba(11,94,215,.60); }
 
-    /* ===== "What makes us different" block (index-only) ===== */
     .diff-wrap{
       background: rgba(255,255,255,.72);
       border: 1px solid var(--line);
@@ -234,11 +227,28 @@
       font-weight: 700;
       line-height: 1.65;
     }
+
+    .footer-links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top:10px;
+      font-weight:700;
+    }
+    .footer-links a{
+      text-decoration:none;
+      color:inherit;
+      opacity:.9;
+    }
+    .footer-links a:hover{
+      opacity:1;
+      text-decoration:underline;
+    }
   </style>
 </head>
 
 <body>
-  <!-- ✅ TOPBAR TEMPLATE -->
   <div class="topbar">
     <div class="container topbar-inner">
       <!--<a class="brand" href="index.html" aria-label="Magic Math Master home">
@@ -251,22 +261,14 @@
 
       <div class="nav" aria-label="Primary navigation">
         <a data-nav href="index.html">Home</a>
+        <a data-nav href="Club-register.html">Math Club</a>
         <a data-nav href="programs.html">Programs</a>
         <a data-nav href="pricing.html">Fees</a>
-        <a data-nav href="policies.html">Policies</a>
         <a data-nav href="about.html">About</a>
-        <a data-nav href="philosophy.html">Philosophy</a>
         <a data-nav href="contact.html">Contact</a>
-        
-        <!-- ✅ NEW: public demo practice link -->
-      <!--  <a data-nav href="https://demo.magicmathmaster.com.au">Free Practice</a>-->
+
         <a href="https://practice.magicmathmaster.com.au">Student Login</a>
-        <!--<a class="nav-lang" href="vi/index.html">Tiếng Việt</a>-->
-        <!--<a class="nav-lang" href="/vi/index.html">
-          <span class="nav-lang-badge" aria-hidden="true">🇻🇳</span>
-          <span>VN</span>
-        </a>-->
-        
+
         <a class="nav-lang" href="/vi/index.html">
           <svg class="nav-lang-flag" viewBox="0 0 24 24" aria-hidden="true">
             <defs>
@@ -287,7 +289,6 @@
     </div>
   </div>
 
-  <!-- ✅ HERO TEMPLATE -->
   <section class="hero">
     <div class="container">
       <div class="hero-snap">
@@ -323,15 +324,7 @@
           <a class="btn btn-success" href="enquiry.html">Enquire</a>
           <a class="btn btn-amber" href="register.html">Register</a>
           <a class="btn btn-cyan" href="Club-register.html">Online Math Club</a>
-
-          <!-- ✅ NEW: free demo CTA -->
-<!--           <a class="btn btn-red" href="demo/index.html" target="_blank" rel="noopener">
-  Free Practice
-</a>-->
-
-<a class="btn btn-red" href="#sec_freedemo">
-  Free Demo
-</a>
+          <a class="btn btn-red" href="#sec_freedemo">Free Demo</a>
         </div>
       </div>
     </div>
@@ -343,62 +336,55 @@
     <section class="section">
       <div class="container">
 
-        <!-- ✅ QUICK LINKS (styled by style.css global rules) -->
         <div class="quicklinks">
           <h2>Quick links (tap to open)</h2>
           <div class="ql-grid">
+            <a class="ql-btn" data-open="sec_freedemo">Free Demo</a>
             <a class="ql-btn" data-open="sec_programs">Programs</a>
             <a class="ql-btn" data-open="sec_pricing">Fees</a>
-            <a class="ql-btn" data-open="sec_policy">Policies</a>
             <a class="ql-btn" data-open="sec_about">About</a>
             <a class="ql-btn" data-open="sec_philosophy">Philosophy</a>
-
-            <!-- ✅ NEW quick link -->
-           <!--<a class="ql-btn" data-open="sec_freepractice">Free practice (Grades 3–6)</a>-->
             <a class="ql-btn" data-open="sec_diff">What makes us different</a>
             <a class="ql-btn" data-open="sec_why">Why parents choose us</a>
             <a class="ql-btn" data-open="sec_contact">Contact</a>
-            <!--  <a class="ql-btn" data-open="sec_all">Open all</a> -->
           </div>
         </div>
 
-      <!-- ✅ NEW: FREE DEMO TEST SECTION -->
-      <details class="acc" id="sec_freedemo" open>
-        <summary class="acc-sum">Free Demo Tests (Prep–Grade 12) <span class="caret">⌄</span></summary>
-        <div class="acc-body">
-          <!--<div class="h2-center">Try a free demo test (Prep–Grade 12)</div>-->
-          <a class="btn" href="demo/index.html" target="_blank" rel="noopener">
-            Explore Free Demo Tests
-          </a>
+        <details class="acc" id="sec_freedemo" open>
+          <summary class="acc-sum">Free Demo Tests (Prep–Grade 12) <span class="caret">⌄</span></summary>
+          <div class="acc-body">
+            <a class="btn" href="demo/index.html" target="_blank" rel="noopener">
+              Explore Free Demo Tests
+            </a>
 
-          <p class="sub-center">
-            Give your child a chance to try a short maths demo before registering.
-            Our free demo tests are public and designed to help families explore the platform with confidence.
-            Choose the demo that best matches your child’s year level: Prep–Grade 2, Grade 3–6, Grade 7–10, or Grade 11–12.
-            Full practice tests, adaptive levels, and additional learning materials are available to members after registration.
-          </p>
-
-          <div class="mini-card">
-            <h3>✅ What’s included</h3>
-            <ul>
-              <li>Short demo tests ideal for first-time users</li>
-              <li>Instant feedback to support learning</li>
-              <li>Separate demo options for different year-level groups</li>
-              <li>Sample maths questions across a variety of topics</li>
-            </ul>
-
-            <p style="margin:12px 0 0; font-weight:1000; text-align:center;">
-              👉 <a class="link-strong" href="demo/">Open Free Demo Tests →</a>
+            <p class="sub-center">
+              Give your child a chance to try a short maths demo before registering.
+              Our free demo tests are public and designed to help families explore the platform with confidence.
+              Choose the demo that best matches your child’s year level: Prep–Grade 2, Grade 3–6, Grade 7–10, or Grade 11–12.
+              Full practice tests, adaptive levels, and additional learning materials are available to members after registration.
             </p>
 
-            <p style="margin:10px 0 0; color: var(--muted); font-weight: 700; text-align:center;">
-              Looking for full access to the practice portal with adaptive levels and more topics?
-              <a class="link-strong" href="register.html">Register here →</a>
-            </p>
+            <div class="mini-card">
+              <h3>✅ What’s included</h3>
+              <ul>
+                <li>Short demo tests ideal for first-time users</li>
+                <li>Instant feedback to support learning</li>
+                <li>Separate demo options for different year-level groups</li>
+                <li>Sample maths questions across a variety of topics</li>
+              </ul>
+
+              <p style="margin:12px 0 0; font-weight:1000; text-align:center;">
+                👉 <a class="link-strong" href="demo/">Open Free Demo Tests →</a>
+              </p>
+
+              <p style="margin:10px 0 0; color: var(--muted); font-weight: 700; text-align:center;">
+                Looking for full access to the practice portal with adaptive levels and more topics?
+                <a class="link-strong" href="register.html">Register here →</a>
+              </p>
+            </div>
           </div>
-        </div>
-      </details>
-        <!-- PROGRAMS -->
+        </details>
+
         <details class="acc" id="sec_programs" open>
           <summary class="acc-sum">Programs <span class="caret">⌄</span></summary>
           <div class="acc-body">
@@ -449,7 +435,6 @@
           </div>
         </details>
 
-        <!-- FEES -->
         <details class="acc" id="sec_pricing" open>
           <summary class="acc-sum">Fees <span class="caret">⌄</span></summary>
           <div class="acc-body">
@@ -468,26 +453,6 @@
           </div>
         </details>
 
-        <!-- POLICIES -->
-        <details class="acc" id="sec_policy" open>
-          <summary class="acc-sum">Policies <span class="caret">⌄</span></summary>
-          <div class="acc-body">
-            <div class="h2-center">Policies (summary)</div>
-            <div class="mini-card">
-              <h3>Good to know</h3>
-              <ul>
-                <li>Lessons are prepaid and scheduled in advance.</li>
-                <li>Please provide at least <b>24 hours’ notice</b> for cancellations or changes.</li>
-                <li>We maintain a respectful, supportive learning environment.</li>
-              </ul>
-              <p style="margin:12px 0 0; font-weight:1000;">
-                👉 <a class="link-strong" href="policies.html">Read full policies →</a>
-              </p>
-            </div>
-          </div>
-        </details>
-
-        <!-- ABOUT -->
         <details class="acc" id="sec_about" open>
           <summary class="acc-sum">About <span class="caret">⌄</span></summary>
           <div class="acc-body">
@@ -506,7 +471,6 @@
           </div>
         </details>
 
-        <!-- PHILOSOPHY -->
         <details class="acc" id="sec_philosophy" open>
           <summary class="acc-sum">Philosophy <span class="caret">⌄</span></summary>
           <div class="acc-body">
@@ -526,7 +490,6 @@
           </div>
         </details>
 
-        <!-- WHAT MAKES US DIFFERENT (screenshot style) -->
         <details class="acc" id="sec_diff" open>
           <summary class="acc-sum">What makes us different <span class="caret">⌄</span></summary>
           <div class="acc-body">
@@ -588,7 +551,6 @@
               </div>
             </div>
 
-            <!-- ✅ Updated: send to enquiry page (not contact) -->
             <p style="text-align:center; margin:14px 0 0; font-weight:1000;">
               👉 <a class="link-strong" href="enquiry.html">Send an enquiry to get a recommended starting plan →</a>
             </p>
@@ -596,7 +558,6 @@
           </div>
         </details>
 
-        <!-- WHY PARENTS CHOOSE US -->
         <details class="acc" id="sec_why" open>
           <summary class="acc-sum">Why parents choose us <span class="caret">⌄</span></summary>
           <div class="acc-body">
@@ -617,14 +578,12 @@
               </div>
             </div>
 
-            <!-- ✅ Updated: send to enquiry page (not contact) -->
             <p style="text-align:center; margin:14px 0 0; font-weight:1000;">
               👉 <a class="link-strong" href="enquiry.html">Send an enquiry to get a recommended starting plan →</a>
             </p>
           </div>
         </details>
 
-        <!-- CONTACT -->
         <details class="acc" id="sec_contact" open>
           <summary class="acc-sum">Contact <span class="caret">⌄</span></summary>
           <div class="acc-body">
@@ -640,7 +599,6 @@
                 <a class="btn btn-amber" href="pricing.html">View fees</a>
               </div>
 
-              <!-- Optional (nice): small direct-contact link -->
               <p style="margin:12px 0 0; font-weight:800; color: var(--muted);">
                 Prefer to contact us directly?
                 <a class="link-strong" href="contact.html">Contact page →</a>
@@ -657,9 +615,17 @@
     <div class="container">
       <div class="footer-inner">
         <div>© <span id="year"></span> Magic Math Master • Australia</div>
-        <!-- ✅ Updated: email should be mailto (more natural than linking to contact page) -->
-        <div><a href="mailto:magicmathmaster@outlook.com">magicmathmaster@outlook.com</a>;
-        <a href="mailto:magicmathmasters@gmail.com">magicmathmasters@gmail.com</a></div>
+        <div>
+          <a href="mailto:magicmathmaster@outlook.com">magicmathmaster@outlook.com</a>;
+          <a href="mailto:magicmathmasters@gmail.com">magicmathmasters@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="footer-links" aria-label="Footer links">
+        <a href="about.html">About</a>
+        <a href="philosophy.html">Philosophy</a>
+        <a href="policies.html">Policies</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </footer>
@@ -676,13 +642,6 @@
           else d.removeAttribute("open");
         });
       }
-
-      // Desktop: open all. Mobile: collapse by default.
-      /* function applyDefaultOpen(){
-        if(isMobileLike()) setAllDetails(false);
-        else setAllDetails(true);
-      }
-      applyDefaultOpen();*/
 
       function scrollToSection(el){
         el.scrollIntoView({ behavior:"smooth", block:"start" });
