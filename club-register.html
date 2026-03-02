@@ -13,15 +13,10 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.magicmathmaster.com.au/club-register.html">
 
-  <!-- Shared site stylesheet (GitHub Pages friendly) -->
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 
   <style>
-    /* =========================================================
-       Match Register/Enquiry layout system (topbar + hero-card)
-       (kept local so this page looks identical immediately)
-       ========================================================= */
     :root {
       --bg: #efe7e3;
       --card: rgba(255,255,255,.94);
@@ -43,7 +38,6 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -51,7 +45,6 @@
       color: var(--ink);
       line-height: 1.55;
     }
-
     a { color: var(--accent); }
 
     .topbar {
@@ -62,12 +55,10 @@
       background: rgba(255,255,255,.84);
       border-bottom: 1px solid rgba(232, 217, 207, .9);
     }
-
     .container {
       width: min(1040px, calc(100% - 28px));
       margin: 0 auto;
     }
-
     .topbar-inner {
       min-height: 66px;
       display: flex;
@@ -75,7 +66,6 @@
       justify-content: space-between;
       gap: 14px;
     }
-
     .brand {
       display: inline-flex;
       align-items: center;
@@ -85,20 +75,17 @@
       font-weight: 1000;
       letter-spacing: -.2px;
     }
-
     .brand-logo{
       width: 52px;
       height: 52px;
       object-fit: contain;
       display:block;
     }
-
     .brand-title b{
       font-weight: 1000;
       font-size: 20px;
       color: var(--ink);
     }
-
     .top-actions {
       display: flex;
       flex-wrap: wrap;
@@ -122,7 +109,6 @@
       font: inherit;
       white-space: nowrap;
     }
-
     .btn:hover { transform: translateY(-1px); filter: brightness(1.03); }
 
     .btn-success { background: linear-gradient(135deg, #1f9d58, var(--green)); color: #fff; }
@@ -150,20 +136,17 @@
       background: rgba(255,255,255,.08);
       margin-bottom: 16px;
     }
-
     .hero-banner {
       display: block;
       width: 100%;
       height: auto;
       background: var(--hero);
     }
-
     .hero-copy {
       background: rgba(255,255,255,.95);
       border-top: 1px solid var(--line);
       padding: 18px;
     }
-
     .hero-title {
       margin: 0 0 8px;
       font-size: clamp(1.7rem, 4vw, 2.5rem);
@@ -172,7 +155,6 @@
       font-weight: 1000;
       letter-spacing: -.3px;
     }
-
     .hero-desc {
       margin: 0;
       color: var(--muted);
@@ -180,14 +162,12 @@
       font-weight: 700;
       line-height: 1.7;
     }
-
     .hero-pills {
       margin-top: 14px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
-
     .hero-pill {
       padding: 9px 14px;
       border-radius: 999px;
@@ -197,7 +177,6 @@
       border: 1px solid rgba(11,94,215,.14);
       font-size: .95rem;
     }
-
     .hero-actions{
       margin-top: 14px;
       display:flex;
@@ -206,9 +185,10 @@
       align-items:center;
     }
 
-    /* =========================================================
-       Existing club page styles (kept + lightly cleaned)
-       ========================================================= */
+    /* IMPORTANT: keep post-hero content the same width as hero */
+    #club-register .club-shell{ width:100%; }
+
+    /* Existing club page styles */
     .club-shell{ display:grid; gap:16px; }
 
     .club-card,
@@ -471,7 +451,6 @@
       cursor:pointer;
       width:100%;
     }
-
     .remove-btn:hover{ opacity: .9; }
 
     .consent-box{
@@ -492,7 +471,6 @@
       font-weight: 700;
       line-height: 1.65;
     }
-
     .check-line input{ margin-top: 3px; accent-color: var(--accent); }
 
     .small-note{
@@ -509,7 +487,6 @@
       gap: 14px;
       margin-top: 14px;
     }
-
     @media (max-width: 980px){
       .info-grid{ grid-template-columns: 1fr; }
     }
@@ -527,7 +504,6 @@
       font-weight: 700;
       line-height: 1.7;
     }
-
     .info-card ul{ padding-left: 18px; }
 
     .success-card{
@@ -565,14 +541,11 @@
 </head>
 
 <body>
-  <!-- TOP BAR (same system as register/enquiry) -->
   <div class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="index.html" aria-label="Magic Math Master home">
         <img class="brand-logo" src="assets/logo.png" alt="Magic Math Master logo" />
-        <div class="brand-title">
-          <b>Magic Math Master</b>
-        </div>
+        <div class="brand-title"><b>Magic Math Master</b></div>
       </a>
 
       <div class="top-actions">
@@ -585,8 +558,6 @@
 
   <main>
     <div class="container">
-
-      <!-- HERO (same system as register/enquiry) -->
       <section class="hero-card" aria-label="Maths Club register hero">
         <img class="hero-banner" src="assets/banner.png" alt="Magic Math Master banner" loading="eager" />
         <div class="hero-copy">
@@ -595,18 +566,6 @@
             Choose <strong>one club stream</strong> and enrol <strong>one or more students</strong> in one booking.
             Maths Club is online and students can join from anywhere.
           </p>
-
-          <p class="hero-desc" style="margin-top:10px;">
-            <strong>Questions before registering?</strong>
-            Contact us via WhatsApp or email — we’re happy to help.
-          </p>
-
-          <div class="hero-actions" style="margin-top:8px;">
-            <a class="btn btn-outline" target="_blank" rel="noopener"
-              href="https://wa.me/61402204599">🟢 WhatsApp</a>
-            <a class="btn btn-outline"
-              href="mailto:magicmathmasters@gmail.com?subject=Maths%20Club%20Question">✉️ Email</a>
-          </div>
 
           <div class="hero-pills">
             <span class="hero-pill">Club only</span>
@@ -620,10 +579,21 @@
             <a class="btn btn-outline" href="mathclub.html">Maths Club info</a>
             <a class="btn btn-success" href="enquiry.html">Tutoring enquiry</a>
           </div>
+
+          <p class="section-sub" style="margin-top:14px;">
+            Questions before registering? Contact us via
+            <a href="https://wa.me/61402204599" target="_blank" rel="noopener">WhatsApp</a>
+            or
+            <a href="mailto:magicmathmasters@gmail.com?subject=Maths%20Club%20Registration%20Question">email</a>
+            — we’re happy to help.
+          </p>
         </div>
       </section>
+    </div>
 
-      <section id="club-register">
+    <!-- ✅ FIXED: wrap post-hero content in the SAME container -->
+    <section id="club-register">
+      <div class="container">
         <div class="club-shell">
 
           <div class="club-card">
@@ -687,7 +657,6 @@
                 novalidate>
 
             <input type="hidden" name="formType" value="club-register">
-            <!-- ✅ Removed submittedAt: Apps Script will write timestamp uniformly -->
             <input type="hidden" name="clubStream" id="clubStreamField">
             <input type="hidden" name="prepSubgroup" id="prepSubgroupField">
             <input type="hidden" name="students" id="studentsField">
@@ -736,6 +705,7 @@
                     <option>Online</option>
                     <option>In-person (if available)</option>
                     <option>No preference</option>
+                    <option>Not joining competitions yet</option>
                     <option>Not joining competitions yet</option>
                   </select>
                 </div>
@@ -879,10 +849,11 @@
             <strong>Thank you. Your registration has been received.</strong>
             We will contact you soon with payment arrangements and next steps for joining Maths Club.
           </div>
-        </div>
-      </section>
 
-    </div>
+        </div><!-- /.club-shell -->
+      </div><!-- /.container -->
+    </section>
+
   </main>
 
   <footer class="footer">
