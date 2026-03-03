@@ -378,36 +378,6 @@
     </div>
   </footer>
 
-  <!-- Quick links smooth scroll (page-only; script.js does nav + language + year) -->
-  <script>
-    (function(){
-      function scrollToSection(el){
-        el.scrollIntoView({ behavior:"smooth", block:"start" });
-
-        var tries = 0, maxTries = 9;
-        function nudge(){
-          tries++;
-          var rect = el.getBoundingClientRect();
-          var safeTop = 150;
-          if(rect.top < safeTop){
-            window.scrollBy({ top: rect.top - safeTop, left: 0, behavior: "smooth" });
-          }
-          if(tries < maxTries) setTimeout(nudge, 160);
-        }
-        setTimeout(nudge, 220);
-      }
-
-      document.querySelectorAll(".ql-btn[data-open]").forEach(function(btn){
-        btn.addEventListener("click", function(e){
-          e.preventDefault();
-          var id = btn.getAttribute("data-open");
-          var el = document.getElementById(id);
-          if(!el) return;
-          scrollToSection(el);
-        });
-      });
-    })();
-  </script>
 
   <script src="script.js"></script>
 </body>
