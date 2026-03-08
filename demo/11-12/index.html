@@ -6,196 +6,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    body{
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:#f3f7f5;
-      margin:0;
-      padding:24px;
-    }
-    .card{
-      max-width:820px;
-      margin:auto;
-      background:#fff;
-      border-radius:18px;
-      padding:22px;
-      box-shadow:0 10px 26px rgba(0,0,0,.08);
-    }
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f3f7f5;margin:0;padding:24px;}
+    .card{max-width:820px;margin:auto;background:#fff;border-radius:18px;padding:22px;box-shadow:0 10px 26px rgba(0,0,0,.08);}
     h1{margin:0 0 10px;color:#0b5ed7;font-weight:1000;}
-    .pill{
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(11,94,215,.08);
-      border:1px solid rgba(11,94,215,.18);
-      color:#0b5ed7;
-      font-weight:900;
-      margin-bottom:10px;
-    }
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(11,94,215,.08);border:1px solid rgba(11,94,215,.18);color:#0b5ed7;font-weight:900;margin-bottom:10px;}
     .intro{color:#555;font-weight:650;line-height:1.6;margin-bottom:10px;}
 
     .disclaimer{
-      background:#fff7e8;
-      border:1px solid rgba(245,158,11,.35);
-      border-radius:14px;
-      padding:12px;
-      color:#555;
-      font-weight:750;
-      line-height:1.6;
-      margin: 10px 0 14px;
+      background:#fff7e8;border:1px solid rgba(245,158,11,.35);
+      border-radius:14px;padding:12px;color:#555;font-weight:750;
+      line-height:1.6;margin: 10px 0 14px;
     }
 
     .q{font-size:20px;font-weight:900;margin:14px 0 10px;}
 
-    label{
-      display:block;
-      margin-bottom:6px;
-      font-weight:800;
-      color:#334155;
-    }
-    input,select{
-      width:100%;
-      padding:12px;
-      font-size:16px;
-      border-radius:12px;
-      border:1px solid #ccc;
-      box-sizing:border-box;
-    }
+    label{display:block;margin-bottom:6px;font-weight:800;color:#334155;}
+    input,select{width:100%;padding:12px;font-size:16px;border-radius:12px;border:1px solid #ccc;box-sizing:border-box;}
 
-    .row2{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
-      margin-bottom:14px;
-    }
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:14px;}
     .field{margin-bottom:14px;}
     @media (max-width:720px){ .row2{grid-template-columns:1fr;} }
 
-    .btnrow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:12px;
-    }
-    button{
-      padding:12px 16px;
-      font-size:16px;
-      font-weight:900;
-      border-radius:12px;
-      border:none;
-      background:#0b5ed7;
-      color:#fff;
-      cursor:pointer;
-    }
-    button.secondary{
-      background:#eef2ff;
-      color:#0b5ed7;
-    }
+    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+    button{padding:12px 16px;font-size:16px;font-weight:900;border-radius:12px;border:none;background:#0b5ed7;color:#fff;cursor:pointer;}
+    button.secondary{background:#eef2ff;color:#0b5ed7;}
     button:disabled{opacity:.55;cursor:not-allowed;}
 
-    .feedback{
-      margin-top:12px;
-      padding:12px;
-      border-radius:12px;
-      font-weight:800;
-      line-height:1.5;
-    }
+    .feedback{margin-top:12px;padding:12px;border-radius:12px;font-weight:800;line-height:1.5;}
     .ok{background:#e8fff0;border:1px solid #9be7b2;}
     .bad{background:#fff0f0;border:1px solid #f2a6a6;}
 
-    .hint{
-      margin-top:10px;
-      color:#475569;
-      font-weight:750;
-      font-size:14px;
-      line-height:1.6;
-    }
-
+    .hint{margin-top:10px;color:#475569;font-weight:750;font-size:14px;line-height:1.6;}
     .hide{display:none;}
-    .note{
-      margin-top:10px;
-      color:#64748b;
-      font-weight:650;
-      font-size:14px;
-      line-height:1.6;
-    }
+    .note{margin-top:10px;color:#64748b;font-weight:650;font-size:14px;line-height:1.6;}
 
-    .cta{
-      margin-top:16px;
-      padding:16px;
-      border-radius:14px;
-      background:#f6f9ff;
-      border:1px solid rgba(11,94,215,.18);
-      color:#555;
-      font-weight:700;
-    }
+    .cta{margin-top:16px;padding:16px;border-radius:14px;background:#f6f9ff;border:1px solid rgba(11,94,215,.18);color:#555;font-weight:700;}
 
-    .resultBox{
-      margin-top:16px;
-      padding:14px;
-      border-radius:14px;
-      background:rgba(11,94,215,.05);
-      border:1px solid rgba(11,94,215,.18);
-    }
-    .resultTitle{
-      font-weight:1000;
-      color:#0b5ed7;
-      margin-bottom:6px;
-    }
+    .resultBox{margin-top:16px;padding:14px;border-radius:14px;background:rgba(11,94,215,.05);border:1px solid rgba(11,94,215,.18);}
+    .resultTitle{font-weight:1000;color:#0b5ed7;margin-bottom:6px;}
 
-    canvas{
-      width:100%;
-      height:240px;
-      background:#fff;
-      border-radius:12px;
-      border:1px solid rgba(0,0,0,.12);
-      margin-top:8px;
-    }
+    canvas{width:100%;height:240px;background:#fff;border-radius:12px;border:1px solid rgba(0,0,0,.12);margin-top:8px;}
 
     ul{margin:6px 0 0 18px;}
     li{margin-bottom:6px;}
 
-    .footer{
-      margin-top:18px;
-      padding-top:12px;
-      border-top:1px dashed #ccc;
-      text-align:center;
-      color:#666;
-      font-weight:650;
-    }
+    .footer{margin-top:18px;padding-top:12px;border-top:1px dashed #ccc;text-align:center;color:#666;font-weight:650;}
 
-    /* ===== Printable report toggle UI ===== */
     .toggleRow{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-top:12px;
-      padding:10px 12px;
-      border-radius:12px;
-      background:#fff;
-      border:1px solid rgba(2,6,23,.12);
+      display:flex;align-items:center;gap:10px;margin-top:12px;padding:10px 12px;
+      border-radius:12px;background:#fff;border:1px solid rgba(2,6,23,.12);
     }
     .toggleRow input{width:auto; transform:scale(1.2);}
     .toggleRow label{margin:0;font-weight:800;}
 
-    /* ===== PRINT STYLES ===== */
     .printReport{ display:none; }
-
     @media print{
       body{ background:#fff; padding:0; }
       .card{ box-shadow:none; padding:0; max-width:none; border-radius:0; }
-
-      /* Hide everything except printable report */
-      .card > *:not(#printReport){
-        display:none !important;
-      }
-
-      #printReport{
-        display:block !important;
-        padding:18px;
-        font-size:14px;
-        line-height:1.6;
-      }
-
+      .card > *:not(#printReport){ display:none !important; }
+      #printReport{ display:block !important; padding:18px; font-size:14px; line-height:1.6; }
       #printReport h2, #printReport h3 { color:#000; margin: 10px 0 6px; }
       #printReport .small { color:#333; font-size:13px; }
       #printReport ul{ margin-left:18px; }
@@ -207,8 +76,8 @@
 <body>
 <div class="card">
 
-  <div class="pill">🏆 Year 11 – Year 12 • Nursing Modelling</div>
-  <h1>Nursing Modelling (Maths) — Free Demo</h1>
+  <div id="pill" class="pill">🏆 Year 11 – Year 12 • Nursing Modelling</div>
+  <h1 id="titleH1">Nursing Modelling (Maths) — Free Demo</h1>
 
   <p class="intro">
     This demo uses nursing-inspired scenarios to practise maths modelling (rates, linear/exponential models, and simple queue thinking).
@@ -249,10 +118,12 @@
   <div id="qa" class="hide">
     <div id="q" class="q"></div>
     <input id="ans" inputmode="decimal" placeholder="Type a number (decimals OK)">
+    <div id="precisionNote" class="note" style="margin-top:8px;"></div>
 
     <div class="btnrow">
       <button id="checkBtn" onclick="check()">Check</button>
       <button id="nextBtn" class="secondary" onclick="next()" disabled>Next</button>
+      <button class="secondary" onclick="backToGrade()">Change grade</button>
     </div>
   </div>
 
@@ -263,7 +134,6 @@
   <div id="end" class="cta hide">
     <div id="finalLine"></div>
 
-    <!-- Graph -->
     <div class="resultBox">
       <div class="resultTitle">Results overview</div>
       <div id="pctText"></div>
@@ -271,7 +141,6 @@
       <div class="note">Blue bar = correct (1) • Red bar = not yet correct (0)</div>
     </div>
 
-    <!-- Parent summary -->
     <div class="resultBox">
       <div class="resultTitle">👨‍👩‍👧 Parent Summary</div>
 
@@ -288,7 +157,6 @@
       </p>
     </div>
 
-    <!-- Parent can choose to include report -->
     <div class="toggleRow">
       <input id="includeReport" type="checkbox" checked>
       <label for="includeReport">Include a printable report (PDF)</label>
@@ -297,6 +165,7 @@
     <div class="btnrow">
       <button onclick="printOrSkip()">🖨️ Print / Save PDF</button>
       <button class="secondary" onclick="restart()">Try again</button>
+      <button class="secondary" onclick="backToGrade()">Change grade</button>
     </div>
 
     <div id="saveStatus" class="note"></div>
@@ -314,7 +183,7 @@
       <b>Student:</b> <span id="rName"></span><br>
       <b>Grade:</b> <span id="rGrade"></span><br>
       <b>Date:</b> <span id="rDate"></span><br>
-      <b>Demo:</b> Year 11–12 Nursing Modelling (Maths)
+      <b>Demo:</b> <span id="rDemo"></span>
     </p>
 
     <div class="divider"></div>
@@ -350,144 +219,190 @@
 const ENDPOINT_URL =
   "https://script.google.com/macros/s/AKfycbwvWZJLRflPGQA3s5P2-B5LkTFonS4Z1SPI5-85lzlj1lFY02qXJzTd239PsiB0WICr/exec";
 
-const qs = [
-  {
-    q:"👩‍⚕️ Staffing ratio: A ward aims for 1 nurse per 5 patients. If there are 27 patients, how many nurses are needed (round up)?",
-    a:6,
-    skill:"Ratios & Rounding",
-    hint:"27/5 = 5.4 → round up to 6."
-  },
-  {
-    q:"⏱️ Patient flow: Patients arrive at 6 per hour. The team can discharge 5 per hour. If this continues for 4 hours, how many more patients are waiting (net change)?",
-    a:4,
-    skill:"Rates",
-    hint:"Net change = (6−5) per hour = +1. Over 4 hours: +4."
-  },
-  {
-    q:"🧴 Inventory (linear): A unit uses 18 gloves per hour. Starting stock is 500 gloves. After 10 hours, how many remain?",
-    a:320,
-    skill:"Linear Models",
-    hint:"Used = 18×10 = 180. Remaining = 500−180 = 320."
-  },
-  {
-    q:"📉 Infection control (exponential): A contamination level decreases by 20% each hour. Start = 100 units. After 2 hours, what is the level?",
-    a:64,
-    skill:"Exponential Models",
-    hint:"Multiply by 0.8 each hour: 100×0.8×0.8 = 64."
-  },
-  {
-    q:"📈 Model: Waiting time W (minutes) is W = 8 + 3n, where n is patients ahead. If n=6, what is W?",
-    a:26,
-    skill:"Algebraic Models",
-    hint:"Substitute n=6: 8 + 3×6 = 26."
-  },
-  {
-    q:"🗓️ Shift planning: A nurse works 3 shifts of 7.5 hours each in a week. Total hours?",
-    a:22.5,
-    skill:"Multiplication & Decimals",
-    hint:"3×7.5 = 22.5."
-  },
-  {
-    q:"📊 Data check: Four triage times (minutes): 12, 18, 15, 25. What is the mean time?",
-    a:17.5,
-    skill:"Statistics (Mean)",
-    hint:"Sum=70. 70/4 = 17.5."
-  },
-  {
-    q:"📦 Restocking: A supply order arrives every 5 days. Over 30 days, how many deliveries arrive? (assume day 5,10,...,30)",
-    a:6,
-    skill:"Sequences & Counting",
-    hint:"30/5 = 6 deliveries."
-  }
+/* Year 11 question bank (10) */
+const qs11 = [
+  { q:"👩‍⚕️ Staffing ratio: A ward aims for 1 nurse per 5 patients. If there are 27 patients, how many nurses are needed (round up)?", a:6, skill:"Ratios & Rounding", hint:"27/5 = 5.4 → round up to 6." },
+  { q:"⏱️ Patient flow: Patients arrive at 6 per hour. The team can discharge 5 per hour. If this continues for 4 hours, how many more patients are waiting (net change)?", a:4, skill:"Rates", hint:"Net +1 per hour → 4 hours → +4." },
+  { q:"🧤 Inventory (linear): A unit uses 18 gloves per hour. Starting stock is 500 gloves. After 10 hours, how many remain?", a:320, skill:"Linear Models", hint:"Used = 18×10 = 180. 500−180 = 320." },
+  { q:"📉 Infection control (exponential): A contamination level decreases by 20% each hour. Start = 100 units. After 2 hours, what is the level?", a:64, skill:"Exponential Models", hint:"100×0.8×0.8 = 64." },
+  { q:"📈 Model: Waiting time W (minutes) is W = 8 + 3n, where n is patients ahead. If n=6, what is W?", a:26, skill:"Algebraic Models", hint:"8 + 3×6 = 26." },
+  { q:"🗓️ Shift planning: A nurse works 3 shifts of 7.5 hours each in a week. Total hours?", a:22.5, skill:"Decimals", hint:"3×7.5 = 22.5." },
+  { q:"📊 Data check: Four triage times (minutes): 12, 18, 15, 25. What is the mean time?", a:17.5, skill:"Statistics (Mean)", hint:"Sum=70. 70/4=17.5." },
+  { q:"📦 Restocking: A supply order arrives every 5 days. Over 30 days, how many deliveries arrive? (day 5,10,...,30)", a:6, skill:"Counting", hint:"30/5 = 6 deliveries." },
+  { q:"🧴 Supplies: A unit uses 2.4 L of sanitizer per day. Starting stock is 20 L. After 7 days, how many litres remain?", a:3.2, skill:"Rates & Units", hint:"Used = 2.4×7 = 16.8. Remaining = 20−16.8 = 3.2." },
+  { q:"✅ Model check: A model predicted 28 minutes wait, but actual wait was 24 minutes. What is the percentage error? (round to 2 decimals)", a:16.67, tol:0.05, skill:"Percent Error", hint:"|28−24|/24 ×100 ≈ 16.67%." }
 ];
 
-let i=-1, score=0;
-let student={name:"",grade:""};
-let gotCorrect=new Array(qs.length).fill(false);
+/* Year 12 question bank (10) */
+const qs12 = [
+  { q:"👩‍⚕️ Staffing ratio: A ward aims for 1 nurse per 4 patients. If there are 37 patients, how many nurses are needed (round up)?", a:10, skill:"Ratios & Rounding", hint:"37/4 = 9.25 → round up to 10." },
+  { q:"⏱️ Patient flow: Arrivals are 7.5 per hour and discharges are 6 per hour. Over 6 hours, what is the net increase in patients waiting?", a:9, skill:"Rates", hint:"Net = 1.5/hr. 1.5×6 = 9." },
+  { q:"🧤 Inventory (linear): A unit uses 22 gloves per hour. Starting stock is 650 gloves. After 12 hours, how many remain?", a:386, skill:"Linear Models", hint:"Used = 22×12 = 264. 650−264 = 386." },
+  { q:"📉 Exponential decay: A level decreases by 15% each hour. Start = 200 units. After 3 hours, what is the level? (round to 2 decimals)", a:122.83, tol:0.05, skill:"Exponential Models", hint:"200×0.85^3 ≈ 122.83." },
+  { q:"📈 Exponential model: Waiting time W = 5×1.08^n (minutes). If n=10, what is W? (round to 2 decimals)", a:10.79, tol:0.05, skill:"Exponential Models", hint:"5×1.08^10 ≈ 10.79." },
+  { q:"🧠 Rearranging: W = 8 + 3n. If W = 47 minutes, what is n?", a:13, skill:"Rearranging Formulas", hint:"47−8=39. 39/3=13." },
+  { q:"🧮 Solve for time: Stock starts at 500 gloves and decreases by 18 gloves per hour. When stock reaches 230 gloves, how many hours have passed?", a:15, skill:"Linear Equations", hint:"500−18t=230 → t=15." },
+  { q:"📊 Weighted mean: 10 patients had mean triage time 14 min, and 6 patients had mean triage time 22 min. What is the overall mean?", a:17, skill:"Statistics (Weighted Mean)", hint:"(10×14 + 6×22)/16 = 17." },
+  { q:"🚶 Queue change: Arrivals are 9/hr and discharges are 10.5/hr. Over 8 hours, how many fewer patients are waiting?", a:12, skill:"Rates (Net Change)", hint:"Net = −1.5/hr. −1.5×8 = −12 → 12 fewer." },
+  { q:"🧼 Half-life model: A level halves every 3 hours. Start = 160 units. After 9 hours, what is the level?", a:20, skill:"Exponential (Half-life)", hint:"9 hours = 3 half-lives: 160×(1/2)^3 = 20." }
+];
 
-const el=id=>document.getElementById(id);
+/* ================= STATE ================= */
+let qs = [];
+let i = -1, score = 0;
+let student = { name:"", grade:"" };
+let gotCorrect = [];
+
+const el = id => document.getElementById(id);
 
 function parseNumber(raw){
-  const s = (raw || "").trim().replace(/\s+/g,"");
+  const s = (raw || "").trim().replace(/,/g,"").replace(/\s+/g,"");
   if(!s) return NaN;
   const v = Number(s);
   return Number.isFinite(v) ? v : NaN;
 }
-function close(a,b,eps=1e-6){ return Math.abs(a-b) < eps; }
+function close(a,b,eps){ return Math.abs(a-b) < eps; }
+
+/* Rounding / precision note */
+function updatePrecisionNote(){
+  const note = el("precisionNote");
+  if(!note) return;
+  const qObj = qs[i];
+  if(qObj && typeof qObj.tol === "number"){
+    note.textContent = "Answer tip: round to 2 decimal places.";
+  }else{
+    note.textContent = "";
+  }
+}
+
+/* ✅ NEW: go back to grade selection (without leaving page) */
+function backToGrade(){
+  // reset quiz state
+  qs = [];
+  gotCorrect = [];
+  i = -1;
+  score = 0;
+
+  // clear UI
+  el("fb").textContent = "";
+  el("fb").className = "";
+  el("hint").textContent = "";
+  el("ans").value = "";
+  el("precisionNote").textContent = "";
+
+  // hide quiz/results
+  el("qa").classList.add("hide");
+  el("qa").style.display = "none";
+  el("end").classList.add("hide");
+
+  // show start/profile
+  el("profileBox").style.display = "block";
+  el("startButtons").style.display = "flex";
+  el("startMsg").style.display = "block";
+
+  // force re-select grade (prevents accidental wrong restart)
+  el("studentGrade").value = "";
+
+  // restore headings
+  el("pill").textContent = "🏆 Year 11 – Year 12 • Nursing Modelling";
+  el("titleH1").textContent = "Nursing Modelling (Maths) — Free Demo";
+
+  el("studentGrade").focus();
+}
 
 /* ================= FLOW ================= */
 function start(){
   student.name = el("studentName").value.trim();
-  student.grade = el("studentGrade").value || "—";
-  if(!student.name){ alert("Please enter the student name."); return; }
+  student.grade = el("studentGrade").value;
 
-  el("profileBox").style.display="none";
-  el("startButtons").style.display="none";
-  el("startMsg").style.display="none";
+  if(!student.name){ alert("Please enter the student name."); return; }
+  if(!student.grade){ alert("Please select Year 11 or Year 12."); return; }
+
+  qs = (student.grade === "Year 11") ? qs11 : qs12;
+  gotCorrect = new Array(qs.length).fill(false);
+  i = -1;
+  score = 0;
+
+  el("pill").textContent = `🏆 ${student.grade} • Nursing Modelling`;
+  el("titleH1").textContent = `Nursing Modelling (Maths) — Free Demo (${student.grade})`;
+
+  el("profileBox").style.display = "none";
+  el("startButtons").style.display = "none";
+  el("startMsg").style.display = "none";
+
+  // IMPORTANT: undo any previous "display:none" from backToGrade/finish
+  el("qa").style.display = "block";
   el("qa").classList.remove("hide");
+
+  // hide results if they were shown before
+  el("end").classList.add("hide");
 
   next();
 }
 
 function next(){
   i++;
-  el("fb").textContent="";
-  el("fb").className="";
-  el("hint").textContent="";
-  el("nextBtn").disabled=true;
-  el("ans").value="";
+  el("fb").textContent = "";
+  el("fb").className = "";
+  el("hint").textContent = "";
+  el("nextBtn").disabled = true;
+  el("ans").value = "";
 
-  if(i>=qs.length){ finish(); return; }
+  if(i >= qs.length){ finish(); return; }
 
-  el("q").textContent=qs[i].q;
+  el("q").textContent = qs[i].q;
+  updatePrecisionNote();
   el("ans").focus();
 }
 
 function check(){
-  const box = el("fb");
-  el("hint").textContent = "";
-
   if(i < 0) return;
 
   const user = parseNumber(el("ans").value);
+  const box = el("fb");
+  el("hint").textContent = "";
+
   if(!Number.isFinite(user)){
-    box.className="feedback bad";
-    box.textContent="Please enter a number (decimals are OK).";
+    box.className = "feedback bad";
+    box.textContent = "Please enter a number (decimals are OK).";
     return;
   }
 
-  const ok = close(user, qs[i].a);
+  const correct = qs[i].a;
+  const tol = (typeof qs[i].tol === "number") ? qs[i].tol : 1e-6;
+  const ok = close(user, correct, tol);
 
   if(ok){
     if(!gotCorrect[i]) score++;
-    gotCorrect[i]=true;
-    box.className="feedback ok";
-    box.textContent="✅ Correct!";
+    gotCorrect[i] = true;
+    box.className = "feedback ok";
+    box.textContent = "✅ Correct!";
   }else{
-    box.className="feedback bad";
-    box.textContent="❌ Not quite.";
+    box.className = "feedback bad";
+    box.textContent = "❌ Not quite.";
     el("hint").textContent = "Hint: " + (qs[i].hint || "Try again step by step.");
   }
 
-  el("nextBtn").disabled=false;
+  el("nextBtn").disabled = false;
 }
 
 function finish(){
-  el("qa").style.display="none";
+  el("qa").style.display = "none";
   el("end").classList.remove("hide");
 
   const pct = Math.round(score / qs.length * 100);
   el("finalLine").textContent = `Score: ${score}/${qs.length} (${pct}%)`;
   el("pctText").textContent = `Percentage correct: ${pct}%`;
+  el("precisionNote").textContent = "";
 
-  drawChart(gotCorrect.map(v=>v?1:0));
+  drawChart(gotCorrect.map(v => v ? 1 : 0));
   buildParentSummary();
   saveResult(pct);
 }
 
 /* ================= GRAPH ================= */
 function drawChart(vals){
-  const c=el("chart"), ctx=c.getContext("2d");
+  const c = el("chart"), ctx = c.getContext("2d");
   ctx.clearRect(0,0,c.width,c.height);
 
   const W=c.width, H=c.height;
@@ -526,7 +441,7 @@ function drawChart(vals){
   });
 }
 
-/* ================= PARENT SUMMARY (by skill) ================= */
+/* ================= PARENT SUMMARY ================= */
 function buildParentSummary(){
   const skillStats = {};
   qs.forEach((item, idx)=>{
@@ -537,14 +452,11 @@ function buildParentSummary(){
 
   const pct = Math.round(score / qs.length * 100);
 
-  let overview = "";
-  if(pct >= 85){
-    overview = "🌟 Strong work! Your child showed confident understanding across most modelling skills today.";
-  }else if(pct >= 60){
-    overview = "👍 Good progress. Your child is developing confidence, with a few skills to strengthen next.";
-  }else{
-    overview = "🌱 Still building confidence — very normal. With steady practice, accuracy improves quickly.";
-  }
+  let overview="";
+  if(pct >= 85) overview="🌟 Strong work! Your child showed confident understanding across most modelling skills today.";
+  else if(pct >= 60) overview="👍 Good progress. Your child is developing confidence, with a few skills to strengthen next.";
+  else overview="🌱 Still building confidence — very normal. With steady practice, accuracy improves quickly.";
+
   el("parentOverview").textContent = overview;
 
   const skillsSorted = Object.entries(skillStats)
@@ -563,7 +475,7 @@ function buildParentSummary(){
     : "<li>Keep practising to build speed and confidence.</li>";
 }
 
-/* ================= OPTIONAL PRINT REPORT ================= */
+/* ================= PRINT REPORT ================= */
 function printOrSkip(){
   const include = el("includeReport").checked;
   if(!include){
@@ -581,6 +493,7 @@ function buildPrintReport(){
   el("rName").textContent = student.name;
   el("rGrade").textContent = student.grade || "—";
   el("rDate").textContent = new Date().toLocaleDateString();
+  el("rDemo").textContent = `${student.grade} Nursing Modelling (Maths)`;
 
   el("rSummary").textContent =
     `Score: ${score}/${qs.length} (${pct}%). ` +
@@ -602,15 +515,15 @@ function buildPrintReport(){
 
 /* ================= SAVE TO SHEET ================= */
 async function saveResult(pct){
-  el("saveStatus").textContent="Sending result…";
-
+  el("saveStatus").textContent = "Sending result…";
   try{
     await fetch(ENDPOINT_URL,{
       method:"POST",
       mode:"no-cors",
       headers:{ "Content-Type":"text/plain;charset=utf-8" },
       body:JSON.stringify({
-        level:"Year 11–12",
+        group:"Year 11–12",
+        level:student.grade,
         theme:"Nursing Modelling",
         name:student.name,
         grade:student.grade,
@@ -622,16 +535,14 @@ async function saveResult(pct){
         userAgent:navigator.userAgent
       })
     });
-    el("saveStatus").textContent="✅ Result sent.";
+    el("saveStatus").textContent = "✅ Result sent.";
   }catch(e){
-    el("saveStatus").textContent="⚠️ Could not send result (temporary issue).";
+    el("saveStatus").textContent = "⚠️ Could not send result (temporary issue).";
   }
 }
 
 /* ================= RESET ================= */
-function restart(){
-  location.reload();
-}
+function restart(){ location.reload(); }
 
 /* Enter key triggers Check */
 document.addEventListener("keydown", e=>{
