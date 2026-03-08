@@ -34,12 +34,7 @@
     .intro{color:#555;font-weight:650;line-height:1.6;margin-bottom:10px;}
     .q{font-size:20px;font-weight:900;margin:14px 0 10px;}
 
-    label{
-      display:block;
-      margin-bottom:6px;
-      font-weight:800;
-      color:#334155;
-    }
+    label{display:block;margin-bottom:6px;font-weight:800;color:#334155;}
     input,select{
       width:100%;
       padding:12px;
@@ -150,7 +145,6 @@
       font-weight:650;
     }
 
-    /* ===== Printable report toggle UI ===== */
     .toggleRow{
       display:flex;
       align-items:center;
@@ -165,39 +159,22 @@
     .toggleRow label{margin:0;font-weight:800;}
 
     /* ===== Fraction input row (2nd input type) ===== */
-    .fracRow{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
+    .fracRow{display:flex;align-items:center;gap:10px;}
     .fracRow input{
       width:100%;
       text-align:center;
       font-weight:900;
       font-size:16px;
     }
-    .fracSlash{
-      font-weight:1000;
-      color:#334155;
-      padding:0 2px;
-      user-select:none;
-    }
-    .fracHint{
-      margin-top:6px;
-      color:#64748b;
-      font-weight:650;
-      font-size:14px;
-      line-height:1.5;
-    }
+    .fracSlash{font-weight:1000;color:#334155;padding:0 2px;user-select:none;}
+    .fracHint{margin-top:6px;color:#64748b;font-weight:650;font-size:14px;line-height:1.5;}
 
     /* ===== PRINT STYLES ===== */
     .printReport{ display:none; }
-
     @media print{
       body{ background:#fff; padding:0; }
       .card{ box-shadow:none; padding:0; max-width:none; border-radius:0; }
 
-      /* Hide everything except printable report */
       .card > *:not(#printReport){
         display:none !important;
       }
@@ -220,12 +197,12 @@
 <body>
 <div class="card">
 
-  <div class="pill">🧩 Year 7 – Year 10 • Soccer</div>
-  <h1>Soccer Maths Practice (Free Demo)</h1>
+  <div id="pill" class="pill">🧩 Year 7 – Year 10 • Soccer</div>
+  <h1 id="titleH1">Soccer Maths Practice (Free Demo)</h1>
 
   <p class="intro">
     Type your answer, press <b>Check</b>, then press <b>Next</b>.
-    <span class="note">Fractions will show as a numerator/denominator box.</span>
+    <span class="note">Some questions will show a fraction box (numerator / denominator).</span>
   </p>
 
   <!-- START -->
@@ -235,7 +212,7 @@
     <div class="row2">
       <div class="field">
         <label>Student name</label>
-        <input id="studentName" placeholder="e.g., Nick">
+        <input id="studentName" placeholder="e.g., Alex">
       </div>
       <div class="field">
         <label>Grade</label>
@@ -253,8 +230,10 @@
     </div>
   </div>
 
+  <!-- ✅ Start screen buttons (includes Back to Free Demos) -->
   <div id="startButtons" class="btnrow">
     <button onclick="start()">Start</button>
+    <button class="secondary" onclick="goToDemoHome()">Back to Free Demos</button>
   </div>
 
   <!-- QUIZ -->
@@ -263,7 +242,7 @@
 
     <!-- Input A: number/decimal -->
     <div id="numBox">
-      <input id="ans" inputmode="decimal" placeholder="Type a number (decimals allowed)">
+      <input id="ans" inputmode="decimal" placeholder="Type a number (decimals OK)">
     </div>
 
     <!-- Input B: fraction -->
@@ -273,12 +252,17 @@
         <span class="fracSlash">/</span>
         <input id="fracDen" inputmode="numeric" pattern="[0-9]*" placeholder="Denominator">
       </div>
-      <div class="fracHint">Please simplify your fraction (e.g., 18/24 → 3/4).</div>
+      <div class="fracHint">Tip: simplify the fraction if you can.</div>
     </div>
+
+    <!-- Note shown when rounding/simplifying is required -->
+    <div id="precisionNote" class="note" style="margin-top:8px;"></div>
 
     <div class="btnrow">
       <button id="checkBtn" onclick="check()">Check</button>
       <button id="nextBtn" class="secondary" onclick="next()" disabled>Next</button>
+      <button class="secondary" onclick="backToGrade()">Change grade</button>
+      <button class="secondary" onclick="goToDemoHome()">Back to Free Demos</button>
     </div>
   </div>
 
@@ -289,7 +273,6 @@
   <div id="end" class="cta hide">
     <div id="finalLine"></div>
 
-    <!-- Graph -->
     <div class="resultBox">
       <div class="resultTitle">Results overview</div>
       <div id="pctText"></div>
@@ -297,7 +280,6 @@
       <div class="note">Blue bar = correct (1) • Red bar = not yet correct (0)</div>
     </div>
 
-    <!-- Parent summary -->
     <div class="resultBox">
       <div class="resultTitle">👨‍👩‍👧 Parent Summary</div>
 
@@ -314,7 +296,6 @@
       </p>
     </div>
 
-    <!-- Parent can choose to include report -->
     <div class="toggleRow">
       <input id="includeReport" type="checkbox" checked>
       <label for="includeReport">Include a printable report (PDF)</label>
@@ -323,13 +304,15 @@
     <div class="btnrow">
       <button onclick="printOrSkip()">🖨️ Print / Save PDF</button>
       <button class="secondary" onclick="restart()">Try again</button>
+      <button class="secondary" onclick="backToGrade()">Change grade</button>
+      <button class="secondary" onclick="goToDemoHome()">Back to Free Demos</button>
     </div>
 
     <div id="saveStatus" class="note"></div>
 
     <div class="note">
-      Interested in a personalised learning plan?
-      <a href="https://www.magicmathmaster.com.au/contact.html" target="_blank" rel="noopener">Enquire or register →</a>
+      Interested in more practice and support?
+      <a href="https://www.magicmathmaster.com.au/contact.html" target="_blank" rel="noopener">Enquire / Register →</a>
     </div>
   </div>
 
@@ -339,7 +322,8 @@
     <p class="small">
       <b>Student:</b> <span id="rName"></span><br>
       <b>Grade:</b> <span id="rGrade"></span><br>
-      <b>Date:</b> <span id="rDate"></span>
+      <b>Date:</b> <span id="rDate"></span><br>
+      <b>Demo:</b> <span id="rDemo"></span>
     </p>
 
     <div class="divider"></div>
@@ -369,186 +353,383 @@
 const ENDPOINT_URL =
   "https://script.google.com/macros/s/AKfycbwvWZJLRflPGQA3s5P2-B5LkTFonS4Z1SPI5-85lzlj1lFY02qXJzTd239PsiB0WICr/exec";
 
-/*
-  type:
-   - "number"   => uses #ans (number/decimal)
-   - "fraction" => uses #fracNum + #fracDen (expects simplified)
-*/
-const qs = [
-  { q:"⚽ A striker scored 12 goals from 48 shots. What is the scoring rate as a percentage?", type:"number", a:25, skill:"Percentages", hint:"12/48 = 0.25, then ×100 = 25%" },
-  { q:"📊 Passes completed: 40, 52, 48, 60. What is the mean (average)?", type:"number", a:50, skill:"Averages", hint:"Add them, then divide by 4." },
-  { q:"🥅 Keeper save rate: saved 18 out of 24 shots. Write as a simplified fraction.", type:"fraction", aN:3, aD:4, skill:"Fractions", hint:"18/24 simplifies by dividing by 6 → 3/4." },
-  { q:"📈 Ticket sales increased from 800 to 920. What is the percentage increase?", type:"number", a:15, skill:"Percentages", hint:"Increase = 120. 120/800 = 0.15 → 15%" },
-  { q:"🧮 Algebra: g = 2m + 3. If m = 5, what is g?", type:"number", a:13, skill:"Algebra", hint:"Substitute m=5: 2×5 + 3." },
-  { q:"🧠 Solve: 3x − 7 = 11. What is x?", type:"number", a:6, skill:"Equations", hint:"Add 7 both sides → 3x=18 → x=6." },
-  { q:"🏃 A player runs 3.2 km in the first half and 4.6 km in the second. Total distance (km)?", type:"number", a:7.8, skill:"Decimals", hint:"3.2 + 4.6 = 7.8" },
-  { q:"🎯 Probability: A player has an 80% chance of scoring a penalty. Out of 20 penalties, how many would we expect to score?", type:"number", a:16, skill:"Percentages", hint:"80% of 20 = 0.8×20 = 16." }
+/* ================= QUESTION BANKS (HARDER BY GRADE) ================= */
+
+/* Year 7 (easiest) */
+const qs7 = [
+  { q:"⚽ Scoring rate: A striker scored 9 goals from 36 shots. What is the scoring rate as a percentage?", type:"number", a:25, skill:"Percentages", hint:"9/36 = 0.25 → 25%." },
+  { q:"📊 Mean goals: Goals per match were 2, 1, 3, 2. What is the mean (average)?", type:"number", a:2, skill:"Averages", hint:"Add = 8. 8/4 = 2." },
+  { q:"⏱️ Training fraction: Drills take 15 minutes out of a 90-minute session. What fraction is drills? (simplify)", type:"fraction", aN:1, aD:6, skill:"Fractions", hint:"15/90 simplifies to 1/6." },
+  { q:"🧩 Simplify: Write 24/36 as a simplified fraction.", type:"fraction", aN:2, aD:3, skill:"Fractions", hint:"Divide by 12 → 2/3." },
+  { q:"🧮 Algebra: p = 4x − 3. If x = 6, what is p?", type:"number", a:21, skill:"Algebra", hint:"4×6 − 3 = 21." },
+  { q:"🧠 Solve: x + 9 = 31. What is x?", type:"number", a:22, skill:"Equations", hint:"31 − 9 = 22." },
+  { q:"🏃 Distance: A player ran 5.6 km then 3.45 km. Total distance (km)?", type:"number", a:9.05, skill:"Decimals", hint:"5.6 + 3.45 = 9.05." },
+  { q:"📏 Perimeter: A rectangular field is 55 m long and 35 m wide. What is the perimeter?", type:"number", a:180, skill:"Measurement", hint:"2(55+35)=180." },
+  { q:"🎯 Probability: 2 red cards in 50 games. Probability as a simplified fraction?", type:"fraction", aN:1, aD:25, skill:"Probability", hint:"2/50 simplifies to 1/25." },
+  { q:"👥 Ratio: Defenders : Forwards = 2 : 1. If there are 15 players, how many defenders?", type:"number", a:10, skill:"Ratios", hint:"Total parts=3. Each part=5. Defenders=2×5=10." }
 ];
 
-let i=-1, score=0;
-let student={name:"",grade:""};
-let gotCorrect=new Array(qs.length).fill(false);
+/* Year 8 (harder) */
+const qs8 = [
+  { q:"🧾 Discount: A jersey costs $75 and is reduced by 18%. What is the new price?", type:"number", a:61.5, skill:"Percentages", hint:"18% of 75 = 13.5. 75−13.5=61.5." },
+  { q:"📈 Increase: Attendance increased from 900 to 1080. What is the percentage increase?", type:"number", a:20, skill:"Percentages", hint:"Increase=180. 180/900=0.2 → 20%." },
+  { q:"⏱️ Speed: A player runs 7.2 km in 30 minutes. What is the average speed (km/h)?", type:"number", a:14.4, skill:"Rates", hint:"30 min = 0.5 h. 7.2/0.5 = 14.4." },
+  { q:"🧠 Solve: 3x + 7 = 28. What is x?", type:"number", a:7, skill:"Equations", hint:"3x=21 → x=7." },
+  { q:"🧠 Solve: 5x − 12 = 38. What is x?", type:"number", a:10, skill:"Equations", hint:"5x=50 → x=10." },
+  { q:"🏆 Points model: P = 2w + d. If P = 17 and d = 5, what is w?", type:"number", a:6, skill:"Algebra", hint:"2w+5=17 → 2w=12 → w=6." },
+  { q:"📐 Pythagoras: A right triangle has legs 5 and 12. What is the hypotenuse?", type:"number", a:13, skill:"Pythagoras", hint:"√(5²+12²)=√169=13." },
+  { q:"⭕ Circumference: Radius = 6 m. Using π ≈ 3.14, what is the circumference? (round to 2 decimals)", type:"number", a:37.68, tol:0.05, note:"Answer tip: round to 2 decimal places.", skill:"Measurement", hint:"C=2πr=2×3.14×6=37.68." },
+  { q:"🧩 Simplify: Write 42/56 as a simplified fraction.", type:"fraction", aN:3, aD:4, skill:"Fractions", hint:"Divide by 14 → 3/4." },
+  { q:"🎯 Probability: P(win)=0.7 and P(clean sheet)=0.4 (independent). Probability of both?", type:"number", a:0.28, skill:"Probability", hint:"0.7×0.4=0.28." }
+];
 
-const el=id=>document.getElementById(id);
+/* Year 9 (harder) */
+const qs9 = [
+  { q:"📈 Gradient: A line passes through (2,3) and (8,15). What is the slope (gradient)?", type:"number", a:2, skill:"Linear Graphs", hint:"(15−3)/(8−2)=12/6=2." },
+  { q:"📉 Intercept: For y = 2x − 5, what is y when x = 0?", type:"number", a:-5, skill:"Linear Graphs", hint:"Substitute x=0: y=-5." },
+  { q:"🧠 Simultaneous: x + y = 11 and x − y = 3. What is x?", type:"number", a:7, skill:"Simultaneous Equations", hint:"Add: 2x=14 → x=7." },
+  { q:"🧮 Quadratic: Solve x² − 4x − 12 = 0. What is the positive solution?", type:"number", a:6, skill:"Quadratics", hint:"(x−6)(x+2)=0 → x=6." },
+  { q:"⚡ Indices: (2^5 × 2^3) ÷ 2^4 = ?", type:"number", a:16, skill:"Indices", hint:"2^(5+3−4)=2^4=16." },
+  { q:"📈 Exponential growth: A club has 800 members and grows by 3% each year. After 5 years, how many members? (round to 2 decimals)", type:"number", a:927.42, tol:0.05, note:"Answer tip: round to 2 decimal places.", skill:"Exponential", hint:"800×1.03^5 ≈ 927.42." },
+  { q:"📊 Median: Find the median of 3, 7, 8, 10, 12, 15.", type:"number", a:9, skill:"Statistics", hint:"Middle two are 8 and 10. Median=(8+10)/2=9." },
+  { q:"🎯 Probability: P(score 1st half)=0.6 and P(score 2nd half)=0.5 (independent). Probability of both?", type:"number", a:0.3, skill:"Probability", hint:"0.6×0.5=0.3." },
+  { q:"📐 Pythagoras: Hypotenuse = 13 and one leg = 5. Find the other leg.", type:"number", a:12, skill:"Pythagoras", hint:"√(13²−5²)=√144=12." },
+  { q:"🧩 Simplify: Write 63/84 as a simplified fraction.", type:"fraction", aN:3, aD:4, skill:"Fractions", hint:"Divide by 21 → 3/4." }
+];
 
-/* ================= HELPERS ================= */
+/* Year 10 (top-end / hardest) */
+const qs10 = [
+  {
+    q:"🧮 Quadratic: 2x² − 7x + 3 = 0. What is the larger solution?",
+    type:"number",
+    a:3,
+    skill:"Quadratics",
+    hint:"x = (7 ± √25)/4 → 3 or 0.5. Larger = 3."
+  },
+  {
+    q:"🧮 Quadratic: x² − 6x + 2 = 0. What is the smaller solution? (round to 2 decimals)",
+    type:"number",
+    a:0.35,
+    tol:0.05,
+    note:"Answer tip: round to 2 decimal places.",
+    skill:"Quadratics",
+    hint:"x = (6 − √28)/2 ≈ 0.354 → 0.35."
+  },
+  {
+    q:"📐 Cosine rule: Two sides are 12 and 9 with included angle 50°. Find the third side (round to 2 decimals).",
+    type:"number",
+    a:9.28,
+    tol:0.05,
+    note:"Answer tip: use a calculator and round to 2 decimals.",
+    skill:"Trigonometry (Cosine Rule)",
+    hint:"c² = 12² + 9² − 2·12·9·cos(50°). c ≈ 9.28."
+  },
+  {
+    q:"📐 Trig: A right triangle has hypotenuse 18 and angle 28°. Find the opposite side (round to 2 decimals).",
+    type:"number",
+    a:8.45,
+    tol:0.05,
+    note:"Answer tip: use a calculator and round to 2 decimals.",
+    skill:"Trigonometry",
+    hint:"Opp = 18·sin(28°) ≈ 8.45."
+  },
+  {
+    q:"📈 Modelling comparison: Linear L = 800 + 40t and Exponential E = 800×1.06^t. At t = 10, how much larger is E than L? (round to 2 decimals)",
+    type:"number",
+    a:232.68,
+    tol:0.05,
+    note:"Answer tip: round to 2 decimal places.",
+    skill:"Linear vs Exponential",
+    hint:"L=1200. E≈1432.68. Difference ≈ 232.68."
+  },
+  {
+    q:"📉 Exponential decay: A level starts at 900 and decreases by 7% each hour. After 8 hours, what is the level? (round to 2 decimals)",
+    type:"number",
+    a:503.62,
+    tol:0.05,
+    note:"Answer tip: round to 2 decimal places.",
+    skill:"Exponential Decay",
+    hint:"900×0.93^8 ≈ 503.62."
+  },
+  {
+    q:"🧠 Simultaneous equations: 2x + 3y = 19 and x − y = 1. What is x?",
+    type:"number",
+    a:4.4,
+    tol:1e-6,
+    skill:"Simultaneous Equations",
+    hint:"x=y+1. Substitute: 2(y+1)+3y=19 → y=3.4 → x=4.4."
+  },
+  {
+    q:"⚡ Indices: (2^4 × 8^-1) ÷ 4^-2 = ?",
+    type:"number",
+    a:32,
+    skill:"Indices",
+    hint:"16×(1/8)=2. 2 ÷ (1/16)=32."
+  },
+  {
+    q:"🎯 Total probability: 60% practise. If practise, 80% pass. If not practise, 50% pass. Probability a student passes? (decimal)",
+    type:"number",
+    a:0.68,
+    tol:0.001,
+    note:"Answer tip: decimals OK.",
+    skill:"Probability",
+    hint:"0.6×0.8 + 0.4×0.5 = 0.48 + 0.20 = 0.68."
+  },
+  {
+    q:"🔢 Arithmetic series: Row 1 has 20 seats, each next row has 2 more seats. There are 15 rows. How many seats total?",
+    type:"number",
+    a:510,
+    skill:"Sequences (Arithmetic Series)",
+    hint:"S = n/2[2a+(n−1)d] = 15/2[40+28] = 510."
+  }
+];
+
+/* ================= STATE ================= */
+let qs = [];
+let i = -1, score = 0;
+let student = { name:"", grade:"" };
+let gotCorrect = [];
+
+const el = id => document.getElementById(id);
+
+/* ================= NAV ================= */
+function goToDemoHome(){
+  window.location.href = "https://www.magicmathmaster.com.au/demo/";
+}
+
+/* ================= PARSERS ================= */
+function parseNumber(raw){
+  const s = (raw || "").trim().replace(/,/g,"").replace(/\s+/g,"");
+  if(!s) return NaN;
+
+  // allow "3/4" typed in number box too
+  if(s.includes("/")){
+    const parts = s.split("/");
+    if(parts.length !== 2) return NaN;
+    const n = Number(parts[0]);
+    const d = Number(parts[1]);
+    if(!Number.isFinite(n) || !Number.isFinite(d) || d === 0) return NaN;
+    return n/d;
+  }
+
+  const v = Number(s);
+  return Number.isFinite(v) ? v : NaN;
+}
+function close(a,b,eps){ return Math.abs(a-b) < eps; }
+
+function gcd(a,b){
+  a = Math.abs(a); b = Math.abs(b);
+  while(b){ const t = a % b; a = b; b = t; }
+  return a || 1;
+}
+function readFraction(){
+  const n = Number(el("fracNum").value.trim());
+  const d = Number(el("fracDen").value.trim());
+  if(!Number.isInteger(n) || !Number.isInteger(d) || d === 0) return null;
+  const g = gcd(n,d);
+  return { n, d, g, nS: n/g, dS: d/g };
+}
+function fracValueEquals(n1,d1,n2,d2){
+  return (n1*d2) === (n2*d1);
+}
+
+/* ================= UI HELPERS ================= */
+function updatePrecisionNote(qObj){
+  const noteEl = el("precisionNote");
+  if(!noteEl) return;
+
+  if(qObj && qObj.note){
+    noteEl.textContent = qObj.note;
+    return;
+  }
+  if(qObj && qObj.type === "fraction"){
+    noteEl.textContent = "Answer tip: enter a simplified fraction if you can.";
+    return;
+  }
+  if(qObj && typeof qObj.tol === "number"){
+    noteEl.textContent = "Answer tip: round to 2 decimal places.";
+    return;
+  }
+  noteEl.textContent = "";
+}
+
 function showInputForQuestion(qObj){
   const isFrac = qObj.type === "fraction";
   el("numBox").style.display = isFrac ? "none" : "block";
   el("fracBox").classList.toggle("hide", !isFrac);
 
-  // clear both input types + hint
   el("ans").value = "";
   el("fracNum").value = "";
   el("fracDen").value = "";
   el("hint").textContent = "";
 
-  // focus
+  updatePrecisionNote(qObj);
+
   setTimeout(()=>{
     if(isFrac) el("fracNum").focus();
     else el("ans").focus();
   }, 0);
 }
 
-function parseNumber(raw){
-  const s = (raw || "").trim().replace(/\s+/g,"");
-  if(!s) return NaN;
-
-  // allow "3/4" typed in number box as well (optional)
-  if(s.includes("/")){
-    const parts = s.split("/");
-    if(parts.length !== 2) return NaN;
-    const num = Number(parts[0]);
-    const den = Number(parts[1]);
-    if(!Number.isFinite(num) || !Number.isFinite(den) || den === 0) return NaN;
-    return num/den;
-  }
-
-  const v = Number(s);
-  return Number.isFinite(v) ? v : NaN;
-}
-
-function gcd(a,b){
-  a=Math.abs(a); b=Math.abs(b);
-  while(b){ const t=a%b; a=b; b=t; }
-  return a || 1;
-}
-
-function readFraction(){
-  const n = Number(el("fracNum").value.trim());
-  const d = Number(el("fracDen").value.trim());
-  if(!Number.isInteger(n) || !Number.isInteger(d) || d === 0) return null;
-  const g = gcd(n,d);
-  return { n, d, g, nS:n/g, dS:d/g }; // original + simplified
-}
-
-function fracValueEquals(n1,d1,n2,d2){
-  return (n1*d2) === (n2*d1);
-}
-
 /* ================= FLOW ================= */
 function start(){
-  student.name=el("studentName").value.trim();
-  student.grade=el("studentGrade").value || "—";
-  if(!student.name){ alert("Please enter the student name."); return; }
+  student.name = el("studentName").value.trim();
+  student.grade = el("studentGrade").value;
 
-  el("profileBox").style.display="none";
-  el("startButtons").style.display="none";
-  el("startMsg").style.display="none";
+  if(!student.name){ alert("Please enter the student name."); return; }
+  if(!student.grade){ alert("Please select a grade."); return; }
+
+  // Choose question bank (10 each)
+  if(student.grade === "Year 7") qs = qs7;
+  else if(student.grade === "Year 8") qs = qs8;
+  else if(student.grade === "Year 9") qs = qs9;
+  else qs = qs10;
+
+  gotCorrect = new Array(qs.length).fill(false);
+  i = -1;
+  score = 0;
+
+  // Update headings
+  el("pill").textContent = `🧩 ${student.grade} • Soccer`;
+  el("titleH1").textContent = `Soccer Maths Practice (Free Demo — ${student.grade})`;
+
+  // Hide profile, show quiz
+  el("profileBox").style.display = "none";
+  el("startButtons").style.display = "none";
+  el("startMsg").style.display = "none";
+
+  el("qa").style.display = "block";
   el("qa").classList.remove("hide");
+  el("end").classList.add("hide");
 
   next();
 }
 
 function next(){
   i++;
-  el("fb").textContent="";
-  el("fb").className="";
-  el("hint").textContent="";
-  el("nextBtn").disabled=true;
+  el("fb").textContent = "";
+  el("fb").className = "";
+  el("hint").textContent = "";
+  el("nextBtn").disabled = true;
 
-  if(i>=qs.length){ finish(); return; }
+  if(i >= qs.length){ finish(); return; }
 
-  el("q").textContent=qs[i].q;
-  showInputForQuestion(qs[i]);
+  const qObj = qs[i];
+  el("q").textContent = qObj.q;
+  showInputForQuestion(qObj);
 }
 
 function check(){
+  if(i < 0) return;
+
   const qObj = qs[i];
   const box = el("fb");
   el("hint").textContent = "";
 
-  let ok = false;
-
+  // Fraction question
   if(qObj.type === "fraction"){
     const f = readFraction();
     if(!f){
-      box.className="feedback bad";
-      box.textContent="Please type a numerator and denominator (whole numbers).";
+      box.className = "feedback bad";
+      box.textContent = "Please type a numerator and denominator (whole numbers).";
       return;
     }
 
-    // Correct value?
     const sameValue = fracValueEquals(f.n, f.d, qObj.aN, qObj.aD);
 
-    // Must be simplified (gcd = 1)
-    const simplified = (f.g === 1);
+    if(sameValue){
+      if(!gotCorrect[i]) score++;
+      gotCorrect[i] = true;
 
-    if(sameValue && simplified){
-      ok = true;
-    }else if(sameValue && !simplified){
-      box.className="feedback bad";
-      box.textContent="✅ Almost! Correct value — now simplify the fraction.";
-      el("hint").textContent = "Hint: divide top and bottom by the same number until it can’t be simplified.";
-      el("nextBtn").disabled=true;
-      return;
+      box.className = "feedback ok";
+      if(f.g !== 1){
+        box.textContent = `✅ Correct! (Try simplifying next time: ${f.nS}/${f.dS})`;
+      }else{
+        box.textContent = "✅ Correct!";
+      }
     }else{
-      box.className="feedback bad";
-      box.textContent="❌ Not quite.";
-      el("hint").textContent = "Hint: " + (qObj.hint || "Try simplifying step by step.");
-      el("nextBtn").disabled=false;
-      return;
+      box.className = "feedback bad";
+      box.textContent = "❌ Not quite.";
+      el("hint").textContent = "Hint: " + (qObj.hint || "Try simplifying and checking your fraction.");
     }
-  }else{
-    const user = parseNumber(el("ans").value);
-    if(!Number.isFinite(user)){
-      box.className="feedback bad";
-      box.textContent="Please type a number (decimals allowed).";
-      return;
-    }
-    ok = Math.abs(user - qObj.a) < 1e-9;
+
+    el("nextBtn").disabled = false;
+    return;
   }
+
+  // Number/decimal question
+  const user = parseNumber(el("ans").value);
+  if(!Number.isFinite(user)){
+    box.className = "feedback bad";
+    box.textContent = "Please enter a number (decimals are OK).";
+    return;
+  }
+
+  const tol = (typeof qObj.tol === "number") ? qObj.tol : 1e-6;
+  const ok = close(user, qObj.a, tol);
 
   if(ok){
     if(!gotCorrect[i]) score++;
-    gotCorrect[i]=true;
-    box.className="feedback ok";
-    box.textContent="✅ Correct! Great work.";
-    el("nextBtn").disabled=false;
+    gotCorrect[i] = true;
+    box.className = "feedback ok";
+    box.textContent = "✅ Correct!";
   }else{
-    box.className="feedback bad";
-    box.textContent="❌ Not quite.";
+    box.className = "feedback bad";
+    box.textContent = "❌ Not quite.";
     el("hint").textContent = "Hint: " + (qObj.hint || "Try again step by step.");
-    el("nextBtn").disabled=false;
   }
+
+  el("nextBtn").disabled = false;
 }
 
 function finish(){
-  el("qa").style.display="none";
+  el("qa").style.display = "none";
   el("end").classList.remove("hide");
+  el("precisionNote").textContent = "";
 
   const pct = Math.round(score / qs.length * 100);
   el("finalLine").textContent = `Score: ${score}/${qs.length} (${pct}%)`;
   el("pctText").textContent = `Percentage correct: ${pct}%`;
 
-  drawChart(gotCorrect.map(v=>v?1:0));
+  drawChart(gotCorrect.map(v => v ? 1 : 0));
   buildParentSummary();
   saveResult(pct);
 }
 
+/* ================= CHANGE GRADE ================= */
+function backToGrade(){
+  qs = [];
+  gotCorrect = [];
+  i = -1;
+  score = 0;
+
+  el("fb").textContent = "";
+  el("fb").className = "";
+  el("hint").textContent = "";
+  el("ans").value = "";
+  el("fracNum").value = "";
+  el("fracDen").value = "";
+  el("precisionNote").textContent = "";
+
+  el("qa").classList.add("hide");
+  el("qa").style.display = "none";
+  el("end").classList.add("hide");
+
+  el("profileBox").style.display = "block";
+  el("startButtons").style.display = "flex";
+  el("startMsg").style.display = "block";
+
+  el("studentGrade").value = "";
+
+  el("pill").textContent = "🧩 Year 7 – Year 10 • Soccer";
+  el("titleH1").textContent = "Soccer Maths Practice (Free Demo)";
+
+  el("studentGrade").focus();
+}
+
 /* ================= GRAPH ================= */
 function drawChart(vals){
-  const c=el("chart"), ctx=c.getContext("2d");
+  const c = el("chart"), ctx = c.getContext("2d");
   ctx.clearRect(0,0,c.width,c.height);
 
   const W=c.width, H=c.height;
@@ -600,11 +781,11 @@ function buildParentSummary(){
 
   let overview = "";
   if(pct >= 85){
-    overview = "🌟 Strong work! Your child showed confident understanding across most Year 7–10 skills today.";
+    overview = "🌟 Strong work! Your child showed confident understanding across many Year 7–10 skills today.";
   }else if(pct >= 60){
     overview = "👍 Good progress. Your child is developing confidence, with a few skills to strengthen next.";
   }else{
-    overview = "🌱 Your child is still building confidence — very normal. With steady practice, accuracy improves quickly.";
+    overview = "🌱 Still building confidence — very normal. With steady practice, accuracy improves quickly.";
   }
   el("parentOverview").textContent = overview;
 
@@ -624,7 +805,7 @@ function buildParentSummary(){
     : "<li>Keep practising to build speed and confidence.</li>";
 }
 
-/* ================= OPTIONAL PRINT REPORT ================= */
+/* ================= PRINT REPORT ================= */
 function printOrSkip(){
   const include = el("includeReport").checked;
   if(!include){
@@ -642,10 +823,11 @@ function buildPrintReport(){
   el("rName").textContent = student.name;
   el("rGrade").textContent = student.grade || "—";
   el("rDate").textContent = new Date().toLocaleDateString();
+  el("rDemo").textContent = `${student.grade} Soccer Maths (Free Demo)`;
 
   el("rSummary").textContent =
-    `Level: Year 7–10 Soccer Maths. Score: ${score}/${qs.length} (${pct}%). ` +
-    (pct>=85 ? "Strong understanding across most skills."
+    `Score: ${score}/${qs.length} (${pct}%). ` +
+    (pct>=85 ? "Strong understanding across many skills."
       : pct>=60 ? "Developing understanding with some areas to strengthen."
       : "Still building confidence — very normal at this stage.");
 
@@ -658,12 +840,12 @@ function buildPrintReport(){
 
   el("rNext").innerHTML = nextSteps.length
     ? nextSteps.map(s=>`<li>${s}</li>`).join("")
-    : "<li>Continue practising to build speed and confidence.</li>";
+    : "<li>Continue practising to build accuracy and confidence.</li>";
 }
 
 /* ================= SAVE TO SHEET ================= */
 async function saveResult(pct){
-  el("saveStatus").textContent="Sending result…";
+  el("saveStatus").textContent = "Sending result…";
 
   try{
     await fetch(ENDPOINT_URL,{
@@ -671,7 +853,8 @@ async function saveResult(pct){
       mode:"no-cors",
       headers:{ "Content-Type":"text/plain;charset=utf-8" },
       body:JSON.stringify({
-        level:"Year 7–10",
+        group:"Year 7–10",
+        level:student.grade,
         theme:"Soccer",
         name:student.name,
         grade:student.grade,
@@ -683,16 +866,14 @@ async function saveResult(pct){
         userAgent:navigator.userAgent
       })
     });
-    el("saveStatus").textContent="✅ Result sent.";
+    el("saveStatus").textContent = "✅ Result sent.";
   }catch(e){
-    el("saveStatus").textContent="⚠️ Could not send result (temporary issue).";
+    el("saveStatus").textContent = "⚠️ Could not send result (temporary issue).";
   }
 }
 
 /* ================= RESET ================= */
-function restart(){
-  location.reload();
-}
+function restart(){ location.reload(); }
 
 /* Enter key triggers Check */
 document.addEventListener("keydown", e=>{
