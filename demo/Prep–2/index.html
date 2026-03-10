@@ -376,7 +376,7 @@ const ENDPOINT_URL =
   "https://script.google.com/macros/s/AKfycbwvWZJLRflPGQA3s5P2-B5LkTFonS4Z1SPI5-85lzlj1lFY02qXJzTd239PsiB0WICr/exec";
 
 /* ================= QUESTION BANKS (10 each) ================= */
-const qsPrep = [
+/*const qsPrep = [
   { q:"🐶 Easy: There are 2 puppies at the park. 3 more puppies arrive. How many puppies altogether?", a:5,  skill:"Addition" },
   { q:"🐰 Easy: There are 8 rabbits in a pen. 5 hop away. How many rabbits are left?", a:3,  skill:"Subtraction" },
   { q:"🐤 Easy: There are 4 nests. Each nest has 2 eggs. How many eggs altogether?", a:8,  skill:"Multiplication (Groups)" },
@@ -387,8 +387,21 @@ const qsPrep = [
   { q:"🦆 Medium: 6 ducks are in the pond. 2 more ducks join. How many ducks now?", a:8,  skill:"Addition" },
   { q:"🥕 Hard: 12 carrots are shared equally between 3 rabbits. How many carrots does each rabbit get?", a:4,  skill:"Division (Sharing)" },
   { q:"🐾 Hard: 5 puppies are playing. 4 more come. Then 3 leave. How many puppies are there now?", a:6,  skill:"Two-Step Problems" }
-];
+];*/
+const qsPrep = [
+  { q:"🐶 Easy: There are 2 puppies at the park. 3 more puppies arrive. How many puppies altogether?", a:5,  skill:"Addition" },
+  { q:"🐰 Easy: There are 8 rabbits in a pen. 5 hop away. How many rabbits are left?", a:3,  skill:"Subtraction" },
+  { q:"🍎 Easy: You have 6 apples. You get 2 more apples. How many apples altogether?", a:8,  skill:"Addition" },
 
+  { q:"🔟 Medium: What number comes after 8?", a:9,  skill:"Number Order" },
+  { q:"🔙 Medium: What number comes before 9?", a:8,  skill:"Number Order" },
+  { q:"📈 Medium: Which number is bigger: 7 or 4? (Type the bigger number)", a:7,  skill:"Comparing Numbers" },
+  { q:"🔢 Medium: Counting by 2: 2, 4, 6, __. What number comes next?", a:8,  skill:"Patterns" },
+
+  { q:"➕ Hard: Missing number: __ + 6 = 10. What is the missing number?", a:4,  skill:"Missing Number" },
+  { q:"🐾 Hard: One dog has 4 legs. Another dog has 4 legs. How many legs altogether?", a:8,  skill:"Addition (Counting Legs)" },
+  { q:"🐾 Hard: 5 puppies are playing. 4 more come. Then 3 leave. How many puppies are there now?", a:6,  skill:"Two-Step Problems" }
+];
 const qsY1 = [
   { q:"🐶 Easy: An animal rescue has 14 dogs and 9 cats. How many animals altogether?", a:23, skill:"Addition" },
   { q:"🦜 Easy: 25 birds are sitting on a fence. 8 birds fly away. How many birds are left?", a:17, skill:"Subtraction" },
