@@ -446,7 +446,7 @@
   <main>
     <div class="container"><div class="sep"></div></div>
 
-    <section class="section">
+    <ssection class="section">
       <div class="container">
 
         <div class="quicklinks">
@@ -501,9 +501,8 @@
         <details class="acc" id="sec_mathclub" open>
           <summary class="acc-sum">Maths Club <span class="caret">⌄</span></summary>
           <div class="acc-body">
-            <div class="club-summary-wrap">
-              <div class="club-badge">Recommended for all kids</div>
-
+            <div class="club-highlight">
+              <div class="club-badge">⭐ Recommended starting point for most students</div>
               <h2 class="club-summary-title">🌈 Maths Club</h2>
 
               <p class="club-summary-desc">
@@ -527,13 +526,13 @@
               </div>
 
               <p class="club-summary-cta">
-                <a class="btn btn-primary" href="mathclub.html">See Maths Club details →</a>
+                👉 <a class="btn btn-primary" href="mathclub.html">See Maths Club details</a>
               </p>
             </div>
           </div>
         </details>
 
-        <details class="acc" id="sec_programs" open>
+        <details class="programs-wrap" id="sec_programs" open>
           <summary class="acc-sum">Programs <span class="caret">⌄</span></summary>
           <div class="acc-body">
             <div class="h2-center">Programs (overview)</div>
@@ -578,7 +577,7 @@
             </div>
 
             <p style="text-align:center; margin:14px 0 0; font-weight:1000;">
-              👉 <a class="link-strong" href="programs.html">Read full program details →</a>
+              👉<a class="btn btn-primary" href="programs.html">Read full program details →</a>
             </p>
           </div>
         </details>
@@ -595,31 +594,45 @@
                 <li>Online and in-person options (where available).</li>
               </ul>
               <p style="margin:12px 0 0; font-weight:1000;">
-                👉 <a class="link-strong" href="pricing.html">See full fees &amp; options →</a>
+                👉<a class="btn btn-primary" href="pricing.html">See full fees &amp; options </a>
               </p>
+             
             </div>
           </div>
         </details>
 
-        <details class="acc" id="sec_about" open>
-          <summary class="acc-sum">About <span class="caret">⌄</span></summary>
-          <div class="acc-body">
-            <div class="h2-center">About (overview)</div>
-            <div class="mini-card">
-              <h3>Educator-led, confidence-first</h3>
-              <ul>
-                <li>Founded by <b>Dr Tuyet Vu</b>.</li>
-                <li>Calm teaching that builds deep understanding — not stress.</li>
-                <li>Clear communication with families and structured learning plans.</li>
-              </ul>
-              <p style="margin:12px 0 0; font-weight:1000;">
-                👉 <a class="link-strong" href="about.html">Read the full About page →</a>
-              </p>
-            </div>
-          </div>
-        </details>
+       <div class="acc-body">
+  <div class="h2-center">About Us</div>
 
-        <details class="acc" id="sec_philosophy" open>
+  <div class="about-card">
+    
+    <!-- LEFT: IMAGE -->
+    <img src="assets/founder.jpg" alt="Dr Tuyet Vu" class="about-img">
+
+    <!-- RIGHT: TEXT -->
+    <div>
+      <h3 class="about-title">Loving Scientist</h3>
+
+      <p class="about-text">
+        Magic Math Master was founded by <b>Dr Tuyet Vu</b> – a scientist, engineer,
+        experienced maths teacher, and devoted mum of two.
+        She has spent decades in STEM education and industry, so she knows both how maths
+        is used in the real world and how young minds learn best.
+      </p>
+
+      <p class="about-text">
+        At Magic Math Master, we build on our founder’s expertise to design lessons
+        that are practical, engaging, and child-focused.
+      </p>
+
+      👉<a class="btn btn-primary" href="about.html">
+        Read more about our story on the About Us page
+      </a>
+    </div>
+
+  </div>
+</div>
+        <details class="philosophy-wrap" id="sec_philosophy" open>
           <summary class="acc-sum">Philosophy <span class="caret">⌄</span></summary>
           <div class="acc-body">
             <div class="h2-center">Our philosophy (summary)</div>
@@ -632,7 +645,7 @@
                 <li><b>Growth mindset</b> — mistakes are part of learning.</li>
               </ul>
               <p style="margin:12px 0 0; font-weight:1000;">
-                👉 <a class="link-strong" href="philosophy.html">Read the full Philosophy page →</a>
+                👉<a class="btn btn-primary" href="philosophy.html">Read the full Philosophy page </a>
               </p>
             </div>
           </div>
@@ -653,7 +666,7 @@
                   <strong>Good to know:</strong>
                   Lessons are prepaid · 24-hour notice for changes · Respectful, supportive learning environment.
                 </div>
-                <a class="note-link" href="policies.html">View full policy</a>
+                👉<a class="btn btn-primary" href="policies.html">See full lesson policy</a>
               </div>
 
               <div class="diff-grid">
@@ -727,7 +740,7 @@
             </div>
 
             <p style="text-align:center; margin:14px 0 0; font-weight:1000;">
-              👉 <a class="link-strong" href="enquiry.html">Send an enquiry to get a recommended starting plan →</a>
+              👉 <a class="btn btn-primary" href="enquiry.html">Send an enquiry to get a recommended starting plan</a>
             </p>
           </div>
         </details>
@@ -739,19 +752,19 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <div>© <span id="year"></span> Magic Math Master • Australia</div>
-        <div>
-          <a href="mailto:magicmathmaster@outlook.com">magicmathmaster@outlook.com</a>;
-          <a href="mailto:magicmathmasters@gmail.com">magicmathmasters@gmail.com</a>
+        <div class="footer-left">© <span id="year"></span> Magic Math Master • Australia</div>
+        <div class="footer-links" aria-label="Footer links">
+          <a href="about.html">About</a>
+          <a href="philosophy.html">Philosophy</a>
+          <a href="policies.html">Policies</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-right">
+          <a href="mailto:info@magicmathmaster.com.au">info@magicmathmaster.com.au</a>
         </div>
       </div>
 
-      <div class="footer-links" aria-label="Footer links">
-        <a href="about.html">About</a>
-        <a href="philosophy.html">Philosophy</a>
-        <a href="policies.html">Policies</a>
-        <a href="contact.html">Contact</a>
-      </div>
+
     </div>
   </footer>
 
